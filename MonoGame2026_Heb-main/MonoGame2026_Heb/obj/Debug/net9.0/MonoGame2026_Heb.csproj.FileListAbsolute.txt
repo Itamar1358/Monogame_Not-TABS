@@ -1,0 +1,145 @@
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\logo.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pong-atlas.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.exe
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.deps.json
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.runtimeconfig.json
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.pdb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame.Framework.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\NVorbis.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-arm\native\libopenal.so
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-arm64\native\libopenal.so
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-x64\native\libopenal.so
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-x86\native\libopenal.so
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\ios-arm64\native\libopenal.a
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\iossimulator-arm64\native\libopenal.a
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\iossimulator-x64\native\libopenal.a
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-arm64\native\libopenal.so
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-x64\native\libopenal.so
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\osx\native\libopenal.dylib
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\win-x64\native\openal.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\osx\native\libSDL2-2.0.0.dylib
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\win-x64\native\SDL2.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\mgcb.tool.restore
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.csproj.AssemblyReference.cache
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.AssemblyInfoInputs.cache
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.AssemblyInfo.cs
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.csproj.CoreCompileInputs.cache
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame.25986CF7.Up2Date
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\refint\MonoGame2026_Heb.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.pdb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.genruntimeconfig.cache
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\ref\MonoGame2026_Heb.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.sourcelink.json
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pacman.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Fonts\Oswald.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s3.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s5.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_1.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_3.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_1.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_3.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret2.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret4.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pixel.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\mgcb.tool.restore
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.dll
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\refint\MonoGame2026_Heb.dll
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.pdb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Fonts\Oswald.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s3.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s5.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_1.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_3.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_1.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_3.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret2.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret4.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\logo.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pacman.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pixel.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pong-atlas.xnb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.exe
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.deps.json
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.runtimeconfig.json
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.dll
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.pdb
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame.Framework.dll
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\NVorbis.dll
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-arm\native\libopenal.so
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-arm64\native\libopenal.so
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-x64\native\libopenal.so
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-x86\native\libopenal.so
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\ios-arm64\native\libopenal.a
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\iossimulator-arm64\native\libopenal.a
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\iossimulator-x64\native\libopenal.a
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-arm64\native\libopenal.so
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-x64\native\libopenal.so
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\osx\native\libopenal.dylib
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\win-x64\native\openal.dll
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\osx\native\libSDL2-2.0.0.dylib
+F:\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\win-x64\native\SDL2.dll
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.csproj.AssemblyReference.cache
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.GeneratedMSBuildEditorConfig.editorconfig
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.AssemblyInfoInputs.cache
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.AssemblyInfo.cs
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.csproj.CoreCompileInputs.cache
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.sourcelink.json
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame.25986CF7.Up2Date
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.genruntimeconfig.cache
+F:\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\ref\MonoGame2026_Heb.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Fonts\Oswald.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s3.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s5.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_1.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_3.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_1.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_3.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret2.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret4.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\logo.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pacman.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pixel.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pong-atlas.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.exe
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.deps.json
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.runtimeconfig.json
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.pdb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame.Framework.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\NVorbis.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-arm\native\libopenal.so
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-arm64\native\libopenal.so
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-x64\native\libopenal.so
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\android-x86\native\libopenal.so
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\ios-arm64\native\libopenal.a
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\iossimulator-arm64\native\libopenal.a
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\iossimulator-x64\native\libopenal.a
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-arm64\native\libopenal.so
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-x64\native\libopenal.so
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\osx\native\libopenal.dylib
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\win-x64\native\openal.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\osx\native\libSDL2-2.0.0.dylib
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\runtimes\win-x64\native\SDL2.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\mgcb.tool.restore
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.csproj.AssemblyReference.cache
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.GeneratedMSBuildEditorConfig.editorconfig
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.AssemblyInfoInputs.cache
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.AssemblyInfo.cs
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.csproj.CoreCompileInputs.cache
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.sourcelink.json
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame.25986CF7.Up2Date
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\refint\MonoGame2026_Heb.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.pdb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.genruntimeconfig.cache
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\ref\MonoGame2026_Heb.dll
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.ogg
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\bounce.xnb
+D:\Unity Projects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\collect.xnb

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Audio/Music/theme.ogg</SourceFile>
+  <SourceTime>2025-07-27T21:57:22+03:00</SourceTime>
+  <DestFile>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/bin/DesktopGL/Audio/Music/theme.xnb</DestFile>
+  <DestTime>2026-07-14T17:31:12.9271722+03:00</DestTime>
+  <Importer>OggImporter</Importer>
+  <ImporterTime>2025-10-20T17:25:32+03:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2025-10-20T17:25:32+03:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/bin/DesktopGL/Audio/Music/theme.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>
