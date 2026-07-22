@@ -4,22 +4,22 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Audio/Music/theme.ogg</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Audio/SFX/bounce.wav</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Audio/SFX/collect.wav</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Fonts/Oswald.spritefont</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/B4_s3.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/B4_s5.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/Bird1_1.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/Bird1_3.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/Bird2 Duck_1.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/Bird2 Duck_3.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/Bird3_Egret2.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/Bird3_Egret4.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/logo.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pacman.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pixel.png</File>
-    <File>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pong-atlas.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/Music/theme.ogg</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/bounce.wav</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/collect.wav</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Fonts/Oswald.spritefont</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/B4_s3.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/B4_s5.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Bird1_1.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Bird1_3.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Bird2 Duck_1.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Bird2 Duck_3.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Bird3_Egret2.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Bird3_Egret4.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/logo.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/pacman.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/pixel.png</File>
+    <File>C:/Users/baste/OneDrive/Documents/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/pong-atlas.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

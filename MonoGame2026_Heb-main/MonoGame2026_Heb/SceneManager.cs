@@ -10,8 +10,12 @@ public class SceneManager : IUpdatable, IDrawable
     private static List<IUpdatable> _updatables = new();
     private static List<IDrawable> _drawables = new();
     private static List<Collider> _colliders = new();
+    private static readonly List<object> pendingRemoval = new();
 
     private static SceneManager instance = null;
+    private static bool hasStarted;
+    
+    
 
     public static T Create<T>()  where T : new()
     {
@@ -20,6 +24,11 @@ public class SceneManager : IUpdatable, IDrawable
         if (obj is IUpdatable updatable)
         {
             _updatables.Add(updatable);
+
+            if (hasStarted)
+            {
+                updatable.Start();
+            }
         }
         if (obj is IDrawable drawable)
         {
@@ -65,6 +74,8 @@ public class SceneManager : IUpdatable, IDrawable
 
     public void Start()
     {
+        hasStarted = true;
+        
         _updatables.ForEach(updatable => updatable.Start());
     }
 
@@ -79,14 +90,29 @@ public class SceneManager : IUpdatable, IDrawable
     {
         for (int i = 0; i < _colliders.Count; i++)
         {
-            Collider currentCollider = _colliders[i];
+            Collider firstCollider = _colliders[i];
 
-            for (int j = 0; j < _colliders.Count; j++)
+            if (!firstCollider.IsEnabled ||
+                firstCollider.Parent == null)
             {
-                Collider otherCollider = _colliders[j];
-                
-                if (i != j && currentCollider.IsInterset(otherCollider))
-                    currentCollider.Notify(otherCollider);
+                continue;
+            }
+
+            for (int j = i + 1; j < _colliders.Count; j++)
+            {
+                Collider secondCollider = _colliders[j];
+
+                if (!secondCollider.IsEnabled ||
+                    secondCollider.Parent == null)
+                {
+                    continue;
+                }
+
+                if (!firstCollider.IsInterset(secondCollider))
+                    continue;
+
+                firstCollider.Notify(secondCollider);
+                secondCollider.Notify(firstCollider);
             }
         }
     }

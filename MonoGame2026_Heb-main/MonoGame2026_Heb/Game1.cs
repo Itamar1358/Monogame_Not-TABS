@@ -17,9 +17,11 @@ public class Game1 : Game
     Texture2D _pongAtlas;
     
     public static Vector2 _screenCenter;
-
-    private Player player = null;
-    private Enemy enemy = null;
+    
+    private BattleManager battleManager;
+    
+    private Knight blueKnight;
+    private Knight redKnight;
 
     private SpriteFont _fontOswald;
     
@@ -51,7 +53,7 @@ public class Game1 : Game
         _graphics.PreferredBackBufferWidth = 1920;
         _graphics.PreferredBackBufferHeight = 1080;
 
-        _graphics.IsFullScreen = true;
+        _graphics.IsFullScreen = false;
         
         _screenCenter =  new Vector2(
             _graphics.PreferredBackBufferWidth * 0.5f,
@@ -90,17 +92,25 @@ public class Game1 : Game
     {
         AudioManager.PlaySong("theme");
         
-        enemy = SceneManager.Create<Enemy>();
-        enemy.PlayAnimation();
+        battleManager = SceneManager.Create<BattleManager>();
         
-        player = SceneManager.Create<Player>();
-        player.PlayAnimation();
+        blueKnight = SceneManager.Create<Knight>();
+        
+        
+        redKnight = SceneManager.Create<Knight>();
+        
+        
+        blueKnight.InitializeUnit(
+            new Vector2(300, _screenCenter.Y),
+            Unit.Team.Blue);
+
+        redKnight.InitializeUnit(
+            new Vector2(700, _screenCenter.Y),
+            Unit.Team.Red);
+        
         
         SceneManager.Instance.Start();
-
-        player.collider.RegisterOnCollision(player.OnCollision);
-        player.collider.RegisterOnTrigger(player.OnTrigger);
-
+        
     }
 
     bool ShouldExitApplication()

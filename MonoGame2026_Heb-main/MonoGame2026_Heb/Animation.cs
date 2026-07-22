@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace MonoGame2026_Heb;
 
@@ -17,38 +18,43 @@ public class Animation : Sprite
 
     public void PlayAnimation(bool isLooping = true, int samples = 60)
     {
+        this.isLooping = isLooping;
+        this.samples = Math.Max(1, samples);
+        
         Reset();
         isAnimating = true;
     }
 
-    void StopAnimation()
+    protected void StopAnimation()
     {
         Reset();
     }
 
-    void PauseAnimation()
+    protected void PauseAnimation()
     {
         isAnimating = false;
     }
-    void ResumeAnimation()
+    protected void ResumeAnimation()
     {
         isAnimating = true;
     }
 
-    void Reset()
+    private void Reset()
     {
         isAnimating = false;
         x = y = 0;
         totalTime = 0;
+
+        sourceRect = spritesheet[x, y];
     }
 
     public override void Update(GameTime gameTime)
-    { 
-       if (!isAnimating) return;
+    {
+        if (isAnimating && CanMoveFrame(gameTime))
+        {
+            MoveFrame();
+        }
         
-       if (CanMoveFrame(gameTime))
-           MoveFrame();
-       
        base.Update(gameTime);
     }
 

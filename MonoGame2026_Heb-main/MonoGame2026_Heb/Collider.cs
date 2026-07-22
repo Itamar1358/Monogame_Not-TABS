@@ -7,6 +7,7 @@ namespace MonoGame2026_Heb;
 public class Collider : Sprite
 {
     public bool IsTrigger = false;
+    public bool IsEnabled { get; set; } = true;
     public int thickness;
 
     private Action<Collider, Collider> _OnTrigger;
@@ -32,6 +33,8 @@ public class Collider : Sprite
 
     public override void Draw(SpriteBatch _spriteBatch)
     {
+        if(!IsEnabled) return;
+        
 #if DEBUG
         // draw outline bounds
         
