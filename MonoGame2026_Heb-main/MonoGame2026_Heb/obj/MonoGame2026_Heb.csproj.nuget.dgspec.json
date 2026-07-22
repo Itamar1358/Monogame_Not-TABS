@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\baste\\OneDrive\\Documents\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {}
+    "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\baste\\OneDrive\\Documents\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {
+    "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\baste\\OneDrive\\Documents\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
+        "projectUniqueName": "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
         "projectName": "MonoGame2026_Heb",
-        "projectPath": "C:\\Users\\baste\\OneDrive\\Documents\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
+        "projectPath": "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
         "packagesPath": "C:\\Users\\baste\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\baste\\OneDrive\\Documents\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\obj\\",
+        "outputPath": "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\baste\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -46,11 +46,11 @@
           "dependencies": {
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
-              "version": "[3.8.*, )"
+              "version": "[3.8.5, )"
             },
             "MonoGame.Framework.DesktopGL": {
               "target": "Package",
-              "version": "[3.8.*, )"
+              "version": "[3.8.5, )"
             }
           },
           "imports": [
