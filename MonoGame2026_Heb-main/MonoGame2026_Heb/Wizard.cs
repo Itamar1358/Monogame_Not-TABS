@@ -19,8 +19,10 @@ public class Wizard : Unit
     
     protected override void PerformAttack(Unit target)
     {
+        /*
         Projectile projectile =
             SceneManager.Instance.Create<Projectile>();
+
 
         projectile.Initialize(
             Position,
@@ -30,6 +32,7 @@ public class Wizard : Unit
         );
             $"{UnitTeam} attacked {target.UnitTeam}. " +
             $"Health remaining: {target.CurrentHealth}");
+        */
     }
     
     protected override void OnStateChanged(UnitState newState)
