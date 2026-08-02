@@ -8,7 +8,7 @@ public class HypnosisProjectile : Projectile
     private static Random random = new Random();
 
     public HypnosisProjectile()
-        : base("HypnosisProjectile")
+        : base("HypnosisBall")
     {
     }
 
@@ -24,8 +24,9 @@ public class HypnosisProjectile : Projectile
         InitializeProjectile(
             owner,
             target,
-            startPosition,
-            movementSpeed);
+            GetProjectileSpawnPosition(),
+            movementSpeed,
+            duration);
     }
 
     protected override void ApplyEffect(Unit hitUnit)
@@ -48,5 +49,9 @@ public class HypnosisProjectile : Projectile
             Console.WriteLine("Hypnosis failed.");
         }
        
+    }
+    private Vector2 GetProjectileSpawnPosition()
+    {
+        return tm.position;
     }
 }

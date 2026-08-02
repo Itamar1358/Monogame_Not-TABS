@@ -12,7 +12,8 @@ public class Knight : Unit
             cost: 25,
             movementSpeed: 100f,
             attackRange: 50f,
-            attackCooldown: 1f)
+            attackCooldown: 1f,
+            unitScale: 0.3f)
     {
         RotationOffset = 0f;
     }

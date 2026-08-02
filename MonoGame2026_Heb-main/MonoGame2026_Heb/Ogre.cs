@@ -12,7 +12,8 @@ public class Ogre : Unit
             cost: 75,
             movementSpeed: 70f,
             attackRange: 50f,
-            attackCooldown: 2f)
+            attackCooldown: 2f,
+            unitScale: 0.35f)
     {
         RotationOffset = 0f;
     }

@@ -20,6 +20,7 @@ public class BattleManager : IUpdatable
             return;
 
         units.Add(unit);
+        Console.WriteLine("unit registered");
 
         // listens to the unit's death event
         unit.Died += OnUnitDied;

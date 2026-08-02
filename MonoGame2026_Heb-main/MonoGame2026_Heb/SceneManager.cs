@@ -81,8 +81,13 @@ public class SceneManager : IUpdatable, IDrawable
 
     public void Update(GameTime gameTime)
     {
-        _updatables.ForEach(updatable => updatable.Update(gameTime));
-        
+        int objectsAtFrameStart = _updatables.Count;
+
+        for (int i = 0; i < objectsAtFrameStart; i++)
+        {
+            _updatables[i].Update(gameTime);
+        }
+
         HandleCollisions();
     }
 

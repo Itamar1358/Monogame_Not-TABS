@@ -24,6 +24,9 @@ public class Game1 : Game
     private Ogre ogre;
     private Wizard wizard;
     private Hypnotist hypnotist;
+    
+    private FireProjectile fireProjectile;
+    private HypnosisProjectile hypnosisProjectile;
 
     private SpriteFont _fontOswald;
     
@@ -85,6 +88,8 @@ public class Game1 : Game
         SpriteManager.AddSprite("Ogre","Images/Units/Ogre", 1,1);
         SpriteManager.AddSprite("Wizard","Images/Units/Wizard", 1,1);
         SpriteManager.AddSprite("Hypnotist","Images/Units/Hypnotist", 1, 1);
+        SpriteManager.AddSprite("Fireball", "Images/Fireball",  2, 2);
+        SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 4, 1);
  
         mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
         
@@ -98,24 +103,34 @@ public class Game1 : Game
         battleManager = SceneManager.Create<BattleManager>();
         
         knight = SceneManager.Create<Knight>();
-        
         wizard = SceneManager.Create<Wizard>();
-        
         ogre = SceneManager.Create<Ogre>();
-        
         hypnotist = SceneManager.Create<Hypnotist>();
         
+        fireProjectile = SceneManager.Create<FireProjectile>();
         
         
         
         
-        knight.InitializeUnit(new Vector2(1000, _screenCenter.Y), Unit.Team.Blue);
+        
+        
+        knight.InitializeUnit(new Vector2(1000, 800), Unit.Team.Blue);
 
-        wizard.InitializeUnit(new Vector2(950, _screenCenter.Y), Unit.Team.Blue);
+        wizard.InitializeUnit(new Vector2(800, 800), Unit.Team.Blue);
         
-        ogre.InitializeUnit(new Vector2(200,_screenCenter.Y),Unit.Team.Red);
+        ogre.InitializeUnit(new Vector2(300,200),Unit.Team.Red);
         
-        hypnotist.InitializeUnit(new Vector2(150, _screenCenter.Y), Unit.Team.Red);
+        hypnotist.InitializeUnit(new Vector2(100, 200), Unit.Team.Red);
+        
+        
+        knight.SetTarget(ogre);
+        ogre.SetTarget(knight);
+
+        wizard.SetTarget(hypnotist);
+        hypnotist.SetTarget(wizard);
+        
+        
+        battleManager.StartBattle();
         
         
         SceneManager.Instance.Start();

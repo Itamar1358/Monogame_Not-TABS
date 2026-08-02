@@ -26,6 +26,7 @@ public abstract class Unit : Animation, IDamageable
         = UnitState.Idle;
 
     public Unit Target { get; private set; }
+    public BattleManager battleManager =  new BattleManager();
 
     private bool isHypnotized;
     private float hypnosisTimer;
@@ -39,6 +40,8 @@ public abstract class Unit : Animation, IDamageable
     public float AttackRange { get; private set; }
     public float AttackCooldown { get; private set; }
     public float RotationOffset { get; protected set; }
+    
+    public float UnitScale { get; private set; }
 
     public bool IsAlive =>
         CurrentHealth > 0 &&
@@ -61,7 +64,8 @@ public abstract class Unit : Animation, IDamageable
         int cost,
         float movementSpeed,
         float attackRange,
-        float attackCooldown)
+        float attackCooldown,
+        float unitScale)
         : base(spriteName)
     {
         MaxHealth = Math.Max(1, maxHealth);
@@ -73,6 +77,9 @@ public abstract class Unit : Animation, IDamageable
         MovementSpeed = Math.Max(0, movementSpeed);
         AttackRange = Math.Max(0, attackRange);
         AttackCooldown = Math.Max(0.1f, attackCooldown);
+        UnitScale = Math.Max(0.1f, unitScale);
+        tm.scale =new Vector2(unitScale, unitScale);
+        
 
         // every unit owns a collider
         collider = SceneManager.Create<Collider>();
@@ -101,9 +108,11 @@ public abstract class Unit : Animation, IDamageable
         attackCooldownTimer = 0;
 
         collider.IsEnabled = true;
-
+        
         ApplyTeamVisual();
         OnStateChanged(CurrentState);
+        battleManager.RegisterUnit(this);
+        battleManager.StartBattle();
         Console.WriteLine(
             $"{UnitTeam} unit created at {tm.position}");
     }
