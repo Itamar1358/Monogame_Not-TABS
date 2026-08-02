@@ -1,12 +1,14 @@
 using System;
-
+using Microsoft.Xna.Framework;
 namespace MonoGame2026_Heb;
 
 public class Wizard : Unit
 {
+    private const float ProjectileSpeed = 250f;
+    
     public Wizard()
         : base(
-            spriteName: "Knight",
+            spriteName: "Wizard",
             maxHealth: 50,
             damage: 70,
             cost: 100,
@@ -19,17 +21,21 @@ public class Wizard : Unit
     
     protected override void PerformAttack(Unit target)
     {
-        Projectile projectile =
-            SceneManager.Instance.Create<Projectile>();
+        FireProjectile projectile =
+            SceneManager.Create<FireProjectile>();
 
-        projectile.Initialize(
-            Position,
-            target,
-            Damage,
-            Team
-        );
-            $"{UnitTeam} attacked {target.UnitTeam}. " +
-            $"Health remaining: {target.CurrentHealth}");
+        projectile.InitializeFireProjectile(owner: this,
+            target: target,
+            startPosition: GetProjectileSpawnPosition(),
+            movementSpeed: ProjectileSpeed,
+            projectileDamage: Damage);
+    }
+    
+    private Vector2 GetProjectileSpawnPosition()
+    {
+        return new Vector2(
+            destRect.Center.X,
+            destRect.Center.Y);
     }
     
     protected override void OnStateChanged(UnitState newState)

@@ -20,9 +20,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/FireProjectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/HypnosisProjectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Hypnotist.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Ogre.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Wizard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78a25840ddd84bd1b4770a09cf10c1ff13a200/70/31491c08/SpriteBatch.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -84,7 +88,7 @@
       <workItem from="1784745491328" duration="40000" />
       <workItem from="1784745545883" duration="8000" />
       <workItem from="1784745608061" duration="752000" />
-      <workItem from="1785678794960" duration="1551000" />
+      <workItem from="1785678794960" duration="10982000" />
     </task>
     <servers />
   </component>

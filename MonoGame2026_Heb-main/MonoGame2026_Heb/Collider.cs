@@ -18,13 +18,27 @@ public class Collider : Sprite
     {
     }
 
-    public bool IsInterset(Collider other)
+    public bool IsIntersecting(Collider other)
     {
+        if (other == null)
+            return false;
+
+        if (!IsEnabled || !other.IsEnabled)
+            return false;
+
+        if (Parent == null || other.Parent == null)
+            return false;
         return Parent.destRect.Intersects(other.Parent.destRect);
     }
 
     public void Notify(Collider other)
     {
+        if (other == null)
+            return;
+
+        if (!IsEnabled || !other.IsEnabled)
+            return;
+        
         if (IsTrigger || other.IsTrigger)
             _OnTrigger?.Invoke(this, other);
         else

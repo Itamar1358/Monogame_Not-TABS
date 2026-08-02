@@ -20,8 +20,10 @@ public class Game1 : Game
     
     private BattleManager battleManager;
     
-    private Knight blueKnight;
-    private Knight redKnight;
+    private Knight knight;
+    private Ogre ogre;
+    private Wizard wizard;
+    private Hypnotist hypnotist;
 
     private SpriteFont _fontOswald;
     
@@ -71,17 +73,18 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         
-        AudioManager.AddSong("theme", "Audio/Music/theme");
-        AudioManager.AddSoundEffect("collect", "Audio/SFX/collect");
-        AudioManager.AddSoundEffect("bounce", "Audio/SFX/bounce");
+        //AudioManager.AddSong("theme", "Audio/Music/theme");
+        //AudioManager.AddSoundEffect("collect", "Audio/SFX/collect");
+        //AudioManager.AddSoundEffect("bounce", "Audio/SFX/bounce");
         
         
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        SpriteManager.AddSprite("orangeBird","Images/Bird1_1", 4,4);
-        SpriteManager.AddSprite("duck","Images/Bird2 Duck_1", 4,4);
-        SpriteManager.AddSprite("egret","Images/Bird3_Egret4", 4,4);
-        SpriteManager.AddSprite("Pixel","Images/pixel");
+        SpriteManager.AddSprite("Pixel", "Images/pixel",1,1);
+        SpriteManager.AddSprite("Knight","Images/Units/Knight", 1,1);
+        SpriteManager.AddSprite("Ogre","Images/Units/Ogre", 1,1);
+        SpriteManager.AddSprite("Wizard","Images/Units/Wizard", 1,1);
+        SpriteManager.AddSprite("Hypnotist","Images/Units/Hypnotist", 1, 1);
  
         mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
         
@@ -90,23 +93,29 @@ public class Game1 : Game
 
     void Start()
     {
-        AudioManager.PlaySong("theme");
+        //AudioManager.PlaySong("theme");
         
         battleManager = SceneManager.Create<BattleManager>();
         
-        blueKnight = SceneManager.Create<Knight>();
+        knight = SceneManager.Create<Knight>();
+        
+        wizard = SceneManager.Create<Wizard>();
+        
+        ogre = SceneManager.Create<Ogre>();
+        
+        hypnotist = SceneManager.Create<Hypnotist>();
         
         
-        redKnight = SceneManager.Create<Knight>();
         
         
-        blueKnight.InitializeUnit(
-            new Vector2(300, _screenCenter.Y),
-            Unit.Team.Blue);
+        
+        knight.InitializeUnit(new Vector2(1000, _screenCenter.Y), Unit.Team.Blue);
 
-        redKnight.InitializeUnit(
-            new Vector2(700, _screenCenter.Y),
-            Unit.Team.Red);
+        wizard.InitializeUnit(new Vector2(950, _screenCenter.Y), Unit.Team.Blue);
+        
+        ogre.InitializeUnit(new Vector2(200,_screenCenter.Y),Unit.Team.Red);
+        
+        hypnotist.InitializeUnit(new Vector2(150, _screenCenter.Y), Unit.Team.Red);
         
         
         SceneManager.Instance.Start();

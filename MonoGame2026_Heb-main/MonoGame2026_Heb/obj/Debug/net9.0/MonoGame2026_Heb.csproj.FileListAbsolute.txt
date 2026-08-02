@@ -6,23 +6,7 @@ C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.csproj.CoreCompileInputs.cache
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.sourcelink.json
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.dll
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.ogg
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\bounce.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\collect.xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Fonts\Oswald.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s3.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s5.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_1.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_3.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_1.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_3.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret2.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret4.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\logo.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pacman.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pixel.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pong-atlas.xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.exe
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.deps.json
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\MonoGame2026_Heb.runtimeconfig.json
@@ -52,3 +36,8 @@ C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.pdb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.genruntimeconfig.cache
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\ref\MonoGame2026_Heb.dll
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Hypnotist.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Knight.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Ogre.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Wizard.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pixel.xnb
