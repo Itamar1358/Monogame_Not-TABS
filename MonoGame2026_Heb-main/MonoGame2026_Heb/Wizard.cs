@@ -1,26 +1,33 @@
-﻿using System;
+using System;
 
 namespace MonoGame2026_Heb;
 
-public class Knight : Unit
+public class Wizard : Unit
 {
-    public Knight()
+    public Wizard()
         : base(
             spriteName: "Knight",
-            maxHealth: 100,
-            damage: 25,
-            cost: 25,
-            movementSpeed: 100f,
-            attackRange: 50f,
-            attackCooldown: 1f)
+            maxHealth: 50,
+            damage: 70,
+            cost: 100,
+            movementSpeed: 60f,
+            attackRange: 100f,
+            attackCooldown: 3f)
     {
         RotationOffset = 0f;
     }
     
     protected override void PerformAttack(Unit target)
     {
-        target.TakeDamage(Damage);
-        Console.WriteLine(
+        Projectile projectile =
+            SceneManager.Instance.Create<Projectile>();
+
+        projectile.Initialize(
+            Position,
+            target,
+            Damage,
+            Team
+        );
             $"{UnitTeam} attacked {target.UnitTeam}. " +
             $"Health remaining: {target.CurrentHealth}");
     }

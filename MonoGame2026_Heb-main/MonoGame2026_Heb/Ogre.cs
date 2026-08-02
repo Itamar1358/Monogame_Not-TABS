@@ -1,18 +1,18 @@
-﻿using System;
+using System;
 
 namespace MonoGame2026_Heb;
 
-public class Knight : Unit
+public class Ogre : Unit
 {
-    public Knight()
+    public Ogre()
         : base(
-            spriteName: "Knight",
-            maxHealth: 100,
-            damage: 25,
-            cost: 25,
-            movementSpeed: 100f,
+            spriteName: "ogre",
+            maxHealth: 200,
+            damage: 15,
+            cost: 75,
+            movementSpeed: 70f,
             attackRange: 50f,
-            attackCooldown: 1f)
+            attackCooldown: 2f)
     {
         RotationOffset = 0f;
     }
