@@ -7,33 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="672b661f-2c1b-4f72-a3a5-35b95db9cd5c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Hypnotist.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Hypnotist.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Knight.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Knight.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Ogre.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Ogre.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Wizard.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Wizard.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/pixel.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/pixel.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Game1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/SceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/ref/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/ref/MonoGame2026_Heb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/refint/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/refint/MonoGame2026_Heb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.model.nuget.info" afterDir="false" />
-    </list>
+    <list default="true" id="672b661f-2c1b-4f72-a3a5-35b95db9cd5c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,27 +36,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.MonoGame2026_Heb.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Ariel",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.MonoGame2026_Heb.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Itamar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MonoGame2026_Heb" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -117,8 +88,7 @@
       <workItem from="1784745491328" duration="40000" />
       <workItem from="1784745545883" duration="8000" />
       <workItem from="1784745608061" duration="752000" />
-      <workItem from="1785678794960" duration="10982000" />
-      <workItem from="1785690191836" duration="663000" />
+      <workItem from="1785678794960" duration="15738000" />
     </task>
     <servers />
   </component>

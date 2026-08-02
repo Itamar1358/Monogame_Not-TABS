@@ -12,6 +12,7 @@ public abstract class Projectile : Sprite
     public Collider collider { get; }
 
     public float MovementSpeed { get; private set; }
+    public float ProjectileScale{get; private set;}
 
     private bool hasHit;
     private bool isDestroyed;
@@ -36,7 +37,8 @@ public abstract class Projectile : Sprite
         Unit owner,
         Unit target,
         Vector2 startPosition,
-        float movementSpeed)
+        float movementSpeed,
+        float projectileScale)
     {
         Owner = owner;
         Target = target;
@@ -48,6 +50,8 @@ public abstract class Projectile : Sprite
         tm.position = startPosition;
 
         MovementSpeed = Math.Max(0, movementSpeed);
+        ProjectileScale = 0.2f;
+        tm.scale =new Vector2(projectileScale, projectileScale);
 
         hasHit = false;
         isDestroyed = false;

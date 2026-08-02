@@ -8,7 +8,7 @@ public class FireProjectile : Projectile
     private int damage;
 
     public FireProjectile()
-        : base("FireProjectile")
+        : base("Fireball")
     {
     }
 
@@ -24,12 +24,18 @@ public class FireProjectile : Projectile
         InitializeProjectile(
             owner,
             target,
-            startPosition,
-            movementSpeed);
+            GetProjectileSpawnPosition(),
+            movementSpeed,
+            projectileDamage
+            );
     }
 
     protected override void ApplyEffect(Unit hitUnit)
     {
         hitUnit.TakeDamage(damage);
+    }
+    private Vector2 GetProjectileSpawnPosition()
+    {
+        return tm.position;
     }
 }
