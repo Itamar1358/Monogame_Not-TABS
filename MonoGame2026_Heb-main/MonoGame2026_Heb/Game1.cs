@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,18 +12,12 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-
-    Texture2D _logo;
-    Texture2D _pongAtlas;
     
     public static Vector2 _screenCenter;
     
     private BattleManager battleManager;
     
-    private Knight knight;
-    private Ogre ogre;
-    private Wizard wizard;
-    private Hypnotist hypnotist;
+    private UIManager uiManager;
 
     private SpriteFont _fontOswald;
     
@@ -65,18 +59,15 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
+        _graphics.ApplyChanges();
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
-        
         //AudioManager.AddSong("theme", "Audio/Music/theme");
         //AudioManager.AddSoundEffect("collect", "Audio/SFX/collect");
         //AudioManager.AddSoundEffect("bounce", "Audio/SFX/bounce");
-        
         
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -97,26 +88,8 @@ public class Game1 : Game
         
         battleManager = SceneManager.Create<BattleManager>();
         
-        knight = SceneManager.Create<Knight>();
-        
-        wizard = SceneManager.Create<Wizard>();
-        
-        ogre = SceneManager.Create<Ogre>();
-        
-        hypnotist = SceneManager.Create<Hypnotist>();
-        
-        
-        
-        
-        
-        knight.InitializeUnit(new Vector2(1000, _screenCenter.Y), Unit.Team.Blue);
-
-        wizard.InitializeUnit(new Vector2(950, _screenCenter.Y), Unit.Team.Blue);
-        
-        ogre.InitializeUnit(new Vector2(200,_screenCenter.Y),Unit.Team.Red);
-        
-        hypnotist.InitializeUnit(new Vector2(150, _screenCenter.Y), Unit.Team.Red);
-        
+        uiManager = SceneManager.Create<UIManager>();
+        uiManager.font = mousePositionText.font;
         
         SceneManager.Instance.Start();
         

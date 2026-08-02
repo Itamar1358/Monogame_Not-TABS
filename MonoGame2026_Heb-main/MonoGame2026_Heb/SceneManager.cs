@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -81,7 +81,11 @@ public class SceneManager : IUpdatable, IDrawable
 
     public void Update(GameTime gameTime)
     {
-        _updatables.ForEach(updatable => updatable.Update(gameTime));
+        // Iterate backwards so that if an item is added or removed during Update, it doesn't break the loop
+        for (int i = _updatables.Count - 1; i >= 0; i--)
+        {
+            _updatables[i].Update(gameTime);
+        }
         
         HandleCollisions();
     }

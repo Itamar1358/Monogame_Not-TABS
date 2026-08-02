@@ -36,59 +36,55 @@ public class UIManager : IUpdatable, IDrawable
     {
         // Blue Player Buttons
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(10, 10, 150, 40), 
+            Bounds = new Rectangle(10, 1000, 230, 70), 
             Name = "Knight", 
             Cost = 25,
             team = Team.Blue
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(170, 10, 150, 40), 
+            Bounds = new Rectangle(250, 1000, 230, 70), 
             Name = "Ogre", 
             Cost = 75,
             team = Team.Blue
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(330, 10, 150, 40), 
+            Bounds = new Rectangle(490, 1000, 230, 70), 
             Name = "Wizard", 
             Cost = 100,
             team = Team.Blue
         });
-        /*
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(490, 10, 150, 40), 
+            Bounds = new Rectangle(730, 1000, 230, 70), 
             Name = "Hypnotist", 
             Cost = 125,
             team = Team.Blue
         });
-        */
         
         // Red Player Buttons
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(650, 10, 150, 40), 
+            Bounds = new Rectangle(970, 1000, 230, 70), 
             Name = "Knight", 
             Cost = 25,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(810, 10, 150, 40), 
+            Bounds = new Rectangle(1210, 1000, 230, 70), 
             Name = "Ogre", 
             Cost = 75,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(970, 10, 150, 40), 
+            Bounds = new Rectangle(1450, 1000, 230, 70), 
             Name = "Wizard", 
             Cost = 100,
             team = Team.Red
         });
-        /*
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(1130, 10, 150, 40), 
+            Bounds = new Rectangle(1690, 1000, 230, 70), 
             Name = "Hypnotist", 
             Cost = 125,
             team = Team.Red
         });
-        */
     }
     
     public void Start() 
@@ -200,7 +196,7 @@ public class UIManager : IUpdatable, IDrawable
         if (name == "Knight") newUnit = SceneManager.Create<Knight>();
         else if (name == "Ogre") newUnit = SceneManager.Create<Ogre>();
         else if (name == "Wizard") newUnit = SceneManager.Create<Wizard>();
-        // else if (name == "Hypnotist") newUnit = SceneManager.Create<Hypnotist>();
+        else if (name == "Hypnotist") newUnit = SceneManager.Create<Hypnotist>();
         
         if (newUnit != null)
         {
@@ -227,8 +223,8 @@ public class UIManager : IUpdatable, IDrawable
         
         if (font != null) // Draw current mana
         {
-            spriteBatch.DrawString(font, $"Blue Player`s Mana: {currentManaBlue}", new Vector2(10, 60), Color.Cyan);
-            spriteBatch.DrawString(font, $"Red Player`s Mana: {currentManaRed}", new Vector2(10, 70), Color.Cyan);
+            spriteBatch.DrawString(font, $"Blue Player`s Mana: {currentManaBlue}", new Vector2(10, 10), Color.Cyan);
+            spriteBatch.DrawString(font, $"Red Player`s Mana: {currentManaRed}", new Vector2(970, 10), Color.Cyan);
         }
         
         foreach (var button in buttons) // Draw UI Buttons
@@ -257,12 +253,29 @@ public class UIManager : IUpdatable, IDrawable
                 string text = $"{button.Name} ({button.Cost})";
                 Vector2 textSize = font.MeasureString(text);
                 
+                // Calculate scale to ensure text fits inside the button bounds
+                float scaleX = (button.Bounds.Width - 10) / textSize.X;
+                float scaleY = (button.Bounds.Height - 10) / textSize.Y;
+                float scale = Math.Min(1.0f, Math.Min(scaleX, scaleY));
+                
+                Vector2 scaledTextSize = textSize * scale;
+                
                 Vector2 textPos = new Vector2(
-                    button.Bounds.X + (button.Bounds.Width - textSize.X) / 2,
-                    button.Bounds.Y + (button.Bounds.Height - textSize.Y) / 2
+                    button.Bounds.X + (button.Bounds.Width - scaledTextSize.X) / 2,
+                    button.Bounds.Y + (button.Bounds.Height - scaledTextSize.Y) / 2
                 );
                 
-                spriteBatch.DrawString(font, text, textPos, Color.Black);
+                spriteBatch.DrawString(
+                    font, 
+                    text, 
+                    textPos, 
+                    Color.Black, 
+                    0f, 
+                    Vector2.Zero, 
+                    scale, 
+                    SpriteEffects.None, 
+                    0f
+                );
             }
         }
         
