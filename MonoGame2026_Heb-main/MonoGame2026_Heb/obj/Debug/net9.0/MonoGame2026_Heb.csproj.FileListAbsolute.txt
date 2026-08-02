@@ -44,3 +44,7 @@ C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Fireball.xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\HypnosisBall .xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\HypnosisBall.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\mgcb.tool.restore
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.dll
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\refint\MonoGame2026_Heb.dll
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.pdb
