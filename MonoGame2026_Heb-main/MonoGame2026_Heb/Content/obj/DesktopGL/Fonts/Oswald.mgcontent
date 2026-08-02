@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Fonts/Oswald.spritefont</SourceFile>
-  <SourceTime>2026-07-08T23:07:46.6496286+03:00</SourceTime>
-  <DestFile>D:/Unity Projects/MonoGame2026_Heb/MonoGame2026_Heb/Content/bin/DesktopGL/Fonts/Oswald.xnb</DestFile>
-  <DestTime>2026-07-14T17:31:13.9496739+03:00</DestTime>
+  <SourceFile>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Fonts/Oswald.spritefont</SourceFile>
+  <SourceTime>2026-07-18T15:59:20.1089128+03:00</SourceTime>
+  <DestFile>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/bin/DesktopGL/Fonts/Oswald.xnb</DestFile>
+  <DestTime>2026-08-02T19:04:28.8755853+03:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
-  <ImporterTime>2025-10-20T17:25:32+03:00</ImporterTime>
+  <ImporterTime>2026-07-15T19:21:24+03:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
-  <ProcessorTime>2025-10-20T17:25:32+03:00</ProcessorTime>
+  <ProcessorTime>2026-07-15T19:21:24+03:00</ProcessorTime>
   <Parameters>
     <Key>PremultiplyAlpha</Key>
     <Value>True</Value>
@@ -15,6 +15,10 @@
   <Parameters>
     <Key>TextureFormat</Key>
     <Value>Compressed</Value>
+  </Parameters>
+  <Parameters>
+    <Key>Version</Key>
+    <Value>3.8.5.0</Value>
   </Parameters>
   <Dependencies />
   <BuildAsset />

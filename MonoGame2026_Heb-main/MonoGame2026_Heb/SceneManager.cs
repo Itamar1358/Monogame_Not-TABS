@@ -108,7 +108,7 @@ public class SceneManager : IUpdatable, IDrawable
                     continue;
                 }
 
-                if (!firstCollider.IsInterset(secondCollider))
+                if (!firstCollider.IsIntersecting(secondCollider))
                     continue;
 
                 firstCollider.Notify(secondCollider);

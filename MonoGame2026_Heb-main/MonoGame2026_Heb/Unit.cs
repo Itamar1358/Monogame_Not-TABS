@@ -18,9 +18,8 @@ public abstract class Unit : Animation, IDamageable
         Attacking,
         Dead
     }
-    
-    public Collider collider { get; }
 
+    public Collider collider { get; }
     public Team UnitTeam { get; private set; }
 
     public UnitState CurrentState { get; private set; }
@@ -28,16 +27,17 @@ public abstract class Unit : Animation, IDamageable
 
     public Unit Target { get; private set; }
 
+    private bool isHypnotized;
+    private float hypnosisTimer;
+    private Team originalTeam;
+
     public int MaxHealth { get; }
     public int CurrentHealth { get; private set; }
-
-    public int Damage { get; }
+    public int Damage { get; private set; }
     public int Cost { get; }
-
-    public float MovementSpeed { get; }
-    public float AttackRange { get; }
-    public float AttackCooldown { get; }
-
+    public float MovementSpeed { get; private set; }
+    public float AttackRange { get; private set; }
+    public float AttackCooldown { get; private set; }
     public float RotationOffset { get; protected set; }
 
     public bool IsAlive =>
@@ -89,8 +89,12 @@ public abstract class Unit : Animation, IDamageable
         tm.position = position;
 
         UnitTeam = team;
+        originalTeam = team;
         CurrentHealth = MaxHealth;
         CurrentState = UnitState.Idle;
+        
+        isHypnotized = false;
+        hypnosisTimer = 0;
 
         Target = null;
         IsCombatEnabled = false;
@@ -109,6 +113,7 @@ public abstract class Unit : Animation, IDamageable
         float deltaTime =
             (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+        UpdateHypnosis(deltaTime);
         UpdateAttackCooldown(deltaTime);
 
         if (IsCombatEnabled && IsAlive)
@@ -133,7 +138,7 @@ public abstract class Unit : Animation, IDamageable
             Target = null;
             ChangeState(UnitState.Idle);
         }
-        
+
     }
 
     public bool IsEnemy(Unit otherUnit)
@@ -360,7 +365,7 @@ public abstract class Unit : Animation, IDamageable
         CurrentState = newState;
         Console.WriteLine(
             $"{UnitTeam} changed state to {CurrentState}");
-        
+
         OnStateChanged(newState);
     }
 
@@ -391,7 +396,50 @@ public abstract class Unit : Animation, IDamageable
     protected virtual void ApplyTeamVisual()
     {
         color = UnitTeam == Team.Blue
-            ? Color.CornflowerBlue
+            ? Color.CadetBlue
             : Color.IndianRed;
+    }
+
+    public void ApplyHypnosis(
+        Team hypnotistTeam,
+        float duration)
+    {
+        if (!IsAlive)
+            return;
+
+        // Do not hypnotize a unit already on that team.
+        if (!isHypnotized && UnitTeam == hypnotistTeam)
+            return;
+
+        // Save the real team only when hypnosis first begins.
+        if (!isHypnotized)
+        {
+            originalTeam = UnitTeam;
+        }
+
+        isHypnotized = true;
+        hypnosisTimer = Math.Max(0.1f, duration);
+
+        ChangeTeam(hypnotistTeam);
+
+        // Forces the unit to search for a new enemy.
+        ClearTarget();
+    }
+    
+    private void UpdateHypnosis(float deltaTime)
+    {
+        if (!isHypnotized)
+            return;
+
+        hypnosisTimer -= deltaTime;
+
+        if (hypnosisTimer > 0)
+            return;
+
+        isHypnotized = false;
+        hypnosisTimer = 0;
+
+        ChangeTeam(originalTeam);
+        ClearTarget();
     }
 }

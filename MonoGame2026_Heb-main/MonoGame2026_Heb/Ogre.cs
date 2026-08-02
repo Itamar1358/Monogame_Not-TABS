@@ -6,7 +6,7 @@ public class Ogre : Unit
 {
     public Ogre()
         : base(
-            spriteName: "ogre",
+            spriteName: "Ogre",
             maxHealth: 200,
             damage: 15,
             cost: 75,
