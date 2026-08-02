@@ -13,7 +13,15 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../../../../Users/baste/Downloads/HypnosisBall.png
+#begin Fonts/GameFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/processorParam:Version=3.8.5.0
+/build:Fonts/GameFont.spritefont
+
+#begin Images/BackGrounds/BattleField.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -24,15 +32,33 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
-/build:../../../../../../Users/baste/Downloads/HypnosisBall.png;Images/HypnosisBall.png
+/build:Images/BackGrounds/BattleField.png;Images/BackGrounds/BattleField
 
-#begin Fonts/Oswald.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
+#begin Images/BackGrounds/BattleField.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
-/build:Fonts/Oswald.spritefont
+/build:Images/BackGrounds/BattleField.png;Images/BackGrounds/BattleField
+
+#begin Images/Button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Button.png
 
 #begin Images/Fireball.png
 /importer:TextureImporter
@@ -46,6 +72,19 @@
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
 /build:Images/Fireball.png
+
+#begin Images/HypnosisBall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/HypnosisBall.png
 
 #begin Images/pixel.png
 /importer:TextureImporter

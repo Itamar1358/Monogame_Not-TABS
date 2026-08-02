@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,10 +13,9 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    Texture2D _logo;
-    Texture2D _pongAtlas;
-    
     public static Vector2 _screenCenter;
+    public static int ScreenWidth;
+    public static int ScreenHeight;
     
     private BattleManager battleManager;
     
@@ -28,9 +27,7 @@ public class Game1 : Game
     private FireProjectile fireProjectile;
     private HypnosisProjectile hypnosisProjectile;
 
-    private SpriteFont _fontOswald;
-    
-    MousePositionText mousePositionText = new MousePositionText();
+    private SpriteFont _font;
 
     #region ResourcesManager
     
@@ -55,21 +52,24 @@ public class Game1 : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
-        _graphics.PreferredBackBufferWidth = 1920;
-        _graphics.PreferredBackBufferHeight = 1080;
+        ScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        ScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+        
+        _graphics.PreferredBackBufferWidth = ScreenWidth;
+        _graphics.PreferredBackBufferHeight = ScreenHeight;
 
         _graphics.IsFullScreen = false;
+        Window.IsBorderless = true;
         
         _screenCenter =  new Vector2(
-            _graphics.PreferredBackBufferWidth * 0.5f,
-            _graphics.PreferredBackBufferHeight * 0.5f);
+            ScreenWidth * 0.5f,
+            ScreenHeight * 0.5f);
 
     }
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
+        _graphics.ApplyChanges();
         base.Initialize();
     }
 
@@ -83,6 +83,8 @@ public class Game1 : Game
         
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+        SpriteManager.AddSprite("Background", "Images/BackGrounds/BattleField", 1, 1);
+        SpriteManager.AddSprite("CustomButton", "Images/button", 1, 1);
         SpriteManager.AddSprite("Pixel", "Images/pixel",1,1);
         SpriteManager.AddSprite("Knight","Images/Units/Knight", 1,1);
         SpriteManager.AddSprite("Ogre","Images/Units/Ogre", 1,1);
@@ -90,8 +92,8 @@ public class Game1 : Game
         SpriteManager.AddSprite("Hypnotist","Images/Units/Hypnotist", 1, 1);
         SpriteManager.AddSprite("Fireball", "Images/Fireball",  2, 2);
         SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 4, 1);
- 
-        mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
+        
+        _font = Content.Load<SpriteFont>("Fonts/GameFont");
         
         Start();
     }
@@ -102,39 +104,10 @@ public class Game1 : Game
         
         battleManager = SceneManager.Create<BattleManager>();
         
-        knight = SceneManager.Create<Knight>();
-        wizard = SceneManager.Create<Wizard>();
-        ogre = SceneManager.Create<Ogre>();
-        hypnotist = SceneManager.Create<Hypnotist>();
-        
-        fireProjectile = SceneManager.Create<FireProjectile>();
-        
-        
-        
-        
-        
-        
-        knight.InitializeUnit(new Vector2(1000, 800), Unit.Team.Blue);
-
-        wizard.InitializeUnit(new Vector2(800, 800), Unit.Team.Blue);
-        
-        ogre.InitializeUnit(new Vector2(300,200),Unit.Team.Red);
-        
-        hypnotist.InitializeUnit(new Vector2(100, 200), Unit.Team.Red);
-        
-        
-        knight.SetTarget(ogre);
-        ogre.SetTarget(knight);
-
-        wizard.SetTarget(hypnotist);
-        hypnotist.SetTarget(wizard);
-        
-        
-        battleManager.StartBattle();
-        
+        UIManager uiManager = SceneManager.Create<UIManager>();
+        uiManager.font = _font;
         
         SceneManager.Instance.Start();
-        
     }
 
     bool ShouldExitApplication()
@@ -154,9 +127,15 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.DarkRed);
+        GraphicsDevice.Clear(Color.Black);
 
         _spriteBatch.Begin();
+
+        Spritesheet bgSprite = SpriteManager.GetSprite("Background");
+        if (bgSprite != null)
+        {
+            _spriteBatch.Draw(bgSprite.texture, new Rectangle(0, 0, ScreenWidth, ScreenHeight), Color.White);
+        }
 
         SceneManager.Instance.Draw(_spriteBatch);
         
