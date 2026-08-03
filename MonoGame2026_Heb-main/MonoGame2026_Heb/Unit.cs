@@ -21,25 +21,22 @@ public abstract class Unit : Animation, IDamageable
     }
 
     public Collider collider { get; }
+    public Unit Target { get; private set; }
     public Team UnitTeam { get; private set; }
+    private Team originalTeam;
 
     public UnitState CurrentState { get; private set; }
         = UnitState.Idle;
 
-    public Unit Target { get; private set; }
-    //public BattleManager battleManager =  new BattleManager();
-    
     private readonly List<IEnumerator> coroutines = new();
     private float coroutineDeltaTime;
 
-
     private bool isHypnotized;
     private float hypnosisTimer;
-    private Team originalTeam;
-    
-    
+
     private const float DeathAnimationDuration = 0.6f;
-    
+
+    #region UnitStats
 
     public int MaxHealth { get; }
     public int CurrentHealth { get; private set; }
@@ -49,16 +46,21 @@ public abstract class Unit : Animation, IDamageable
     public float AttackRange { get; private set; }
     public float AttackCooldown { get; private set; }
     public float RotationOffset { get; protected set; }
-    
     public float UnitScale { get; private set; }
+
 
     public bool IsAlive =>
         CurrentHealth > 0 &&
         CurrentState != UnitState.Dead;
 
     public bool IsCombatEnabled { get; private set; }
-
     private float attackCooldownTimer;
+
+    #endregion
+
+    private float walkingSwayTimer;
+    private const float WalkingSwayAmount = 6f; // Degrees
+    private const float WalkingSwaySpeed = 8f;
 
     // events used by ui, audio and battle systems
     public event Action<Unit, int, int> HealthChanged;
@@ -66,6 +68,9 @@ public abstract class Unit : Animation, IDamageable
     public event Action<Unit, Unit> Attacked;
     public event Action<Unit, Team> TeamChanged;
 
+
+    // Sets the permanent stats and visual setup shared by every unit type.
+    // Math.Max prevents invalid negative or zero values from entering the unit.
     protected Unit(
         string spriteName,
         int maxHealth,
@@ -77,58 +82,68 @@ public abstract class Unit : Animation, IDamageable
         float unitScale)
         : base(spriteName)
     {
+        // Initialize health at its maximum value when the object is constructed.
         MaxHealth = Math.Max(1, maxHealth);
         CurrentHealth = MaxHealth;
 
         Damage = Math.Max(0, damage);
         Cost = Math.Max(0, cost);
 
+        // Store the movement and combat values supplied by the specific unit subclass.
         MovementSpeed = Math.Max(0, movementSpeed);
         AttackRange = Math.Max(0, attackRange);
         AttackCooldown = Math.Max(0.1f, attackCooldown);
         UnitScale = Math.Max(0.1f, unitScale);
-        tm.scale =new Vector2(unitScale, unitScale);
-        
+        tm.scale = new Vector2(unitScale, unitScale);
+
 
         // every unit owns a collider
+        // The collider is created separately, then linked to this unit as its parent.
         collider = SceneManager.Create<Collider>();
         collider.Parent = this;
         collider.IsTrigger = false;
         collider.IsEnabled = true;
     }
 
+    // Resets this unit for placement on the battlefield before combat begins.
     public void InitializeUnit(
         Vector2 position,
         Team team)
     {
-        // tm is inherited from Sprite
+
         tm.position = position;
 
+        // Store both the current team and the original team used after hypnosis ends.
         UnitTeam = team;
         originalTeam = team;
         CurrentHealth = MaxHealth;
         CurrentState = UnitState.Idle;
-        
+
+        // Clear temporary hypnosis data from any previous use of this unit.
         isHypnotized = false;
         hypnosisTimer = 0;
 
+        // Newly placed units begin without a target and cannot fight until combat is enabled.
         Target = null;
         IsCombatEnabled = false;
         attackCooldownTimer = 0;
 
         collider.IsEnabled = true;
-        
+
+        // Update the token colour and start the animation belonging to the initial state.
         ApplyTeamVisual();
         OnStateChanged(CurrentState);
         Console.WriteLine(
             $"{UnitTeam} unit created at {tm.position}");
     }
 
+    // Runs once per frame and updates temporary effects, cooldowns, combat and visuals.
     public override void Update(GameTime gameTime)
     {
         float deltaTime =
             (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+        // Coroutines only need processing while at least one coroutine is active.
         if (coroutines.Count > 0)
         {
             UpdateCoroutines(deltaTime);
@@ -141,6 +156,7 @@ public abstract class Unit : Animation, IDamageable
             return;
         }
 
+        // Hypnosis and attack cooldowns continue counting down independently of combat movement.
         UpdateHypnosis(deltaTime);
         UpdateAttackCooldown(deltaTime);
 
@@ -149,9 +165,11 @@ public abstract class Unit : Animation, IDamageable
             UpdateCombat(deltaTime);
         }
 
+        // Let the inherited Animation/Sprite classes update the frame and destination rectangle.
         base.Update(gameTime);
     }
-    
+
+    // Adds a coroutine to the list so it can continue over several Update calls.
     private void StartCoroutine(IEnumerator coroutine)
     {
         if (coroutine != null)
@@ -160,12 +178,15 @@ public abstract class Unit : Animation, IDamageable
         }
     }
 
+    // Advances each active coroutine by one step and removes completed routines.
     private void UpdateCoroutines(float deltaTime)
     {
         coroutineDeltaTime = deltaTime;
 
+        // Iterate backwards because finished coroutines are removed during this loop.
         for (int i = coroutines.Count - 1; i >= 0; i--)
         {
+            // MoveNext runs the coroutine until its next yield statement.
             bool isRunning = coroutines[i].MoveNext();
 
             if (!isRunning)
@@ -175,6 +196,7 @@ public abstract class Unit : Animation, IDamageable
         }
     }
 
+    // Enables or disables this unit's combat behaviour.
     public void SetCombatEnabled(bool isEnabled)
     {
         if (!IsAlive)
@@ -184,6 +206,7 @@ public abstract class Unit : Animation, IDamageable
         Console.WriteLine(
             $"{UnitTeam} combat enabled: {IsCombatEnabled}");
 
+        // Disabling combat also clears the target and returns the unit to idle.
         if (!isEnabled)
         {
             Target = null;
@@ -191,22 +214,25 @@ public abstract class Unit : Animation, IDamageable
         }
 
     }
-    
+
+    // Ranged subclasses can override this to spawn projectiles from a different point.
     protected virtual Vector2 GetProjectileSpawnPosition()
     {
         return tm.position;
     }
-    
 
+
+    // A valid target must be alive, be a different unit and belong to the opposing current team.
     public virtual bool CanTarget(Unit otherUnit)
     {
         return otherUnit != null &&
                otherUnit != this &&
                otherUnit.IsAlive &&
                otherUnit.UnitTeam != UnitTeam;
-               
+
     }
 
+    // Assigns a valid target and starts walking when combat is already active.
     public void SetTarget(Unit newTarget)
     {
         if (newTarget == null)
@@ -222,40 +248,61 @@ public abstract class Unit : Animation, IDamageable
         if (IsAlive && IsCombatEnabled)
         {
             ChangeState(UnitState.Walking);
-        } 
+        }
+
         Console.WriteLine(
             $"{UnitTeam} selected {Target.UnitTeam} target");
     }
 
+    // Removes the current target so an external battle system can assign a new one.
     public void ClearTarget()
     {
         Target = null;
     }
 
+    // Chooses between attacking and moving based on the current target's distance.
     private void UpdateCombat(float deltaTime)
     {
         // wait for another system to assign a target
+        // Invalid targets are cleared; the BattleManager is expected to find a replacement.
         if (!CanTarget(Target))
         {
             Target = null;
+            walkingSwayTimer = 0f;
             ChangeState(UnitState.Idle);
             return;
         }
 
         RotateTowards(Target);
 
+        // Units inside attack range stop swaying and attempt to attack.
         if (IsInAttackRange(Target))
         {
+            walkingSwayTimer = 0f;
+
+            // Face the target without swaying.
+            RotateTowards(Target);
             ChangeState(UnitState.Attacking);
             TryAttack(Target);
         }
+        // Units outside attack range move forward with a small side-to-side rotation.
         else
         {
+            walkingSwayTimer += deltaTime;
+
+            // Sine smoothly alternates the added rotation between left and right.
+            float swayRotation = MathF.Sin(walkingSwayTimer * WalkingSwaySpeed) * WalkingSwayAmount;
+
+            // Face the target, then add the side-to-side tilt.
+            RotateTowards(Target);
+            tm.rotation += swayRotation;
+
             ChangeState(UnitState.Walking);
             MoveTowards(Target, deltaTime);
         }
     }
 
+    // Checks centre-to-centre distance against this unit's attack range.
     public bool IsInAttackRange(Unit otherUnit)
     {
         if (otherUnit == null)
@@ -268,6 +315,7 @@ public abstract class Unit : Animation, IDamageable
         return distance <= AttackRange;
     }
 
+    // Moves toward the target without stepping past the edge of attack range.
     protected virtual void MoveTowards(
         Unit target,
         float deltaTime)
@@ -280,6 +328,7 @@ public abstract class Unit : Animation, IDamageable
         if (distance <= 0)
             return;
 
+        // Normalizing keeps direction length at one so speed controls the movement amount.
         Vector2 normalizedDirection =
             direction / distance;
 
@@ -290,6 +339,7 @@ public abstract class Unit : Animation, IDamageable
         float distanceUntilAttackRange =
             Math.Max(0, distance - AttackRange);
 
+        // Clamp movement so a large frame step cannot overshoot the stopping point.
         float movementAmount =
             Math.Min(
                 maximumMovement,
@@ -299,6 +349,7 @@ public abstract class Unit : Animation, IDamageable
             normalizedDirection * movementAmount;
     }
 
+    // Rotates the token toward its target and applies the artwork's facing offset.
     protected virtual void RotateTowards(Unit target)
     {
         Vector2 direction =
@@ -316,6 +367,7 @@ public abstract class Unit : Animation, IDamageable
             + RotationOffset;
     }
 
+    // Performs an attack only when all combat requirements are satisfied.
     public bool TryAttack(Unit target)
     {
         if (!IsAlive)
@@ -327,13 +379,16 @@ public abstract class Unit : Animation, IDamageable
         if (!IsInAttackRange(target))
             return false;
 
+        // The cooldown blocks repeated attacks until enough time has passed.
         if (attackCooldownTimer > 0)
             return false;
 
+        // The concrete unit subclass decides whether this is melee, fireball, hypnosis, and so on.
         PerformAttack(target);
 
         attackCooldownTimer = AttackCooldown;
 
+        // Notify any listeners after a successful attack is performed.
         Attacked?.Invoke(this, target);
 
         return true;
@@ -342,6 +397,7 @@ public abstract class Unit : Animation, IDamageable
     // each troop decides how its attack works
     protected abstract void PerformAttack(Unit target);
 
+    // Counts the attack cooldown back down to zero.
     private void UpdateAttackCooldown(float deltaTime)
     {
         if (attackCooldownTimer <= 0)
@@ -355,6 +411,7 @@ public abstract class Unit : Animation, IDamageable
         }
     }
 
+    // Applies damage, notifies listeners and starts death when health reaches zero.
     public void TakeDamage(int damageAmount)
     {
         if (!IsAlive || damageAmount <= 0)
@@ -364,6 +421,7 @@ public abstract class Unit : Animation, IDamageable
             0,
             CurrentHealth - damageAmount);
 
+        // The event can update UI such as a health bar.
         HealthChanged?.Invoke(
             this,
             CurrentHealth,
@@ -375,6 +433,7 @@ public abstract class Unit : Animation, IDamageable
         }
     }
 
+    // Restores health without allowing it to exceed MaxHealth.
     public void Heal(int healAmount)
     {
         if (!IsAlive || healAmount <= 0)
@@ -395,6 +454,7 @@ public abstract class Unit : Animation, IDamageable
         }
     }
 
+    // Temporarily or permanently changes allegiance, then clears the now-invalid target.
     // used later by the hypnotist
     public void ChangeTeam(Team newTeam)
     {
@@ -404,13 +464,16 @@ public abstract class Unit : Animation, IDamageable
         UnitTeam = newTeam;
         Target = null;
 
+        // Refresh the token colour before notifying battle systems about the team change.
         ApplyTeamVisual();
 
         TeamChanged?.Invoke(this, newTeam);
     }
 
+    // Changes state once and forwards the change to the animation hook.
     protected void ChangeState(UnitState newState)
     {
+        // Avoid restarting the same state's animation every frame.
         if (CurrentState == newState)
             return;
 
@@ -425,6 +488,7 @@ public abstract class Unit : Animation, IDamageable
         OnStateChanged(newState);
     }
 
+    // Selects animation behaviour for each state.
     protected virtual void OnStateChanged(
         UnitState newState)
     {
@@ -452,9 +516,10 @@ public abstract class Unit : Animation, IDamageable
                 PauseAnimation();
                 break;
         }
-        
+
     }
 
+    // Stops gameplay behaviour, disables collision and begins the visual death sequence.
     protected virtual void Die()
     {
         if (CurrentState == UnitState.Dead)
@@ -464,6 +529,7 @@ public abstract class Unit : Animation, IDamageable
         IsCombatEnabled = false;
         Target = null;
 
+        // Dead units remain drawable but no longer participate in collisions.
         collider.IsEnabled = false;
 
         ChangeState(UnitState.Dead);
@@ -476,6 +542,7 @@ public abstract class Unit : Animation, IDamageable
         Died?.Invoke(this);
     }
 
+    // Colours the same token artwork according to its current team.
     protected virtual void ApplyTeamVisual()
     {
         color = UnitTeam == Team.Blue
@@ -483,6 +550,7 @@ public abstract class Unit : Animation, IDamageable
             : Color.IndianRed;
     }
 
+    // Converts a living enemy to the hypnotist's team for a limited duration.
     public void ApplyHypnosis(
         Team hypnotistTeam,
         float duration)
@@ -490,6 +558,7 @@ public abstract class Unit : Animation, IDamageable
         if (!IsAlive)
             return;
 
+        // Ignore a fresh hypnosis attempt when the unit already belongs to that team.
         // Do not hypnotize a unit already on that team.
         if (!isHypnotized && UnitTeam == hypnotistTeam)
             return;
@@ -500,14 +569,17 @@ public abstract class Unit : Animation, IDamageable
             originalTeam = UnitTeam;
         }
 
+        // Refreshing these values also refreshes the duration of an existing hypnosis effect.
         isHypnotized = true;
         hypnosisTimer = Math.Max(0.1f, duration);
 
+        // Team changes clear the old target because it may now be an ally.
         ChangeTeam(hypnotistTeam);
         IsCombatEnabled = true;
         ChangeState((UnitState.Idle));
     }
-    
+
+    // Counts down hypnosis and restores the saved original team when time expires.
     private void UpdateHypnosis(float deltaTime)
     {
         if (!isHypnotized)
@@ -521,22 +593,27 @@ public abstract class Unit : Animation, IDamageable
         isHypnotized = false;
         hypnosisTimer = 0;
 
+        // Changing back invalidates the current target, so it is cleared for reassignment.
         ChangeTeam(originalTeam);
         ClearTarget();
     }
-    
+
+    // Coroutine that enlarges, shrinks, rotates and fades the token over several frames.
     private IEnumerator DeathAnimation()
     {
+        // Save the original appearance so the animation remains relative to this unit.
         Vector2 startingScale = tm.scale;
         float startingRotation = tm.rotation;
         Color startingColor = color;
 
         float elapsedTime = 0f;
 
+        // Each loop iteration represents one frame because it yields at the bottom.
         while (elapsedTime < DeathAnimationDuration)
         {
             elapsedTime += coroutineDeltaTime;
 
+            // Convert elapsed time into a normalized animation value from 0 to 1.
             float progress = MathHelper.Clamp(
                 elapsedTime / DeathAnimationDuration,
                 0f,
@@ -566,6 +643,7 @@ public abstract class Unit : Animation, IDamageable
                     shrinkProgress);
             }
 
+            // Apply the current scale, rotation and colour for this frame.
             tm.scale = startingScale * scaleMultiplier;
 
             tm.rotation = MathHelper.Lerp(
@@ -582,6 +660,7 @@ public abstract class Unit : Animation, IDamageable
             yield return null;
         }
 
+        // Force exact final values in case frame timing passed slightly beyond the duration.
         // Exact final corpse appearance.
         tm.scale = startingScale * 0.7f;
         tm.rotation = startingRotation + 90f;
