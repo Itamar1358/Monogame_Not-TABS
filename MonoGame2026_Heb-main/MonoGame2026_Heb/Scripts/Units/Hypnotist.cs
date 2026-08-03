@@ -10,7 +10,7 @@ public class Hypnotist : Unit
             spriteName: "Hypnotist",
             maxHealth: 50,
             damage: 0,
-            cost: 5,
+            cost: 125,
             movementSpeed: 60f,
             attackRange: 200f,
             attackCooldown: 1f,

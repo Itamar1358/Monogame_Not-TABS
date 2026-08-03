@@ -43,6 +43,7 @@ public class SceneManager : IUpdatable, IDrawable
         return obj;
     }
 
+    /*
     public static void Remove<T>(T obj)
     {
         if (obj is IUpdatable updatable)
@@ -58,7 +59,12 @@ public class SceneManager : IUpdatable, IDrawable
             _colliders.Remove(collider);
         }
     }
-
+    */
+    public static void Remove<T>(T obj)
+    {
+        pendingRemoval.Add(obj);
+    }
+    
     public static SceneManager Instance
     {
         get
@@ -81,13 +87,18 @@ public class SceneManager : IUpdatable, IDrawable
 
     public void Update(GameTime gameTime)
     {
-        int objectsAtFrameStart = _updatables.Count;
-
-        for (int i = 0; i < objectsAtFrameStart; i++)
+        // Safely remove any objects that were queued for deletion
+        foreach (var obj in pendingRemoval)
+        {
+            if (obj is IUpdatable updatable) _updatables.Remove(updatable);
+            if (obj is IDrawable drawable) _drawables.Remove(drawable);
+            if (obj is Collider collider) _colliders.Remove(collider);
+        }
+        pendingRemoval.Clear();
+        for (int i = 0; i < _updatables.Count; i++)
         {
             _updatables[i].Update(gameTime);
         }
-
         HandleCollisions();
     }
 
