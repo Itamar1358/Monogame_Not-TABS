@@ -95,6 +95,7 @@ public class Game1 : Game
         
         _font = Content.Load<SpriteFont>("Fonts/GameFont");
         
+        
         Start();
     }
 
@@ -106,6 +107,7 @@ public class Game1 : Game
         
         UIManager uiManager = SceneManager.Create<UIManager>();
         uiManager.font = _font;
+        uiManager.battleManager = battleManager;
         
         SceneManager.Instance.Start();
     }

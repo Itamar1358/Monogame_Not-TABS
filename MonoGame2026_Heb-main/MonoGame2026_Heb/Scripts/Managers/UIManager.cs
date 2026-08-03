@@ -28,6 +28,10 @@ public class UIManager : IUpdatable, IDrawable
     private Rectangle bluePlacementArea;
     private Rectangle redPlacementArea;
     
+    public BattleManager battleManager;
+    private bool isBattlePhase = false;
+    private Rectangle playButtonBounds;
+    
     // ========================================================================================================================================================
     
     private class UIButton 
@@ -107,6 +111,11 @@ public class UIManager : IUpdatable, IDrawable
             Cost = 125,
             team = Team.Red
         });
+        
+        // Setup Play Button
+        int playWidth = 200;
+        int playHeight = 80;
+        playButtonBounds = new Rectangle((screenWidth / 2) - (playWidth / 2), 20, playWidth, playHeight);
     }
     
     public void Start() 
@@ -138,6 +147,8 @@ public class UIManager : IUpdatable, IDrawable
 
     private void HandleRightClick()
     {
+        if (isBattlePhase) return; // Disallow interaction in battle phase
+
         if (selectedButton != null) 
         { 
             CancelPlacement(); 
@@ -157,6 +168,15 @@ public class UIManager : IUpdatable, IDrawable
 
     private void HandleLeftClick(Point mousePos)
     {
+        // 0. Check Play Button
+        if (!isBattlePhase && playButtonBounds.Contains(mousePos))
+        {
+            StartBattle();
+            return;
+        }
+
+        if (isBattlePhase) return; // Disallow interaction in battle phase
+
         bool isUnitSelected = selectedButton != null || selectedPlacedUnit != null;
         bool clickedOnUI = false;
 
@@ -280,6 +300,22 @@ public class UIManager : IUpdatable, IDrawable
         }
     }
     
+    private void StartBattle()
+    {
+        CancelPlacement();
+        DeselectPlacedUnit();
+        
+        isBattlePhase = true;
+        
+        foreach (var unit in placedUnits)
+        {
+            battleManager.RegisterUnit(unit);
+        }
+        
+        battleManager.StartBattle();
+        Console.WriteLine("Battle Phase Started!");
+    }
+    
     // =======================================================================================================================================================
     //              HELPER FUNCTIONS
     // =======================================================================================================================================================
@@ -330,7 +366,7 @@ public class UIManager : IUpdatable, IDrawable
         
         bool isUnitSelected = selectedButton != null || selectedPlacedUnit != null;
         
-        if (!isUnitSelected)
+        if (!isUnitSelected && !isBattlePhase)
         {
             if (font != null) // Draw current mana
             {
@@ -339,6 +375,23 @@ public class UIManager : IUpdatable, IDrawable
                 string redManaText = $"Red Player`s Mana: {currentManaRed}";
                 Vector2 redManaSize = font.MeasureString(redManaText);
                 spriteBatch.DrawString(font, redManaText, new Vector2(Game1.ScreenWidth - redManaSize.X - 10, 10), Color.Cyan);
+            }
+            
+            // Draw Play Button
+            Color playColor = playButtonBounds.Contains(Mouse.GetState().X, Mouse.GetState().Y) ? Color.LimeGreen : Color.ForestGreen;
+            Spritesheet playButtonSprite = SpriteManager.GetSprite("CustomButton");
+            if (playButtonSprite != null) spriteBatch.Draw(playButtonSprite.texture, playButtonBounds, playColor);
+            else spriteBatch.Draw(dummyTexture, playButtonBounds, playColor);
+            
+            if (font != null)
+            {
+                Vector2 textSize = font.MeasureString("PLAY");
+                float scale = Math.Min((playButtonBounds.Width - 40) / textSize.X, (playButtonBounds.Height - 30) / textSize.Y);
+                Vector2 textPos = new Vector2(
+                    playButtonBounds.X + (playButtonBounds.Width - textSize.X * scale) / 2,
+                    playButtonBounds.Y + (playButtonBounds.Height - textSize.Y * scale) / 2
+                );
+                spriteBatch.DrawString(font, "PLAY", textPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
             }
             
             foreach (var button in buttons) // Draw UI Buttons
