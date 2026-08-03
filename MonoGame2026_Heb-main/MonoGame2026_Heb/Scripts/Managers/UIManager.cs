@@ -119,142 +119,165 @@ public class UIManager : IUpdatable, IDrawable
         MouseState currentMouseState = Mouse.GetState();
         bool isLeftClick = currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released;
         bool isRightClick = currentMouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Released;
+        Point mousePos = new Point(currentMouseState.X, currentMouseState.Y);
 
         if (isRightClick)
         {
-            if (selectedButton != null) { CancelPlacement(); }
-            else if (selectedPlacedUnit != null)
-            {
-                if (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) currentManaBlue += selectedPlacedUnit.Cost;
-                else currentManaRed += selectedPlacedUnit.Cost;
-
-                SceneManager.Remove(selectedPlacedUnit.collider);
-                SceneManager.Remove(selectedPlacedUnit);
-                placedUnits.Remove(selectedPlacedUnit);
-                selectedPlacedUnit = null;
-            }
+            HandleRightClick();
         }
-
         if (isLeftClick)
         {
-            Point mousePos = new Point(currentMouseState.X, currentMouseState.Y);
-            bool clickedOnUI = false;
-
-            bool isUnitSelected = selectedButton != null || selectedPlacedUnit != null;
-
-            // Unit not selected - Check for button pressed -----------------------------------------------------------------------
-            
-            if (!isUnitSelected)
-            {
-                foreach (var button in buttons) // Check if user clicked on any UI button
-                {
-                    if (button.Bounds.Contains(mousePos))
-                    {
-                        clickedOnUI = true;
-                        
-                        if (selectedButton == button) // If clicked the selected button again, it cancels the placement
-                        {
-                            CancelPlacement();
-                            break;
-                        }
-                        if (selectedButton != null) // If clicked a different button, refund its cost first
-                        {
-                            CancelPlacement();
-                        }
-
-                        if (button.team == Team.Blue) // Clicked on Blue Unit Button
-                        {
-                            if (currentManaBlue >= button.Cost)
-                            {
-                                currentManaBlue -= button.Cost;
-                                selectedButton = button;
-                                Console.WriteLine($"Blue Player Picked up {button.Name}");
-                            }
-                            else { Console.WriteLine("Not enough mana!"); }
-                            break;
-                        }
-                        if (button.team == Team.Red) // Clicked on Red Unit Button
-                        {
-                            if (currentManaRed >= button.Cost)
-                            {
-                                currentManaRed -= button.Cost;
-                                selectedButton = button;
-                                Console.WriteLine($"Red Player Picked up {button.Name}");
-                            }
-                            else { Console.WriteLine("Not enough mana!"); }
-                            break;
-                        }
-                    }
-                }
-            }
-            if (!clickedOnUI && selectedButton == null) // If we didn't click a UI button and we aren't trying to buy a new unit
-            {
-                Unit clickedUnit = null;
-                
-                // Check if our mouse is hovering over an existing unit (within 30 pixels)
-                foreach (var unit in placedUnits)
-                {
-                    if (Vector2.Distance(unit.tm.position, new Vector2(mousePos.X, mousePos.Y)) < 70f)
-                    {
-                        clickedUnit = unit;
-                        break;
-                    }
-                }
-                if (clickedUnit != null)
-                {
-                    // Deselect previous unit if we click a different one
-                    if (selectedPlacedUnit != null)
-                    {
-                        selectedPlacedUnit.color = (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) ? Color.CadetBlue : Color.IndianRed;
-                    }
-                    // Select the new unit and make it half transparent
-                    selectedPlacedUnit = clickedUnit; 
-                    selectedPlacedUnit.color *= 0.5f; 
-                }
-                else if (selectedPlacedUnit != null)
-                {
-                    // We clicked empty space while a unit is selected -> Move it!
-                    if (selectedPlacedUnit.UnitTeam == Unit.Team.Blue && bluePlacementArea.Contains(mousePos) ||
-                        selectedPlacedUnit.UnitTeam == Unit.Team.Red && redPlacementArea.Contains(mousePos))
-                    {
-                        selectedPlacedUnit.tm.position = new Vector2(mousePos.X, mousePos.Y);
-                        selectedPlacedUnit.color = (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) ? Color.CadetBlue : Color.IndianRed;
-                        selectedPlacedUnit = null;
-                    }
-                }
-            }
-            else if (clickedOnUI && selectedPlacedUnit != null)
-            {
-                selectedPlacedUnit.color = (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) ? Color.CadetBlue : Color.IndianRed;
-                selectedPlacedUnit = null;
-            }
-            
-            // If Unit selected - Place Unit on map -----------------------------------------------------------------------
-            
-            if (!clickedOnUI && selectedButton != null && selectedButton.team == Team.Blue) 
-            {
-                // Place unit if clicking inside the Blue player's placement area
-                if (bluePlacementArea.Contains(mousePos))
-                {
-                    PlaceUnit(selectedButton.Name, new Vector2(mousePos.X, mousePos.Y), Team.Blue);
-                    selectedButton = null; // Successfully placed, reset selection
-                }
-                else { CancelPlacement(); }
-            }
-            
-            if (!clickedOnUI && selectedButton != null && selectedButton.team == Team.Red) 
-            {
-                // Place unit if clicking inside the Red player's placement area
-                if (redPlacementArea.Contains(mousePos))
-                {
-                    PlaceUnit(selectedButton.Name, new Vector2(mousePos.X, mousePos.Y), Team.Red);
-                    selectedButton = null; // Successfully placed, reset selection
-                }
-                else { CancelPlacement(); }
-            }
-            // --------------------------------------------------------------------------------------------------------------
+            HandleLeftClick(mousePos);
         }
         previousMouseState = currentMouseState;
+    }
+    
+    // =======================================================================================================================================================
+    //              INPUT HANDLING FUNCTIONS
+    // =======================================================================================================================================================
+
+    private void HandleRightClick()
+    {
+        if (selectedButton != null) 
+        { 
+            CancelPlacement(); 
+        }
+        else if (selectedPlacedUnit != null)
+        {
+            // Refund the unit
+            if (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) currentManaBlue += selectedPlacedUnit.Cost;
+            else currentManaRed += selectedPlacedUnit.Cost;
+
+            SceneManager.Remove(selectedPlacedUnit.collider);
+            SceneManager.Remove(selectedPlacedUnit);
+            placedUnits.Remove(selectedPlacedUnit);
+            selectedPlacedUnit = null;
+        }
+    }
+
+    private void HandleLeftClick(Point mousePos)
+    {
+        bool isUnitSelected = selectedButton != null || selectedPlacedUnit != null;
+        bool clickedOnUI = false;
+
+        // Try to interact with UI buttons if we aren't currently placing/moving a unit
+        if (!isUnitSelected)
+        {
+            clickedOnUI = TryClickUIButtons(mousePos);
+        }
+        // Try to select or move an existing placed unit
+        if (!clickedOnUI && selectedButton == null)
+        {
+            TrySelectOrMoveUnit(mousePos);
+        }
+        // Try to place a newly bought unit
+        if (!clickedOnUI && selectedButton != null) 
+        {
+            TryPlaceNewUnit(mousePos);
+        }
+    }
+
+    private bool TryClickUIButtons(Point mousePos)
+    {
+        foreach (var button in buttons)
+        {
+            if (button.Bounds.Contains(mousePos))
+            {
+                if (selectedButton == button)
+                {
+                    CancelPlacement();
+                    return true;
+                }
+                if (selectedButton != null)
+                {
+                    CancelPlacement();
+                }
+
+                if (button.team == Team.Blue)
+                {
+                    if (currentManaBlue >= button.Cost)
+                    {
+                        currentManaBlue -= button.Cost;
+                        selectedButton = button;
+                        Console.WriteLine($"Blue Player Picked up {button.Name}");
+                    }
+                    else Console.WriteLine("Not enough mana!");
+                }
+                else if (button.team == Team.Red)
+                {
+                    if (currentManaRed >= button.Cost)
+                    {
+                        currentManaRed -= button.Cost;
+                        selectedButton = button;
+                        Console.WriteLine($"Red Player Picked up {button.Name}");
+                    }
+                    else Console.WriteLine("Not enough mana!");
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void TrySelectOrMoveUnit(Point mousePos)
+    {
+        Unit clickedUnit = null;
+        foreach (var unit in placedUnits)
+        {
+            if (Vector2.Distance(unit.tm.position, new Vector2(mousePos.X, mousePos.Y)) < 70f)
+            {
+                clickedUnit = unit;
+                break;
+            }
+        }
+        
+        if (clickedUnit != null)
+        {
+            DeselectPlacedUnit(); 
+            selectedPlacedUnit = clickedUnit; 
+            selectedPlacedUnit.color *= 0.5f;
+        }
+        else if (selectedPlacedUnit != null)
+        {
+            // Move unit if clicking inside valid placement area
+            if (selectedPlacedUnit.UnitTeam == Unit.Team.Blue && bluePlacementArea.Contains(mousePos) ||
+                selectedPlacedUnit.UnitTeam == Unit.Team.Red && redPlacementArea.Contains(mousePos))
+            {
+                selectedPlacedUnit.tm.position = new Vector2(mousePos.X, mousePos.Y);
+                DeselectPlacedUnit();
+            }
+        }
+    }
+
+    private void TryPlaceNewUnit(Point mousePos)
+    {
+        if (selectedButton.team == Team.Blue) 
+        {
+            if (bluePlacementArea.Contains(mousePos))
+            {
+                PlaceUnit(selectedButton.Name, new Vector2(mousePos.X, mousePos.Y), Team.Blue);
+                selectedButton = null; 
+            }
+            else CancelPlacement();
+        }
+        else if (selectedButton.team == Team.Red) 
+        {
+            if (redPlacementArea.Contains(mousePos))
+            {
+                PlaceUnit(selectedButton.Name, new Vector2(mousePos.X, mousePos.Y), Team.Red);
+                selectedButton = null; 
+            }
+            else CancelPlacement();
+        }
+    }
+
+    private void DeselectPlacedUnit()
+    {
+        if (selectedPlacedUnit != null)
+        {
+            selectedPlacedUnit.color = (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) ? Color.CadetBlue : Color.IndianRed;
+            selectedPlacedUnit = null;
+        }
     }
     
     // =======================================================================================================================================================
