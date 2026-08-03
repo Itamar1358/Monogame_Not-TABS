@@ -91,7 +91,7 @@ public class Game1 : Game
         SpriteManager.AddSprite("Wizard","Images/Units/Wizard", 1,1);
         SpriteManager.AddSprite("Hypnotist","Images/Units/Hypnotist", 1, 1);
         SpriteManager.AddSprite("Fireball", "Images/Fireball",  2, 2);
-        SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 4, 1);
+        SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 2, 2);
         
         _font = Content.Load<SpriteFont>("Fonts/GameFont");
         
