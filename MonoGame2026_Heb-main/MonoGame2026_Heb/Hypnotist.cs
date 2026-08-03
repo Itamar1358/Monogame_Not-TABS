@@ -2,20 +2,21 @@ namespace MonoGame2026_Heb;
 using Microsoft.Xna.Framework;
 public class Hypnotist : Unit
 {
-    private const float ProjectileSpeed = 30f;
+    private const float ProjectileSpeed = 150f;
     private const float HypnosisDuration = 8f;
 
     public Hypnotist()
         : base(
             spriteName: "Hypnotist",
             maxHealth: 50,
-            damage: 0,
+            damage: 10,
             cost: 5,
             movementSpeed: 60f,
-            attackRange: 200f,
-            attackCooldown: 1f,
+            attackRange: 400f,
+            attackCooldown: 5f,
             unitScale: 0.3f)
     {
+        RotationOffset = 90f;
     }
 
     protected override void PerformAttack(Unit target)
@@ -28,11 +29,8 @@ public class Hypnotist : Unit
             target: target,
             startPosition: GetProjectileSpawnPosition(),
             movementSpeed: ProjectileSpeed,
-            duration: HypnosisDuration);
+            duration: HypnosisDuration,
+            projectileDamage: Damage);
     }
     
-    private Vector2 GetProjectileSpawnPosition()
-    {
-        return tm.position;
-    }
 }

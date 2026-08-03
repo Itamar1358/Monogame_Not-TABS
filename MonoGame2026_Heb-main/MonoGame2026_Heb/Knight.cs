@@ -11,18 +11,18 @@ public class Knight : Unit
             damage: 25,
             cost: 25,
             movementSpeed: 100f,
-            attackRange: 50f,
+            attackRange: 125f,
             attackCooldown: 1f,
             unitScale: 0.3f)
     {
-        RotationOffset = 0f;
+        RotationOffset = 90f;
     }
     
     protected override void PerformAttack(Unit target)
     {
         target.TakeDamage(Damage);
         Console.WriteLine(
-            $"{UnitTeam} attacked {target.UnitTeam}. " +
+            $"Knight attacked {target}. " +
             $"Health remaining: {target.CurrentHealth}");
     }
     

@@ -4,7 +4,7 @@ namespace MonoGame2026_Heb;
 
 public class Wizard : Unit
 {
-    private const float ProjectileSpeed = 30f;
+    private const float ProjectileSpeed = 180f;
     
     public Wizard()
         : base(
@@ -13,11 +13,11 @@ public class Wizard : Unit
             damage: 70,
             cost: 100,
             movementSpeed: 60f,
-            attackRange: 200f,
-            attackCooldown: 1f,
+            attackRange: 400f,
+            attackCooldown: 4f,
             unitScale: 0.3f)
     {
-        RotationOffset = 0f;
+        RotationOffset = 90f;
     }
     
     protected override void PerformAttack(Unit target)
@@ -32,10 +32,7 @@ public class Wizard : Unit
             projectileDamage: Damage);
     }
     
-    private Vector2 GetProjectileSpawnPosition()
-    {
-        return tm.position;
-    }
+    
     
     protected override void OnStateChanged(UnitState newState)
     {

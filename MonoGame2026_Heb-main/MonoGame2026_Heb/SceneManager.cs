@@ -45,6 +45,14 @@ public class SceneManager : IUpdatable, IDrawable
 
     public static void Remove<T>(T obj)
     {
+        if (obj == null)
+            return;
+
+        if (!pendingRemoval.Contains(obj))
+        {
+            pendingRemoval.Add(obj);
+        }
+        /*
         if (obj is IUpdatable updatable)
         {
             _updatables.Remove(updatable);
@@ -56,7 +64,30 @@ public class SceneManager : IUpdatable, IDrawable
         if (obj is Collider collider)
         {
             _colliders.Remove(collider);
+        }*/
+    }
+    
+    private static void ProcessPendingRemoval()
+    {
+        foreach (object obj in pendingRemoval)
+        {
+            if (obj is IUpdatable updatable)
+            {
+                _updatables.Remove(updatable);
+            }
+
+            if (obj is IDrawable drawable)
+            {
+                _drawables.Remove(drawable);
+            }
+
+            if (obj is Collider collider)
+            {
+                _colliders.Remove(collider);
+            }
         }
+
+        pendingRemoval.Clear();
     }
 
     public static SceneManager Instance
@@ -89,6 +120,8 @@ public class SceneManager : IUpdatable, IDrawable
         }
 
         HandleCollisions();
+        
+        ProcessPendingRemoval();
     }
 
     public void HandleCollisions()

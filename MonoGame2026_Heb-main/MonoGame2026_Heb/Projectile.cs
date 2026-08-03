@@ -2,7 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 namespace MonoGame2026_Heb;
 
-public abstract class Projectile : Sprite
+public abstract class Projectile : Animation
 {
     protected Unit Owner { get; private set; }
     protected Unit Target { get; private set; }
@@ -11,6 +11,7 @@ public abstract class Projectile : Sprite
 
     public Collider collider { get; }
 
+    public float RotationOffset { get; protected set; }
     public float MovementSpeed { get; private set; }
     public float ProjectileScale{get; private set;}
 
@@ -20,7 +21,7 @@ public abstract class Projectile : Sprite
     private float lifetimeTimer;
     private const float MaximumLifetime = 5.0f;
 
-    protected Projectile(string spriteName)
+    protected Projectile(string spriteName, Vector2 colliderSize)
         : base(spriteName)
     {
         // Every projectile owns a trigger collider.
@@ -29,7 +30,7 @@ public abstract class Projectile : Sprite
         collider.Parent = this;
         collider.IsTrigger = true;
         collider.IsEnabled = false;
-
+        collider.SizeMultiplier = colliderSize;
         collider.RegisterOnTrigger(OnProjectileTrigger);
     }
 
@@ -46,11 +47,10 @@ public abstract class Projectile : Sprite
         // Store the team when the projectile is fired.
         // This prevents its team changing if the owner is hypnotized later.
         FiringTeam = owner.UnitTeam;
-
         tm.position = startPosition;
 
         MovementSpeed = Math.Max(0, movementSpeed);
-        ProjectileScale = 0.2f;
+        ProjectileScale = Math.Max(0.01f, projectileScale);
         tm.scale =new Vector2(projectileScale, projectileScale);
 
         hasHit = false;
@@ -58,6 +58,9 @@ public abstract class Projectile : Sprite
         lifetimeTimer = MaximumLifetime;
 
         collider.IsEnabled = true;
+        PlayAnimation(
+            isLooping: true,
+            samples: 8);
     }
 
     public override void Update(GameTime gameTime)
@@ -108,13 +111,23 @@ public abstract class Projectile : Sprite
             deltaTime;
 
         // Rotate the projectile toward its target.
-        float angleInRadians =
-            MathF.Atan2(
-                normalizedDirection.Y,
-                normalizedDirection.X);
+        RotateTowards(Target);
+    }
+    protected virtual void RotateTowards(Unit target)
+    {
+        Vector2 direction =
+            target.tm.position - tm.position;
 
+        if (direction == Vector2.Zero)
+            return;
+
+        float angleInRadians =
+            MathF.Atan2(direction.Y, direction.X);
+
+        // your transform stores rotation in degrees
         tm.rotation =
-            MathHelper.ToDegrees(angleInRadians);
+            MathHelper.ToDegrees(angleInRadians)
+            + RotationOffset;
     }
 
     private void OnProjectileTrigger(
@@ -168,4 +181,5 @@ public abstract class Projectile : Sprite
         SceneManager.Remove(collider);
         SceneManager.Remove(this);
     }
+    
 }

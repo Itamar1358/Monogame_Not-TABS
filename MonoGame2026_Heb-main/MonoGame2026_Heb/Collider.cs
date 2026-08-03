@@ -8,7 +8,10 @@ public class Collider : Sprite
 {
     public bool IsTrigger = false;
     public bool IsEnabled { get; set; } = true;
-    public int thickness;
+    public int thickness = 3;
+    
+    public Vector2 SizeMultiplier { get; set; } = Vector2.One;
+
 
     private Action<Collider, Collider> _OnTrigger;
     private Action<Collider, Collider> _OnCollision;
@@ -16,6 +19,29 @@ public class Collider : Sprite
 
     public Collider() : base("Pixel")
     {
+    }
+    
+    public Rectangle GetBounds()
+    {
+        if (Parent == null)
+            return Rectangle.Empty;
+
+        Rectangle parentBounds = Parent.destRect;
+
+        int width = Math.Max(
+            1,
+            (int)(parentBounds.Width * SizeMultiplier.X));
+
+        int height = Math.Max(
+            1,
+            (int)(parentBounds.Height * SizeMultiplier.Y));
+
+        // Keep the smaller collider centered on the sprite.
+        return new Rectangle(
+            parentBounds.Center.X - width / 2,
+            parentBounds.Center.Y - height / 2,
+            width,
+            height);
     }
 
     public bool IsIntersecting(Collider other)
@@ -28,7 +54,7 @@ public class Collider : Sprite
 
         if (Parent == null || other.Parent == null)
             return false;
-        return Parent.destRect.Intersects(other.Parent.destRect);
+        return GetBounds().Intersects(other.GetBounds());
     }
 
     public void Notify(Collider other)
@@ -50,31 +76,53 @@ public class Collider : Sprite
         if(!IsEnabled) return;
         
 #if DEBUG
-        // draw outline bounds
-        
-        color = Color.Green;
-        thickness = 5;
-        
-        _spriteBatch.Draw(
-            texture,
-            new Rectangle(Parent.destRect.X, Parent.destRect.Y, Parent.destRect.Width, thickness), // top
-            color);
+        Rectangle bounds = GetBounds();
 
-        _spriteBatch.Draw(
-            texture,
-            new Rectangle(Parent.destRect.X, Parent.destRect.Y, thickness, Parent.destRect.Height), // left
-            color);
+        int outlineThickness = Math.Min(
+            thickness,
+            Math.Min(bounds.Width, bounds.Height));
 
-        _spriteBatch.Draw(
-            texture,
-            new Rectangle(Parent.destRect.X + Parent.destRect.Width - thickness, Parent.destRect.Y, thickness, Parent.destRect.Height), // right
-            color);
+        Color outlineColor = Color.Green;
 
+        // Top
         _spriteBatch.Draw(
             texture,
-            new Rectangle(Parent.destRect.X, Parent.destRect.Y + Parent.destRect.Height - thickness, Parent.destRect.Width, thickness), // bottom
-            color);
-        
+            new Rectangle(
+                bounds.X,
+                bounds.Y,
+                bounds.Width,
+                outlineThickness),
+            outlineColor);
+
+        // Left
+        _spriteBatch.Draw(
+            texture,
+            new Rectangle(
+                bounds.X,
+                bounds.Y,
+                outlineThickness,
+                bounds.Height),
+            outlineColor);
+
+        // Right
+        _spriteBatch.Draw(
+            texture,
+            new Rectangle(
+                bounds.Right - outlineThickness,
+                bounds.Y,
+                outlineThickness,
+                bounds.Height),
+            outlineColor);
+
+        // Bottom
+        _spriteBatch.Draw(
+            texture,
+            new Rectangle(
+                bounds.X,
+                bounds.Bottom - outlineThickness,
+                bounds.Width,
+                outlineThickness),
+            outlineColor);
 #endif
     }
 

@@ -11,18 +11,18 @@ public class Ogre : Unit
             damage: 15,
             cost: 75,
             movementSpeed: 70f,
-            attackRange: 50f,
+            attackRange: 125f,
             attackCooldown: 2f,
             unitScale: 0.35f)
     {
-        RotationOffset = 0f;
+        RotationOffset = 90f;
     }
     
     protected override void PerformAttack(Unit target)
     {
         target.TakeDamage(Damage);
         Console.WriteLine(
-            $"{UnitTeam} attacked {target.UnitTeam}. " +
+            $"Ogre attacked {target} " +
             $"Health remaining: {target.CurrentHealth}");
     }
     

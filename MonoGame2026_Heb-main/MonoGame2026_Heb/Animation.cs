@@ -6,7 +6,7 @@ namespace MonoGame2026_Heb;
 public class Animation : Sprite
 {
     private double totalTime = 0;
-    private int samples = 60;
+    private int samples = 6;
     private int x = 0;
     private int y = 0;
     bool isLooping = true;
@@ -16,7 +16,7 @@ public class Animation : Sprite
     {
     }
 
-    public void PlayAnimation(bool isLooping = true, int samples = 60)
+    public void PlayAnimation(bool isLooping = true, int samples = 6)
     {
         this.isLooping = isLooping;
         this.samples = Math.Max(1, samples);

@@ -18,12 +18,9 @@ public class Game1 : Game
     
     public static Vector2 _screenCenter;
     
-    private BattleManager battleManager;
+    private BattleManager battleManager = new();
     
-    private Knight knight;
-    private Ogre ogre;
-    private Wizard wizard;
-    private Hypnotist hypnotist;
+    
     
     private FireProjectile fireProjectile;
     private HypnosisProjectile hypnosisProjectile;
@@ -89,7 +86,7 @@ public class Game1 : Game
         SpriteManager.AddSprite("Wizard","Images/Units/Wizard", 1,1);
         SpriteManager.AddSprite("Hypnotist","Images/Units/Hypnotist", 1, 1);
         SpriteManager.AddSprite("Fireball", "Images/Fireball",  2, 2);
-        SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 4, 1);
+        SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 2, 2);
  
         mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
         
@@ -102,10 +99,14 @@ public class Game1 : Game
         
         battleManager = SceneManager.Create<BattleManager>();
         
-        knight = SceneManager.Create<Knight>();
-        wizard = SceneManager.Create<Wizard>();
-        ogre = SceneManager.Create<Ogre>();
-        hypnotist = SceneManager.Create<Hypnotist>();
+        Knight knight = SceneManager.Create<Knight>();
+        Knight knight2 = SceneManager.Create<Knight>();
+        Wizard wizard = SceneManager.Create<Wizard>();
+        Wizard wizard2 = SceneManager.Create<Wizard>();
+        Ogre ogre = SceneManager.Create<Ogre>();
+        Ogre ogre2 = SceneManager.Create<Ogre>();
+        Hypnotist hypnotist = SceneManager.Create<Hypnotist>();
+        Hypnotist hypnotist2 = SceneManager.Create<Hypnotist>();
         
         fireProjectile = SceneManager.Create<FireProjectile>();
         
@@ -114,20 +115,24 @@ public class Game1 : Game
         
         
         
-        knight.InitializeUnit(new Vector2(1000, 800), Unit.Team.Blue);
-
-        wizard.InitializeUnit(new Vector2(800, 800), Unit.Team.Blue);
+        knight.InitializeUnit(new Vector2(800, 800), Unit.Team.Blue);
+        knight2.InitializeUnit(new Vector2(800, 600), Unit.Team.Blue);
+        wizard.InitializeUnit(new Vector2(1100, 800), Unit.Team.Blue);
+        hypnotist2.InitializeUnit(new Vector2(1100, 600), Unit.Team.Blue);
         
         ogre.InitializeUnit(new Vector2(300,200),Unit.Team.Red);
-        
+        ogre2.InitializeUnit(new Vector2(300,400),Unit.Team.Red);
         hypnotist.InitializeUnit(new Vector2(100, 200), Unit.Team.Red);
+        wizard2.InitializeUnit(new Vector2(100, 400), Unit.Team.Red);
         
-        
-        knight.SetTarget(ogre);
-        ogre.SetTarget(knight);
-
-        wizard.SetTarget(hypnotist);
-        hypnotist.SetTarget(wizard);
+        battleManager.RegisterUnit(knight);
+        battleManager.RegisterUnit(knight2);
+        battleManager.RegisterUnit(wizard);
+        battleManager.RegisterUnit(wizard2);
+        battleManager.RegisterUnit(ogre);
+        battleManager.RegisterUnit(ogre2);
+        battleManager.RegisterUnit(hypnotist);
+        battleManager.RegisterUnit(hypnotist2);
         
         
         battleManager.StartBattle();

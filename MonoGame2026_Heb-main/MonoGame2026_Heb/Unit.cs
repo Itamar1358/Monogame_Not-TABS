@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections;
+using System.Collections.Generic;
 namespace MonoGame2026_Heb;
 using Microsoft.Xna.Framework;
 
@@ -26,11 +27,19 @@ public abstract class Unit : Animation, IDamageable
         = UnitState.Idle;
 
     public Unit Target { get; private set; }
-    public BattleManager battleManager =  new BattleManager();
+    //public BattleManager battleManager =  new BattleManager();
+    
+    private readonly List<IEnumerator> coroutines = new();
+    private float coroutineDeltaTime;
+
 
     private bool isHypnotized;
     private float hypnosisTimer;
     private Team originalTeam;
+    
+    
+    private const float DeathAnimationDuration = 0.6f;
+    
 
     public int MaxHealth { get; }
     public int CurrentHealth { get; private set; }
@@ -111,8 +120,6 @@ public abstract class Unit : Animation, IDamageable
         
         ApplyTeamVisual();
         OnStateChanged(CurrentState);
-        battleManager.RegisterUnit(this);
-        battleManager.StartBattle();
         Console.WriteLine(
             $"{UnitTeam} unit created at {tm.position}");
     }
@@ -122,15 +129,50 @@ public abstract class Unit : Animation, IDamageable
         float deltaTime =
             (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+        if (coroutines.Count > 0)
+        {
+            UpdateCoroutines(deltaTime);
+        }
+
+        // Dead units stop their behaviour but remain drawable.
+        if (!IsAlive)
+        {
+            base.Update(gameTime);
+            return;
+        }
+
         UpdateHypnosis(deltaTime);
         UpdateAttackCooldown(deltaTime);
 
-        if (IsCombatEnabled && IsAlive)
+        if (IsCombatEnabled)
         {
             UpdateCombat(deltaTime);
         }
 
         base.Update(gameTime);
+    }
+    
+    private void StartCoroutine(IEnumerator coroutine)
+    {
+        if (coroutine != null)
+        {
+            coroutines.Add(coroutine);
+        }
+    }
+
+    private void UpdateCoroutines(float deltaTime)
+    {
+        coroutineDeltaTime = deltaTime;
+
+        for (int i = coroutines.Count - 1; i >= 0; i--)
+        {
+            bool isRunning = coroutines[i].MoveNext();
+
+            if (!isRunning)
+            {
+                coroutines.RemoveAt(i);
+            }
+        }
     }
 
     public void SetCombatEnabled(bool isEnabled)
@@ -149,19 +191,20 @@ public abstract class Unit : Animation, IDamageable
         }
 
     }
-
-    public bool IsEnemy(Unit otherUnit)
+    
+    protected virtual Vector2 GetProjectileSpawnPosition()
     {
-        return otherUnit != null &&
-               otherUnit.UnitTeam != UnitTeam;
+        return tm.position;
     }
+    
 
     public virtual bool CanTarget(Unit otherUnit)
     {
         return otherUnit != null &&
                otherUnit != this &&
                otherUnit.IsAlive &&
-               IsEnemy(otherUnit);
+               otherUnit.UnitTeam != UnitTeam;
+               
     }
 
     public void SetTarget(Unit newTarget)
@@ -176,6 +219,10 @@ public abstract class Unit : Animation, IDamageable
             return;
 
         Target = newTarget;
+        if (IsAlive && IsCombatEnabled)
+        {
+            ChangeState(UnitState.Walking);
+        } 
         Console.WriteLine(
             $"{UnitTeam} selected {Target.UnitTeam} target");
     }
@@ -381,7 +428,31 @@ public abstract class Unit : Animation, IDamageable
     protected virtual void OnStateChanged(
         UnitState newState)
     {
-        // specific troops will change animations here
+        switch (newState)
+        {
+            case UnitState.Idle:
+                PlayAnimation(
+                    isLooping: true,
+                    samples: 6);
+                break;
+
+            case UnitState.Walking:
+                PlayAnimation(
+                    isLooping: true,
+                    samples: 10);
+                break;
+
+            case UnitState.Attacking:
+                PlayAnimation(
+                    isLooping: true,
+                    samples: 8);
+                break;
+
+            case UnitState.Dead:
+                PauseAnimation();
+                break;
+        }
+        
     }
 
     protected virtual void Die()
@@ -393,12 +464,15 @@ public abstract class Unit : Animation, IDamageable
         IsCombatEnabled = false;
         Target = null;
 
-        // the corpse remains visible but no longer collides
         collider.IsEnabled = false;
 
         ChangeState(UnitState.Dead);
+
+        StartCoroutine(DeathAnimation());
+
         Console.WriteLine(
             $"{UnitTeam} unit died");
+
         Died?.Invoke(this);
     }
 
@@ -430,9 +504,8 @@ public abstract class Unit : Animation, IDamageable
         hypnosisTimer = Math.Max(0.1f, duration);
 
         ChangeTeam(hypnotistTeam);
-
-        // Forces the unit to search for a new enemy.
-        ClearTarget();
+        IsCombatEnabled = true;
+        ChangeState((UnitState.Idle));
     }
     
     private void UpdateHypnosis(float deltaTime)
@@ -450,5 +523,68 @@ public abstract class Unit : Animation, IDamageable
 
         ChangeTeam(originalTeam);
         ClearTarget();
+    }
+    
+    private IEnumerator DeathAnimation()
+    {
+        Vector2 startingScale = tm.scale;
+        float startingRotation = tm.rotation;
+        Color startingColor = color;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < DeathAnimationDuration)
+        {
+            elapsedTime += coroutineDeltaTime;
+
+            float progress = MathHelper.Clamp(
+                elapsedTime / DeathAnimationDuration,
+                0f,
+                1f);
+
+            float scaleMultiplier;
+
+            // Briefly enlarge the token.
+            if (progress < 0.2f)
+            {
+                float popProgress = progress / 0.2f;
+
+                scaleMultiplier = MathHelper.Lerp(
+                    1f,
+                    1.15f,
+                    popProgress);
+            }
+            else
+            {
+                // Shrink into the final corpse size.
+                float shrinkProgress =
+                    (progress - 0.2f) / 0.8f;
+
+                scaleMultiplier = MathHelper.Lerp(
+                    1.15f,
+                    0.7f,
+                    shrinkProgress);
+            }
+
+            tm.scale = startingScale * scaleMultiplier;
+
+            tm.rotation = MathHelper.Lerp(
+                startingRotation,
+                startingRotation + 90f,
+                progress);
+
+            color = Color.Lerp(
+                startingColor,
+                Color.Gray * 0.5f,
+                progress);
+
+            // Continue on the next frame.
+            yield return null;
+        }
+
+        // Exact final corpse appearance.
+        tm.scale = startingScale * 0.7f;
+        tm.rotation = startingRotation + 90f;
+        color = Color.Gray * 0.5f;
     }
 }
