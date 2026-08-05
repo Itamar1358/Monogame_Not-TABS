@@ -94,17 +94,7 @@ C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026
 C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Button.xnb
 C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\BattleField.xnb
 C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\MainMenuBackground.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Fonts\GameFont.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\BattleField.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\MainMenuBackground.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Button.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Hypnotist_Hurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Hypnotist_VeryHurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Knight_Hurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Knight_VeryHurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Ogre_Hurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Ogre_VeryHurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Wizard_Hurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Wizard_VeryHurt.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Club.xnb
-C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Sword.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.ogg
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\MainMenuSoundTrack.ogg
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\MainMenuSoundTrack.xnb

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Media;
 using MonoGame2026_Heb.Content;
 
 namespace MonoGame2026_Heb;
@@ -17,6 +18,7 @@ public class Game1 : Game
     public static int ScreenWidth;
     public static int ScreenHeight;
     public string CurrentBackground = "MainMenuBackground";
+    public Song mainMenuTheme;
     
     public static Game1 Instance;
     
@@ -115,12 +117,21 @@ public class Game1 : Game
         
         _font = Content.Load<SpriteFont>("Fonts/GameFont");
         
+        mainMenuTheme = Content.Load<Song>("Audio/Music/MainMenuSoundTrack");
+        
         LoadMainMenu();
     }
 
     public void LoadMainMenu()
     {
         CurrentBackground = "MainMenuBackground";
+        
+        if (MediaPlayer.State != MediaState.Playing)
+        {
+            MediaPlayer.Play(mainMenuTheme);
+            MediaPlayer.IsRepeating = true;
+        }
+
         SceneManager.Clear();
         
         MainMenuManager menuManager = SceneManager.Create<MainMenuManager>();
@@ -132,6 +143,7 @@ public class Game1 : Game
     public void LoadGame()
     {
         CurrentBackground = "Background";
+        MediaPlayer.Stop();
         SceneManager.Clear();
         
         battleManager = SceneManager.Create<BattleManager>();
