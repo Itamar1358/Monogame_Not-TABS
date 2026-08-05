@@ -4,22 +4,42 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Fonts/GameFont.spritefont</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/BattleField.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/MainMenuBackground.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Button.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Fireball.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/HypnosisBall.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/pixel.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Hypnotist.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Knight.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Ogre.png</File>
-    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Wizard.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Fonts/GameFont.spritefont</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/BattleField.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/MainMenuBackground.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Button.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Club.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Fireball.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/HypnosisBall.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/pixel.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Sword.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Hypnotist_Hurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Hypnotist_VeryHurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Hypnotist.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Knight_Hurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Knight_VeryHurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Knight.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Ogre_Hurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Ogre_VeryHurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Ogre.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Wizard_Hurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Wizard_VeryHurt.png</File>
+    <File>C:/Dev/GitHub/Monogame_Not TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Wizard.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
     <File>Images/BackGrounds/BattleField</File>
     <File>Images/BackGrounds/MainMenuBackground</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

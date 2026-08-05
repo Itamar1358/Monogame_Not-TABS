@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -128,6 +129,14 @@ public class SceneManager : IUpdatable, IDrawable
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        _drawables.ForEach(drawable => drawable.Draw(spriteBatch));
+        foreach (IDrawable drawable in _drawables
+                     .OrderBy(drawable =>
+                         drawable is Sprite sprite
+                             ? sprite.sortingOrder
+                             : 0))
+        {
+            drawable.Draw(spriteBatch);
+        }
+        //_drawables.ForEach(drawable => drawable.Draw(spriteBatch));
     }
 }

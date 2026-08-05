@@ -18,6 +18,7 @@ public class Wizard : Unit
             unitScale: 0.3f)
     {
         RotationOffset = 90f;
+        ConfigureDamageSprites("Wizard_Hurt", "Wizard_VeryHurt");
     }
     
     protected override void PerformAttack(Unit target)

@@ -90,7 +90,7 @@ public class Sprite : IUpdatable, IDrawable
             origin,
             tm.scale,
             effects,
-            sortingOrder
+            0f
         );
     }
 }

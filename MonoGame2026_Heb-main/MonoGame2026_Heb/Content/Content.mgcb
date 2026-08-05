@@ -11,6 +11,8 @@
 #-------------------------------- References --------------------------------#
 
 
+#---------------------------------- Content ---------------------------------#
+
 #begin Fonts/GameFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -58,6 +60,19 @@
 /processorParam:Version=3.8.5.0
 /build:Images/Button.png
 
+#begin Images/Club.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Club.png
+
 #begin Images/Fireball.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -97,6 +112,45 @@
 /processorParam:Version=3.8.5.0
 /build:Images/pixel.png
 
+#begin Images/Sword.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Sword.png
+
+#begin Images/Units/Hypnotist_Hurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Hypnotist_Hurt.png
+
+#begin Images/Units/Hypnotist_VeryHurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Hypnotist_VeryHurt.png
+
 #begin Images/Units/Hypnotist.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -109,6 +163,32 @@
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
 /build:Images/Units/Hypnotist.png
+
+#begin Images/Units/Knight_Hurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Knight_Hurt.png
+
+#begin Images/Units/Knight_VeryHurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Knight_VeryHurt.png
 
 #begin Images/Units/Knight.png
 /importer:TextureImporter
@@ -123,6 +203,32 @@
 /processorParam:Version=3.8.5.0
 /build:Images/Units/Knight.png
 
+#begin Images/Units/Ogre_Hurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Ogre_Hurt.png
+
+#begin Images/Units/Ogre_VeryHurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Ogre_VeryHurt.png
+
 #begin Images/Units/Ogre.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -135,6 +241,32 @@
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
 /build:Images/Units/Ogre.png
+
+#begin Images/Units/Wizard_Hurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Wizard_Hurt.png
+
+#begin Images/Units/Wizard_VeryHurt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.0
+/build:Images/Units/Wizard_VeryHurt.png
 
 #begin Images/Units/Wizard.png
 /importer:TextureImporter

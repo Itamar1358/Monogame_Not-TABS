@@ -17,6 +17,7 @@ public class Hypnotist : Unit
             unitScale: 0.3f)
     {
         RotationOffset = 90f;
+        ConfigureDamageSprites("Hypnotist_Hurt", "Hypnotist_VeryHurt");
     }
 
     protected override void PerformAttack(Unit target)

@@ -91,12 +91,27 @@ public class Game1 : Game
         SpriteManager.AddSprite("MainMenuBackground", "Images/BackGrounds/MainMenuBackground", 1, 1);
         SpriteManager.AddSprite("CustomButton", "Images/button", 1, 1);
         SpriteManager.AddSprite("Pixel", "Images/pixel",1,1);
+        
         SpriteManager.AddSprite("Knight","Images/Units/Knight", 1,1);
+        SpriteManager.AddSprite("Knight_Hurt","Images/Units/Knight_Hurt", 1,1);
+        SpriteManager.AddSprite("Knight_VeryHurt","Images/Units/Knight_VeryHurt", 1,1);
+        
         SpriteManager.AddSprite("Ogre","Images/Units/Ogre", 1,1);
+        SpriteManager.AddSprite("Ogre_Hurt","Images/Units/Ogre_Hurt", 1,1);
+        SpriteManager.AddSprite("Ogre_VeryHurt","Images/Units/Ogre_VeryHurt", 1,1);
+        
         SpriteManager.AddSprite("Wizard","Images/Units/Wizard", 1,1);
+        SpriteManager.AddSprite("Wizard_Hurt","Images/Units/Wizard_Hurt", 1,1);
+        SpriteManager.AddSprite("Wizard_VeryHurt","Images/Units/Wizard_VeryHurt", 1,1);
+        
         SpriteManager.AddSprite("Hypnotist","Images/Units/Hypnotist", 1, 1);
+        SpriteManager.AddSprite("Hypnotist_Hurt","Images/Units/Hypnotist_Hurt", 1,1);
+        SpriteManager.AddSprite("Hypnotist_VeryHurt","Images/Units/Hypnotist_VeryHurt", 1,1);
+        
         SpriteManager.AddSprite("Fireball", "Images/Fireball",  2, 2);
         SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 2, 2);
+        SpriteManager.AddSprite("Sword", "Images/Sword",  1, 1);
+        SpriteManager.AddSprite("Club", "Images/Club",  1, 1);
         
         _font = Content.Load<SpriteFont>("Fonts/GameFont");
         
