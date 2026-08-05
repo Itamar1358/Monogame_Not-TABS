@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/BattleField.png</SourceFile>
-  <SourceTime>2026-08-02T19:57:34.6750192+03:00</SourceTime>
+  <SourceTime>2026-08-03T20:37:37.2633985+03:00</SourceTime>
   <DestFile>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/bin/DesktopGL/Images/BackGrounds/BattleField.xnb</DestFile>
-  <DestTime>2026-08-03T00:23:55.8477772+03:00</DestTime>
+  <DestTime>2026-08-05T16:48:39.702897+03:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2026-07-15T19:21:24+03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

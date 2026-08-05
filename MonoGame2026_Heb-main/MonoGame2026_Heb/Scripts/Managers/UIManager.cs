@@ -396,29 +396,23 @@ public class UIManager : IUpdatable, IDrawable
             
             foreach (var button in buttons) // Draw UI Buttons
             {
-            if (button.team == Team.Blue)
-            {
-                // Green if selected, Gray if affordable, Dark Red if not affordable
-                Color buttonColor = (selectedButton == button)
-                    ? Color.LimeGreen
-                    : (currentManaBlue >= button.Cost ? button.BaseColor : Color.DarkRed);
-                
-                Spritesheet buttonSprite = SpriteManager.GetSprite("CustomButton");
-                if (buttonSprite != null)
+                bool isHovered = button.Bounds.Contains(Mouse.GetState().X, Mouse.GetState().Y);
+                Color buttonColor;
+
+                if (button.team == Team.Blue)
                 {
-                    spriteBatch.Draw(buttonSprite.texture, button.Bounds, buttonColor);
+                    // Green if selected, LightGray if hovered & affordable, BaseColor if affordable, Dark Red if not affordable
+                    if (selectedButton == button) buttonColor = Color.LimeGreen;
+                    else if (currentManaBlue >= button.Cost) buttonColor = isHovered ? Color.LightGray : Color.White;
+                    else buttonColor = Color.DarkRed;
                 }
                 else
                 {
-                    spriteBatch.Draw(dummyTexture, button.Bounds, buttonColor);
+                    // Green if selected, LightGray if hovered & affordable, BaseColor if affordable, Dark Red if not affordable
+                    if (selectedButton == button) buttonColor = Color.LimeGreen;
+                    else if (currentManaRed >= button.Cost) buttonColor = isHovered ? Color.LightGray : Color.White;
+                    else buttonColor = Color.DarkRed;
                 }
-            }
-            if (button.team == Team.Red)
-            {
-                // Green if selected, Gray if affordable, Dark Red if not affordable
-                Color buttonColor = (selectedButton == button)
-                    ? Color.LimeGreen
-                    : (currentManaRed >= button.Cost ? button.BaseColor : Color.DarkRed);
 
                 Spritesheet buttonSprite = SpriteManager.GetSprite("CustomButton");
                 if (buttonSprite != null)
@@ -429,42 +423,39 @@ public class UIManager : IUpdatable, IDrawable
                 {
                     spriteBatch.Draw(dummyTexture, button.Bounds, buttonColor);
                 }
-            }
 
-            if (font != null)
-            {
-                string text = $"{button.Name}\n({button.Cost})";
-                Vector2 textSize = font.MeasureString(text);
-                
-                // Calculate scale to ensure text fits inside the button bounds (accounting for thick button borders)
-                float scaleX = (button.Bounds.Width - 80) / textSize.X;
-                float scaleY = (button.Bounds.Height - 55) / textSize.Y;
-                float scale = Math.Min(1.0f, Math.Min(scaleX, scaleY));
-                
-                Vector2 scaledTextSize = textSize * scale;
-                
-                Vector2 textPos = new Vector2(
-                    button.Bounds.X + (button.Bounds.Width - scaledTextSize.X) / 2,
-                    button.Bounds.Y + (button.Bounds.Height - scaledTextSize.Y) / 2
-                );
-                
-                spriteBatch.DrawString(
-                    font, 
-                    text, 
-                    textPos, 
-                    Color.White, 
-                    0f, 
-                    Vector2.Zero, 
-                    scale, 
-                    SpriteEffects.None, 
-                    0f
-                );
-            }
+                if (font != null)
+                {
+                    string text = $"{button.Name}\n({button.Cost})";
+                    Vector2 textSize = font.MeasureString(text);
+                    
+                    // Calculate scale to ensure text fits inside the button bounds (accounting for thick button borders)
+                    float scaleX = (button.Bounds.Width - 80) / textSize.X;
+                    float scaleY = (button.Bounds.Height - 55) / textSize.Y;
+                    float scale = Math.Min(1.0f, Math.Min(scaleX, scaleY));
+                    
+                    Vector2 scaledTextSize = textSize * scale;
+                    
+                    Vector2 textPos = new Vector2(
+                        button.Bounds.X + (button.Bounds.Width - scaledTextSize.X) / 2,
+                        button.Bounds.Y + (button.Bounds.Height - scaledTextSize.Y) / 2
+                    );
+                    
+                    spriteBatch.DrawString(
+                        font, 
+                        text, 
+                        textPos, 
+                        Color.White, 
+                        0f, 
+                        Vector2.Zero, 
+                        scale, 
+                        SpriteEffects.None, 
+                        0f
+                    );
+                }
             }
         }
-        
-        // Draw a text preview on the mouse cursor and a highlighted placement zone
-        if (isUnitSelected)
+        if (isUnitSelected) // Draw a text preview on the mouse cursor and a highlighted placement zone
         {
             // Determine which team's unit is selected
             Team selectedTeam = Team.Blue;

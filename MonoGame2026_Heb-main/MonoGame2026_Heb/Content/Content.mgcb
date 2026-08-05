@@ -11,8 +11,6 @@
 #-------------------------------- References --------------------------------#
 
 
-#---------------------------------- Content ---------------------------------#
-
 #begin Fonts/GameFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -34,7 +32,7 @@
 /processorParam:Version=3.8.5.0
 /build:Images/BackGrounds/BattleField.png;Images/BackGrounds/BattleField
 
-#begin Images/BackGrounds/BattleField.png
+#begin Images/BackGrounds/MainMenuBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -45,7 +43,7 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
-/build:Images/BackGrounds/BattleField.png;Images/BackGrounds/BattleField
+/build:Images/BackGrounds/MainMenuBackground.png;Images/BackGrounds/MainMenuBackground
 
 #begin Images/Button.png
 /importer:TextureImporter

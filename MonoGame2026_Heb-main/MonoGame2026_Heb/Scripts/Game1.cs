@@ -16,6 +16,9 @@ public class Game1 : Game
     public static Vector2 _screenCenter;
     public static int ScreenWidth;
     public static int ScreenHeight;
+    public string CurrentBackground = "MainMenuBackground";
+    
+    public static Game1 Instance;
     
     private BattleManager battleManager;
     
@@ -41,6 +44,7 @@ public class Game1 : Game
     private SpriteManager spriteManager = null;
     public Game1()
     {
+        Instance = this;
         _graphics = new GraphicsDeviceManager(this);
 
         textureManager = new(Content);
@@ -84,6 +88,7 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         SpriteManager.AddSprite("Background", "Images/BackGrounds/BattleField", 1, 1);
+        SpriteManager.AddSprite("MainMenuBackground", "Images/BackGrounds/MainMenuBackground", 1, 1);
         SpriteManager.AddSprite("CustomButton", "Images/button", 1, 1);
         SpriteManager.AddSprite("Pixel", "Images/pixel",1,1);
         SpriteManager.AddSprite("Knight","Images/Units/Knight", 1,1);
@@ -95,19 +100,41 @@ public class Game1 : Game
         
         _font = Content.Load<SpriteFont>("Fonts/GameFont");
         
-        
-        Start();
+        LoadMainMenu();
     }
 
-    void Start()
+    public void LoadMainMenu()
     {
-        //AudioManager.PlaySong("theme");
+        CurrentBackground = "MainMenuBackground";
+        SceneManager.Clear();
+        
+        MainMenuManager menuManager = SceneManager.Create<MainMenuManager>();
+        menuManager.font = _font;
+        
+        SceneManager.Instance.Start();
+    }
+
+    public void LoadGame()
+    {
+        CurrentBackground = "Background";
+        SceneManager.Clear();
         
         battleManager = SceneManager.Create<BattleManager>();
         
         UIManager uiManager = SceneManager.Create<UIManager>();
         uiManager.font = _font;
         uiManager.battleManager = battleManager;
+        
+        SceneManager.Instance.Start();
+    }
+
+    public void LoadUnitManual()
+    {
+        CurrentBackground = "MainMenuBackground";
+        SceneManager.Clear();
+        
+        UnitManualManager manualManager = SceneManager.Create<UnitManualManager>();
+        manualManager.font = _font;
         
         SceneManager.Instance.Start();
     }
@@ -133,7 +160,7 @@ public class Game1 : Game
 
         _spriteBatch.Begin();
 
-        Spritesheet bgSprite = SpriteManager.GetSprite("Background");
+        Spritesheet bgSprite = SpriteManager.GetSprite(CurrentBackground);
         if (bgSprite != null)
         {
             _spriteBatch.Draw(bgSprite.texture, new Rectangle(0, 0, ScreenWidth, ScreenHeight), Color.White);

@@ -60,6 +60,14 @@ public class SceneManager : IUpdatable, IDrawable
             return instance;
         }
     }
+    
+    public static void Clear()
+    {
+        _updatables.Clear();
+        _drawables.Clear();
+        _colliders.Clear();
+        pendingRemoval.Clear();
+    }
 
     public void Start()
     {
