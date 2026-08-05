@@ -11,6 +11,17 @@
 #-------------------------------- References --------------------------------#
 
 
+#---------------------------------- Content ---------------------------------#
+
+#begin Audio/Music/MainMenuSoundTrack.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/Music/MainMenuSoundTrack.ogg;Audio/Music/MainMenuSoundTrack
+
+
+
 #begin Fonts/GameFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/Music/MainMenuSoundTrack.ogg</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Fonts/GameFont.spritefont</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/BattleField.png</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/MainMenuBackground.png</File>
@@ -17,6 +18,7 @@
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/Units/Wizard.png</File>
   </SourceFiles>
   <DestFiles>
+    <File>Audio/Music/MainMenuSoundTrack</File>
     <File xsi:nil="true" />
     <File>Images/BackGrounds/BattleField</File>
     <File>Images/BackGrounds/MainMenuBackground</File>

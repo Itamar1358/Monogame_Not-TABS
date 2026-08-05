@@ -9,27 +9,18 @@
   <component name="ChangeListManager">
     <list default="true" id="672b661f-2c1b-4f72-a3a5-35b95db9cd5c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/Audio/Music/theme.ogg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/Content.mgcb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Fonts/GameFont.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Fonts/GameFont.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/BackGrounds/BattleField.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/BackGrounds/BattleField.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/Button.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/Button.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/Fireball.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/Fireball.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/HypnosisBall.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/Images/HypnosisBall.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Fireball.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Fireball.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/HypnosisBall.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/HypnosisBall.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Engine/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Engine/SceneManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Game1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
@@ -129,7 +120,7 @@
       <workItem from="1785774039626" duration="4421000" />
       <workItem from="1785778900987" duration="796000" />
       <workItem from="1785780277318" duration="119000" />
-      <workItem from="1785935834127" duration="3790000" />
+      <workItem from="1785935834127" duration="7905000" />
     </task>
     <servers />
   </component>
