@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
@@ -7,6 +8,8 @@ namespace MonoGame2026_Heb;
 public static class AudioManager
 {
     private static List<SoundEffectInstance> _soundEffectsInstance = new();
+    
+    public static Action<string> PlaySFX = (name) => PlaySoundEffect(name);
 
     private static float prevVolSong = 1;
     public static void AddSong(string name, string fileName)

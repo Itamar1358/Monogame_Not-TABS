@@ -67,6 +67,7 @@ public class MainMenuManager : IUpdatable, IDrawable
             {
                 if (button.Bounds.Contains(mousePos))
                 {
+                    AudioManager.PlaySFX?.Invoke("ButtonSFX");
                     button.OnClick?.Invoke();
                     break;
                 }

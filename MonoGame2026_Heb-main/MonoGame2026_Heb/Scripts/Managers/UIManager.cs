@@ -171,6 +171,7 @@ public class UIManager : IUpdatable, IDrawable
         // 0. Check Play Button
         if (!isBattlePhase && playButtonBounds.Contains(mousePos))
         {
+            AudioManager.PlaySFX?.Invoke("ButtonSFX");
             StartBattle();
             return;
         }
@@ -203,6 +204,8 @@ public class UIManager : IUpdatable, IDrawable
         {
             if (button.Bounds.Contains(mousePos))
             {
+                AudioManager.PlaySFX?.Invoke("ButtonSFX");
+                
                 if (selectedButton == button)
                 {
                     CancelPlacement();
@@ -353,6 +356,7 @@ public class UIManager : IUpdatable, IDrawable
                 Console.WriteLine($"Red Player Placed {name} at {position}");
             }
             placedUnits.Add(newUnit); 
+            AudioManager.PlaySFX?.Invoke("SpawnUnitSFX");
         }
     }
 

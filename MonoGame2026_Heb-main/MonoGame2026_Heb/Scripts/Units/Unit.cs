@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 namespace MonoGame2026_Heb;
@@ -447,6 +447,8 @@ protected Unit(
         if (!IsAlive || damageAmount <= 0)
             return;
 
+        AudioManager.PlaySFX?.Invoke("HitSFX");
+        
         CurrentHealth = Math.Max(
             0,
             CurrentHealth - damageAmount);
@@ -554,6 +556,9 @@ protected Unit(
     {
         if (CurrentState == UnitState.Dead)
             return;
+
+        string deathSound = GetType().Name == "Wizard" ? "MagicianDeath" : GetType().Name + "Death";
+        AudioManager.PlaySFX?.Invoke(deathSound);
 
         CurrentHealth = 0;
         IsCombatEnabled = false;

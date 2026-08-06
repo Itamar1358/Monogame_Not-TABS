@@ -81,12 +81,19 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
+        AudioManager.AddSong("GameplayMusic", "Audio/Music/GameplayMusic");
         
-        //AudioManager.AddSong("theme", "Audio/Music/theme");
-        //AudioManager.AddSoundEffect("collect", "Audio/SFX/collect");
-        //AudioManager.AddSoundEffect("bounce", "Audio/SFX/bounce");
-        
-        
+        AudioManager.AddSoundEffect("ButtonSFX", "Audio/SFX/ButtonSFX");
+        AudioManager.AddSoundEffect("ClubHitSFX", "Audio/SFX/ClubHitSFX");
+        AudioManager.AddSoundEffect("ConfusionSpellSFX", "Audio/SFX/ConfusionSpellSFX");
+        AudioManager.AddSoundEffect("FireballSFX", "Audio/SFX/FireballSFX");
+        AudioManager.AddSoundEffect("HitSFX", "Audio/SFX/HitSFX");
+        AudioManager.AddSoundEffect("HypnotistDeath", "Audio/SFX/HypnotistDeath");
+        AudioManager.AddSoundEffect("KnightDeath", "Audio/SFX/KnightDeath");
+        AudioManager.AddSoundEffect("MagicianDeath", "Audio/SFX/MagicianDeath");
+        AudioManager.AddSoundEffect("OgreDeath", "Audio/SFX/OgreDeath");
+        AudioManager.AddSoundEffect("SpawnUnitSFX", "Audio/SFX/SpawnUnitSFX");
+        AudioManager.AddSoundEffect("SwordHitSFX", "Audio/SFX/SwordHitSFX");
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         SpriteManager.AddSprite("Background", "Images/BackGrounds/BattleField", 1, 1);
@@ -143,7 +150,7 @@ public class Game1 : Game
     public void LoadGame()
     {
         CurrentBackground = "Background";
-        MediaPlayer.Stop();
+        AudioManager.PlaySong("GameplayMusic");
         SceneManager.Clear();
         
         battleManager = SceneManager.Create<BattleManager>();

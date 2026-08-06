@@ -177,6 +177,9 @@ public abstract class MeleeWeapon : Sprite
         hasHit = true;
         collider.IsEnabled = false;
 
+        string hitSound = GetType().Name + "HitSFX";
+        AudioManager.PlaySFX?.Invoke(hitSound);
+
         hitUnit.TakeDamage(damage);
     }
 }

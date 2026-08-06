@@ -70,6 +70,7 @@ public class UnitManualManager : IUpdatable, IDrawable
             
             if (backButtonBounds.Contains(mousePos))
             {
+                AudioManager.PlaySFX?.Invoke("ButtonSFX");
                 Game1.Instance.LoadMainMenu();
             }
         }

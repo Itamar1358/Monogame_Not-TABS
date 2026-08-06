@@ -24,6 +24,8 @@ public class Hypnotist : Unit
     {
         HypnosisProjectile projectile =
             SceneManager.Create<HypnosisProjectile>();
+            
+        AudioManager.PlaySFX?.Invoke("ConfusionSpellSFX");
 
         projectile.InitializeHypnosisProjectile(
             owner: this,

@@ -13,6 +13,13 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Audio/Music/GameplayMusic.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/Music/GameplayMusic.ogg;Audio/Music/GameplayMusic
+
 #begin Audio/Music/MainMenuSoundTrack.ogg
 /importer:OggImporter
 /processor:SongProcessor
@@ -20,7 +27,82 @@
 /processorParam:Version=3.8.5.0
 /build:Audio/Music/MainMenuSoundTrack.ogg;Audio/Music/MainMenuSoundTrack
 
+#begin Audio/SFX/ButtonSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/ButtonSFX.wav
 
+#begin Audio/SFX/ClubHitSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/ClubHitSFX.wav
+
+#begin Audio/SFX/ConfusionSpellSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/ConfusionSpellSFX.wav
+
+#begin Audio/SFX/FireballSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/FireballSFX.wav
+
+#begin Audio/SFX/HitSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/HitSFX.wav
+
+#begin Audio/SFX/HypnotistDeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/HypnotistDeath.wav
+
+#begin Audio/SFX/KnightDeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/KnightDeath.wav
+
+#begin Audio/SFX/MagicianDeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/MagicianDeath.wav
+
+#begin Audio/SFX/OgreDeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/OgreDeath.wav
+
+#begin Audio/SFX/SpawnUnitSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/SpawnUnitSFX.wav
+
+#begin Audio/SFX/SwordHitSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/SwordHitSFX.wav
 
 #begin Fonts/GameFont.spritefont
 /importer:FontDescriptionImporter

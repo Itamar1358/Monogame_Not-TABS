@@ -25,6 +25,8 @@ public class Wizard : Unit
     {
         FireProjectile projectile =
             SceneManager.Create<FireProjectile>();
+            
+        AudioManager.PlaySFX?.Invoke("FireballSFX");
 
         projectile.InitializeFireProjectile(owner: this,
             target: target,
