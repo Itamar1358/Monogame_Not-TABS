@@ -28,9 +28,27 @@ public class UIManager : IUpdatable, IDrawable
     private Rectangle bluePlacementArea;
     private Rectangle redPlacementArea;
     
-    public BattleManager battleManager;
+    private BattleManager _battleManager;
+    public BattleManager battleManager 
+    { 
+        get => _battleManager; 
+        set 
+        {
+            _battleManager = value;
+            _battleManager.OnVictory += HandleVictory;
+        }
+    }
+    
     private bool isBattlePhase = false;
     private Rectangle playButtonBounds;
+    
+    private bool isVictoryPhase = false;
+    private string victoryMessage = "";
+    private Rectangle restartButtonBounds;
+    private Rectangle menuButtonBounds;
+    
+    private bool showPlacementError = false;
+    private float placementErrorTimer = 0f;
     
     // ========================================================================================================================================================
     
@@ -116,6 +134,15 @@ public class UIManager : IUpdatable, IDrawable
         int playWidth = 200;
         int playHeight = 80;
         playButtonBounds = new Rectangle((screenWidth / 2) - (playWidth / 2), 20, playWidth, playHeight);
+        
+        // Setup Victory Screen Buttons
+        int victoryButtonWidth = 400;
+        int victoryButtonHeight = 100;
+        int centerX = screenWidth / 2;
+        int centerY = screenHeight / 2;
+        
+        restartButtonBounds = new Rectangle(centerX - victoryButtonWidth / 2, centerY, victoryButtonWidth, victoryButtonHeight);
+        menuButtonBounds = new Rectangle(centerX - victoryButtonWidth / 2, centerY + victoryButtonHeight + 20, victoryButtonWidth, victoryButtonHeight);
     }
     
     public void Start() 
@@ -125,6 +152,15 @@ public class UIManager : IUpdatable, IDrawable
     
     public void Update(GameTime gameTime)
     {
+        if (showPlacementError)
+        {
+            placementErrorTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (placementErrorTimer <= 0)
+            {
+                showPlacementError = false;
+            }
+        }
+
         MouseState currentMouseState = Mouse.GetState();
         bool isLeftClick = currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released;
         bool isRightClick = currentMouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Released;
@@ -147,6 +183,7 @@ public class UIManager : IUpdatable, IDrawable
 
     private void HandleRightClick()
     {
+        if (isVictoryPhase) return;
         if (isBattlePhase) return; // Disallow interaction in battle phase
 
         if (selectedButton != null) 
@@ -168,10 +205,41 @@ public class UIManager : IUpdatable, IDrawable
 
     private void HandleLeftClick(Point mousePos)
     {
+        if (isVictoryPhase)
+        {
+            if (restartButtonBounds.Contains(mousePos))
+            {
+                AudioManager.PlaySFX?.Invoke("ButtonSFX");
+                Game1.Instance.LoadGame();
+            }
+            else if (menuButtonBounds.Contains(mousePos))
+            {
+                AudioManager.PlaySFX?.Invoke("ButtonSFX");
+                Game1.Instance.LoadMainMenu();
+            }
+            return;
+        }
+
         // 0. Check Play Button
         if (!isBattlePhase && playButtonBounds.Contains(mousePos))
         {
             AudioManager.PlaySFX?.Invoke("ButtonSFX");
+            
+            bool hasBlue = false;
+            bool hasRed = false;
+            foreach (var unit in placedUnits)
+            {
+                if (unit.UnitTeam == Unit.Team.Blue) hasBlue = true;
+                if (unit.UnitTeam == Unit.Team.Red) hasRed = true;
+            }
+            
+            if (!hasBlue || !hasRed)
+            {
+                showPlacementError = true;
+                placementErrorTimer = 3.0f;
+                return;
+            }
+            
             StartBattle();
             return;
         }
@@ -204,10 +272,9 @@ public class UIManager : IUpdatable, IDrawable
         {
             if (button.Bounds.Contains(mousePos))
             {
-                AudioManager.PlaySFX?.Invoke("ButtonSFX");
-                
                 if (selectedButton == button)
                 {
+                    AudioManager.PlaySFX?.Invoke("ButtonSFX");
                     CancelPlacement();
                     return true;
                 }
@@ -222,9 +289,14 @@ public class UIManager : IUpdatable, IDrawable
                     {
                         currentManaBlue -= button.Cost;
                         selectedButton = button;
+                        AudioManager.PlaySFX?.Invoke("SpawnUnitSFX");
                         Console.WriteLine($"Blue Player Picked up {button.Name}");
                     }
-                    else Console.WriteLine("Not enough mana!");
+                    else 
+                    {
+                        AudioManager.PlaySFX?.Invoke("ButtonSFX");
+                        Console.WriteLine("Not enough mana!");
+                    }
                 }
                 else if (button.team == Team.Red)
                 {
@@ -232,9 +304,14 @@ public class UIManager : IUpdatable, IDrawable
                     {
                         currentManaRed -= button.Cost;
                         selectedButton = button;
+                        AudioManager.PlaySFX?.Invoke("SpawnUnitSFX");
                         Console.WriteLine($"Red Player Picked up {button.Name}");
                     }
-                    else Console.WriteLine("Not enough mana!");
+                    else 
+                    {
+                        AudioManager.PlaySFX?.Invoke("ButtonSFX");
+                        Console.WriteLine("Not enough mana!");
+                    }
                 }
                 return true;
             }
@@ -319,6 +396,13 @@ public class UIManager : IUpdatable, IDrawable
         Console.WriteLine("Battle Phase Started!");
     }
     
+    private void HandleVictory(Unit.Team winningTeam)
+    {
+        isVictoryPhase = true;
+        victoryMessage = $"{winningTeam} Team Wins!";
+        AudioManager.PlaySFX?.Invoke("VictorySFX");
+    }
+    
     // =======================================================================================================================================================
     //              HELPER FUNCTIONS
     // =======================================================================================================================================================
@@ -356,7 +440,8 @@ public class UIManager : IUpdatable, IDrawable
                 Console.WriteLine($"Red Player Placed {name} at {position}");
             }
             placedUnits.Add(newUnit); 
-            AudioManager.PlaySFX?.Invoke("SpawnUnitSFX");
+            string soundName = name == "Wizard" ? "MagicianPlacedSFX" : name + "PlacedSFX";
+            AudioManager.PlaySFX?.Invoke(soundName);
         }
     }
 
@@ -396,6 +481,14 @@ public class UIManager : IUpdatable, IDrawable
                     playButtonBounds.Y + (playButtonBounds.Height - textSize.Y * scale) / 2
                 );
                 spriteBatch.DrawString(font, "PLAY", textPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+            }
+            
+            if (showPlacementError && font != null)
+            {
+                string errorMsg = "Both teams must have at least one unit to start!";
+                Vector2 size = font.MeasureString(errorMsg);
+                Vector2 pos = new Vector2((Game1.ScreenWidth - size.X) / 2, playButtonBounds.Bottom + 10);
+                spriteBatch.DrawString(font, errorMsg, pos, Color.Red);
             }
             
             foreach (var button in buttons) // Draw UI Buttons
@@ -475,6 +568,54 @@ public class UIManager : IUpdatable, IDrawable
             {
                 MouseState mouse = Mouse.GetState();
                 spriteBatch.DrawString(font, $"Placing {selectedButton.Name}...", new Vector2(mouse.X + 15, mouse.Y + 15), Color.Yellow);
+            }
+        }
+
+        if (isVictoryPhase)
+        {
+            // Dim background
+            spriteBatch.Draw(dummyTexture, new Rectangle(0, 0, Game1.ScreenWidth, Game1.ScreenHeight), Color.Black * 0.5f);
+            
+            if (font != null)
+            {
+                Vector2 titleSize = font.MeasureString(victoryMessage);
+                Vector2 titlePos = new Vector2((Game1.ScreenWidth - titleSize.X * 2f) / 2, Game1.ScreenHeight * 0.3f);
+                spriteBatch.DrawString(font, victoryMessage, titlePos, Color.Gold, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
+            }
+            
+            // Draw Restart Button
+            Spritesheet buttonSprite = SpriteManager.GetSprite("CustomButton");
+            MouseState mouseState = Mouse.GetState();
+            
+            Color restartColor = restartButtonBounds.Contains(mouseState.X, mouseState.Y) ? Color.LightGray : Color.White;
+            if (buttonSprite != null) spriteBatch.Draw(buttonSprite.texture, restartButtonBounds, restartColor);
+            else spriteBatch.Draw(dummyTexture, restartButtonBounds, restartColor);
+            
+            if (font != null)
+            {
+                Vector2 textSize = font.MeasureString("Restart Game");
+                float scale = Math.Min((restartButtonBounds.Width - 60) / textSize.X, (restartButtonBounds.Height - 40) / textSize.Y);
+                Vector2 textPos = new Vector2(
+                    restartButtonBounds.X + (restartButtonBounds.Width - textSize.X * scale) / 2,
+                    restartButtonBounds.Y + (restartButtonBounds.Height - textSize.Y * scale) / 2
+                );
+                spriteBatch.DrawString(font, "Restart Game", textPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+            }
+            
+            // Draw Menu Button
+            Color menuColor = menuButtonBounds.Contains(mouseState.X, mouseState.Y) ? Color.LightGray : Color.White;
+            if (buttonSprite != null) spriteBatch.Draw(buttonSprite.texture, menuButtonBounds, menuColor);
+            else spriteBatch.Draw(dummyTexture, menuButtonBounds, menuColor);
+            
+            if (font != null)
+            {
+                Vector2 textSize = font.MeasureString("Main Menu");
+                float scale = Math.Min((menuButtonBounds.Width - 60) / textSize.X, (menuButtonBounds.Height - 40) / textSize.Y);
+                Vector2 textPos = new Vector2(
+                    menuButtonBounds.X + (menuButtonBounds.Width - textSize.X * scale) / 2,
+                    menuButtonBounds.Y + (menuButtonBounds.Height - textSize.Y * scale) / 2
+                );
+                spriteBatch.DrawString(font, "Main Menu", textPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
             }
         }
     }

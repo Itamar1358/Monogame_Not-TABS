@@ -69,12 +69,26 @@
 /processorParam:Version=3.8.5.0
 /build:Audio/SFX/HypnotistDeath.wav
 
+#begin Audio/SFX/HypnotistPlacedSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/HypnotistPlacedSFX.wav;Audio/SFX/HypnotistPlacedSFX
+
 #begin Audio/SFX/KnightDeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /processorParam:Version=3.8.5.0
 /build:Audio/SFX/KnightDeath.wav
+
+#begin Audio/SFX/KnightPlacedSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/KnightPlacedSFX.wav;Audio/SFX/KnightPlacedSFX
 
 #begin Audio/SFX/MagicianDeath.wav
 /importer:WavImporter
@@ -83,12 +97,26 @@
 /processorParam:Version=3.8.5.0
 /build:Audio/SFX/MagicianDeath.wav
 
+#begin Audio/SFX/MagicianPlacedSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/MagicianPlacedSFX.wav;Audio/SFX/MagicianPlacedSFX
+
 #begin Audio/SFX/OgreDeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /processorParam:Version=3.8.5.0
 /build:Audio/SFX/OgreDeath.wav
+
+#begin Audio/SFX/OgrePlacedSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/OgrePlacedSFX.wav;Audio/SFX/OgrePlacedSFX
 
 #begin Audio/SFX/SpawnUnitSFX.wav
 /importer:WavImporter
@@ -103,6 +131,13 @@
 /processorParam:Quality=Best
 /processorParam:Version=3.8.5.0
 /build:Audio/SFX/SwordHitSFX.wav
+
+#begin Audio/SFX/VictorySFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/VictorySFX.wav;Audio/SFX/VictorySFX
 
 #begin Fonts/GameFont.spritefont
 /importer:FontDescriptionImporter

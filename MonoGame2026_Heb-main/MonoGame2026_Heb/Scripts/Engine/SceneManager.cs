@@ -133,7 +133,7 @@ public class SceneManager : IUpdatable, IDrawable
                      .OrderBy(drawable =>
                          drawable is Sprite sprite
                              ? sprite.sortingOrder
-                             : 0))
+                             : 30000))
         {
             drawable.Draw(spriteBatch);
         }

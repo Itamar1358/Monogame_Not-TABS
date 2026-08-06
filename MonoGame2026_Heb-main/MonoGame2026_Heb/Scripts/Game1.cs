@@ -94,6 +94,11 @@ public class Game1 : Game
         AudioManager.AddSoundEffect("OgreDeath", "Audio/SFX/OgreDeath");
         AudioManager.AddSoundEffect("SpawnUnitSFX", "Audio/SFX/SpawnUnitSFX");
         AudioManager.AddSoundEffect("SwordHitSFX", "Audio/SFX/SwordHitSFX");
+        AudioManager.AddSoundEffect("VictorySFX", "Audio/SFX/VictorySFX");
+        AudioManager.AddSoundEffect("HypnotistPlacedSFX", "Audio/SFX/HypnotistPlacedSFX");
+        AudioManager.AddSoundEffect("MagicianPlacedSFX", "Audio/SFX/MagicianPlacedSFX");
+        AudioManager.AddSoundEffect("OgrePlacedSFX", "Audio/SFX/OgrePlacedSFX");
+        AudioManager.AddSoundEffect("KnightPlacedSFX", "Audio/SFX/KnightPlacedSFX");
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         SpriteManager.AddSprite("Background", "Images/BackGrounds/BattleField", 1, 1);

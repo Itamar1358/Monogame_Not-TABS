@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
@@ -7,6 +7,8 @@ namespace MonoGame2026_Heb;
 public class BattleManager : IUpdatable
 {
     private readonly List<Unit> units = new();
+    
+    public Action<Unit.Team> OnVictory;
 
     public bool IsBattleActive { get; private set; }
 
@@ -44,10 +46,16 @@ public class BattleManager : IUpdatable
         if (!IsBattleActive)
             return;
 
+        bool blueAlive = false;
+        bool redAlive = false;
+
         foreach (Unit unit in units)
         {
             if (!unit.IsAlive)
                 continue;
+
+            if (unit.UnitTeam == Unit.Team.Blue) blueAlive = true;
+            else if (unit.UnitTeam == Unit.Team.Red) redAlive = true;
 
             // replaces dead or missing targets
             if (unit.Target == null ||
@@ -65,6 +73,13 @@ public class BattleManager : IUpdatable
                     unit.ClearTarget();
                 }
             }
+        }
+        
+        if (!blueAlive || !redAlive)
+        {
+            IsBattleActive = false;
+            Unit.Team winner = blueAlive ? Unit.Team.Blue : Unit.Team.Red;
+            OnVictory?.Invoke(winner);
         }
     }
 

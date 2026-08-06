@@ -12,11 +12,16 @@
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/FireballSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HitSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HypnotistDeath.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HypnotistPlacedSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/KnightDeath.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/KnightPlacedSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/MagicianDeath.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/MagicianPlacedSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/OgreDeath.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/OgrePlacedSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/SpawnUnitSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/SwordHitSFX.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/VictorySFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Fonts/GameFont.spritefont</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/BattleField.png</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Images/BackGrounds/MainMenuBackground.png</File>
@@ -38,11 +43,16 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Audio/SFX/HypnotistPlacedSFX</File>
+    <File xsi:nil="true" />
+    <File>Audio/SFX/KnightPlacedSFX</File>
+    <File xsi:nil="true" />
+    <File>Audio/SFX/MagicianPlacedSFX</File>
+    <File xsi:nil="true" />
+    <File>Audio/SFX/OgrePlacedSFX</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>Audio/SFX/VictorySFX</File>
     <File xsi:nil="true" />
     <File>Images/BackGrounds/BattleField</File>
     <File>Images/BackGrounds/MainMenuBackground</File>
