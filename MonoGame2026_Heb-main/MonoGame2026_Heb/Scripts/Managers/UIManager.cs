@@ -83,25 +83,25 @@ public class UIManager : IUpdatable, IDrawable
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(10, buttonY, buttonWidth, buttonHeight), 
             Name = "Knight", 
-            Cost = 25,
+            Cost = Knight.BaseCost,
             team = Team.Blue
         });
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(10 + (buttonWidth + 10) * 1, buttonY, buttonWidth, buttonHeight), 
             Name = "Ogre", 
-            Cost = 75,
+            Cost = Ogre.BaseCost,
             team = Team.Blue
         });
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(10 + (buttonWidth + 10) * 2, buttonY, buttonWidth, buttonHeight), 
             Name = "Wizard", 
-            Cost = 100,
+            Cost = Wizard.BaseCost,
             team = Team.Blue
         });
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(10 + (buttonWidth + 10) * 3, buttonY, buttonWidth, buttonHeight), 
             Name = "Hypnotist", 
-            Cost = 125,
+            Cost = Hypnotist.BaseCost,
             team = Team.Blue
         });
         
@@ -109,25 +109,25 @@ public class UIManager : IUpdatable, IDrawable
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 3, buttonY, buttonWidth, buttonHeight), 
             Name = "Knight", 
-            Cost = 25,
+            Cost = Knight.BaseCost,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 2, buttonY, buttonWidth, buttonHeight), 
             Name = "Ogre", 
-            Cost = 75,
+            Cost = Ogre.BaseCost,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 1, buttonY, buttonWidth, buttonHeight), 
             Name = "Wizard", 
-            Cost = 100,
+            Cost = Wizard.BaseCost,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
             Bounds = new Rectangle(screenWidth - buttonWidth - 10, buttonY, buttonWidth, buttonHeight), 
             Name = "Hypnotist", 
-            Cost = 125,
+            Cost = Hypnotist.BaseCost,
             team = Team.Red
         });
         
@@ -147,26 +147,19 @@ public class UIManager : IUpdatable, IDrawable
         menuButtonBounds = new Rectangle(centerX - victoryButtonWidth / 2, centerY + victoryButtonHeight + 30, victoryButtonWidth, victoryButtonHeight);
     }
     
-    public void Start() 
-    { 
-        previousMouseState = Mouse.GetState();
-    }
+    public void Start() { previousMouseState = Mouse.GetState(); }
     
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime) // Handles mouse input for selecting units, placing them on the field, and spending mana
     {
         if (isManualOpen)
         {
             previousMouseState = Mouse.GetState();
             return;
         }
-        
         if (showPlacementError)
         {
             placementErrorTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (placementErrorTimer <= 0)
-            {
-                showPlacementError = false;
-            }
+            if (placementErrorTimer <= 0) { showPlacementError = false; }
         }
 
         MouseState currentMouseState = Mouse.GetState();
@@ -174,33 +167,18 @@ public class UIManager : IUpdatable, IDrawable
         bool isRightClick = currentMouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Released;
         Point mousePos = new Point(currentMouseState.X, currentMouseState.Y);
 
-        if (isRightClick)
-        {
-            HandleRightClick();
-        }
-        if (isLeftClick)
-        {
-            HandleLeftClick(mousePos);
-        }
+        if (isRightClick) { HandleRightClick(); }
+        if (isLeftClick) { HandleLeftClick(mousePos); }
         previousMouseState = currentMouseState;
     }
-    
-    // =======================================================================================================================================================
-    //              INPUT HANDLING FUNCTIONS
-    // =======================================================================================================================================================
 
-    private void HandleRightClick()
+    private void HandleRightClick() // Cancels unit placement or refunds and deletes a placed unit
     {
         if (isVictoryPhase) return;
-        if (isBattlePhase) return; // Disallow interaction in battle phase
-
-        if (selectedButton != null) 
-        { 
-            CancelPlacement(); 
-        }
+        if (isBattlePhase) return;
+        if (selectedButton != null) { CancelPlacement(); }
         else if (selectedPlacedUnit != null)
         {
-            // Refund the unit
             if (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) currentManaBlue += selectedPlacedUnit.Cost;
             else currentManaRed += selectedPlacedUnit.Cost;
 
@@ -211,7 +189,7 @@ public class UIManager : IUpdatable, IDrawable
         }
     }
 
-    private void HandleLeftClick(Point mousePos)
+    private void HandleLeftClick(Point mousePos) // Routes left clicks to victory screen actions, manual/play buttons, or unit placement logic
     {
         if (isVictoryPhase)
         {
@@ -227,8 +205,6 @@ public class UIManager : IUpdatable, IDrawable
             }
             return;
         }
-
-        // 0. Check Manual Button
         if (!isBattlePhase && manualButtonBounds.Contains(mousePos))
         {
             AudioManager.PlaySFX?.Invoke("ButtonSFX");
@@ -236,18 +212,12 @@ public class UIManager : IUpdatable, IDrawable
             UnitManualManager manual = SceneManager.Create<UnitManualManager>();
             manual.font = this.font;
             manual.IsPopup = true;
-            manual.OnBack = () => {
-                SceneManager.Remove(manual);
-                isManualOpen = false;
-            };
+            manual.OnBack = () => { SceneManager.Remove(manual); isManualOpen = false; };
             return;
         }
-
-        // 0.1. Check Play Button
         if (!isBattlePhase && playButtonBounds.Contains(mousePos))
         {
             AudioManager.PlaySFX?.Invoke("ButtonSFX");
-            
             bool hasBlue = false;
             bool hasRed = false;
             foreach (var unit in placedUnits)
@@ -255,41 +225,26 @@ public class UIManager : IUpdatable, IDrawable
                 if (unit.UnitTeam == Unit.Team.Blue) hasBlue = true;
                 if (unit.UnitTeam == Unit.Team.Red) hasRed = true;
             }
-            
             if (!hasBlue || !hasRed)
             {
                 showPlacementError = true;
                 placementErrorTimer = 3.0f;
                 return;
             }
-            
             StartBattle();
             return;
         }
-
-        if (isBattlePhase) return; // Disallow interaction in battle phase
+        if (isBattlePhase) return;
 
         bool isUnitSelected = selectedButton != null || selectedPlacedUnit != null;
         bool clickedOnUI = false;
 
-        // Try to interact with UI buttons if we aren't currently placing/moving a unit
-        if (!isUnitSelected)
-        {
-            clickedOnUI = TryClickUIButtons(mousePos);
-        }
-        // Try to select or move an existing placed unit
-        if (!clickedOnUI && selectedButton == null)
-        {
-            TrySelectOrMoveUnit(mousePos);
-        }
-        // Try to place a newly bought unit
-        if (!clickedOnUI && selectedButton != null) 
-        {
-            TryPlaceNewUnit(mousePos);
-        }
+        if (!isUnitSelected) { clickedOnUI = TryClickUIButtons(mousePos); }
+        if (!clickedOnUI && selectedButton == null) { TrySelectOrMoveUnit(mousePos); }
+        if (!clickedOnUI && selectedButton != null) { TryPlaceNewUnit(mousePos); }
     }
 
-    private bool TryClickUIButtons(Point mousePos)
+    private bool TryClickUIButtons(Point mousePos) // Evaluates if a unit purchase button was clicked and deducts mana if affordable
     {
         foreach (var button in buttons)
         {
@@ -301,11 +256,7 @@ public class UIManager : IUpdatable, IDrawable
                     CancelPlacement();
                     return true;
                 }
-                if (selectedButton != null)
-                {
-                    CancelPlacement();
-                }
-
+                if (selectedButton != null) { CancelPlacement(); }
                 if (button.team == Team.Blue)
                 {
                     if (currentManaBlue >= button.Cost)
@@ -342,7 +293,7 @@ public class UIManager : IUpdatable, IDrawable
         return false;
     }
 
-    private void TrySelectOrMoveUnit(Point mousePos)
+    private void TrySelectOrMoveUnit(Point mousePos) // Selects a previously placed unit or repositions the currently selected unit on the board
     {
         Unit clickedUnit = null;
         foreach (var unit in placedUnits)
@@ -353,7 +304,6 @@ public class UIManager : IUpdatable, IDrawable
                 break;
             }
         }
-        
         if (clickedUnit != null)
         {
             DeselectPlacedUnit(); 
@@ -372,7 +322,7 @@ public class UIManager : IUpdatable, IDrawable
         }
     }
 
-    private void TryPlaceNewUnit(Point mousePos)
+    private void TryPlaceNewUnit(Point mousePos) // Places a newly purchased unit within valid team bounds
     {
         if (selectedButton.team == Team.Blue) 
         {
@@ -394,7 +344,7 @@ public class UIManager : IUpdatable, IDrawable
         }
     }
 
-    private void DeselectPlacedUnit()
+    private void DeselectPlacedUnit() // Resets the color and selection state of the currently selected placed unit
     {
         if (selectedPlacedUnit != null)
         {
@@ -403,45 +353,37 @@ public class UIManager : IUpdatable, IDrawable
         }
     }
     
-    private void StartBattle()
+    private void StartBattle() // Locks in unit placements, registers all units with the BattleManager, and starts the combat phase
     {
         CancelPlacement();
         DeselectPlacedUnit();
         
         isBattlePhase = true;
         
-        foreach (var unit in placedUnits)
-        {
-            battleManager.RegisterUnit(unit);
-        }
+        foreach (var unit in placedUnits) { battleManager.RegisterUnit(unit); }
         
         battleManager.StartBattle();
         Console.WriteLine("Battle Phase Started!");
     }
     
-    private void HandleVictory(Unit.Team winningTeam)
+    private void HandleVictory(Unit.Team winningTeam) // Listens to the BattleManager's victory event and triggers the victory UI screen
     {
         isVictoryPhase = true;
         victoryMessage = $"{winningTeam} Team Wins!";
         AudioManager.PlaySFX?.Invoke("VictorySFX");
     }
-    
-    // =======================================================================================================================================================
-    //              HELPER FUNCTIONS
-    // =======================================================================================================================================================
-    
-    private void CancelPlacement() // Cancel placement and return mana
+
+    private void CancelPlacement() //Cancels the current unit selection from the spawn menu and refunds the mana
     {
         if (selectedButton != null)
         {
             if (selectedButton.team == Team.Blue) { currentManaBlue += selectedButton.Cost; }
             else  { currentManaRed += selectedButton.Cost; }
-            
             selectedButton = null;
         }
     }
     
-    private void PlaceUnit(string name, Vector2 position, Team team) // Instantiate & place unit on map
+    private void PlaceUnit(string name, Vector2 position, Team team) //Instantiates the selected unit class, places it at the target position, and triggers spawn SFX
     {
         Unit newUnit = null;
 
@@ -468,16 +410,14 @@ public class UIManager : IUpdatable, IDrawable
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch) // Renders the mana texts, unit buttons, play/manual buttons, placement preview zones, and victory screens
     {
         if (dummyTexture == null)
         {
             dummyTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
             dummyTexture.SetData(new[] { Color.White });
         }
-        
         bool isUnitSelected = selectedButton != null || selectedPlacedUnit != null;
-        
         if (!isUnitSelected && !isBattlePhase)
         {
             if (font != null) // Draw current mana
@@ -551,21 +491,15 @@ public class UIManager : IUpdatable, IDrawable
                 }
 
                 Spritesheet buttonSprite = SpriteManager.GetSprite("CustomButton");
-                if (buttonSprite != null)
-                {
-                    spriteBatch.Draw(buttonSprite.texture, button.Bounds, buttonColor);
-                }
-                else
-                {
-                    spriteBatch.Draw(dummyTexture, button.Bounds, buttonColor);
-                }
+                if (buttonSprite != null) { spriteBatch.Draw(buttonSprite.texture, button.Bounds, buttonColor); }
+                else { spriteBatch.Draw(dummyTexture, button.Bounds, buttonColor); }
 
                 if (font != null)
                 {
                     string text = $"{button.Name}\n({button.Cost})";
                     Vector2 textSize = font.MeasureString(text);
                     
-                    // Calculate scale to ensure text fits inside the button bounds (accounting for thick button borders)
+                    // Calculate scale to ensure text fits inside the button bounds
                     float scaleX = (button.Bounds.Width - 80) / textSize.X;
                     float scaleY = (button.Bounds.Height - 55) / textSize.Y;
                     float scale = Math.Min(1.0f, Math.Min(scaleX, scaleY));
@@ -602,7 +536,6 @@ public class UIManager : IUpdatable, IDrawable
             Rectangle activeArea = (selectedTeam == Team.Blue) ? bluePlacementArea : redPlacementArea;
             Color zoneColor = (selectedTeam == Team.Blue) ? (Color.Blue * 0.2f) : (Color.Red * 0.2f);
             spriteBatch.Draw(dummyTexture, activeArea, zoneColor);
-
             if (selectedButton != null && font != null)
             {
                 MouseState mouse = Mouse.GetState();
@@ -612,9 +545,7 @@ public class UIManager : IUpdatable, IDrawable
 
         if (isVictoryPhase)
         {
-            // Dim background
             spriteBatch.Draw(dummyTexture, new Rectangle(0, 0, Game1.ScreenWidth, Game1.ScreenHeight), Color.Black * 0.5f);
-            
             if (font != null)
             {
                 Vector2 titleSize = font.MeasureString(victoryMessage);
@@ -645,7 +576,6 @@ public class UIManager : IUpdatable, IDrawable
             Color menuColor = menuButtonBounds.Contains(mouseState.X, mouseState.Y) ? Color.LightGray : Color.White;
             if (buttonSprite != null) spriteBatch.Draw(buttonSprite.texture, menuButtonBounds, menuColor);
             else spriteBatch.Draw(dummyTexture, menuButtonBounds, menuColor);
-            
             if (font != null)
             {
                 Vector2 textSize = font.MeasureString("Main Menu");

@@ -6,75 +6,38 @@ namespace MonoGame2026_Heb;
 
 public class BattleManager : IUpdatable
 {
-    private readonly List<Unit> units = new();
+    // ============ Variables & References ==================================================================================================================
     
+    private readonly List<Unit> units = new();
     public Action<Unit.Team> OnVictory;
-
     public bool IsBattleActive { get; private set; }
+    
+    // ======================================================================================================================================================
 
-    public void Start()
-    {
-    }
-
-    public void RegisterUnit(Unit unit)
-    {
-        if (unit == null || units.Contains(unit))
-            return;
-
-        units.Add(unit);
-        Console.WriteLine("unit registered");
-
-        // listens to the unit's death event
-        unit.Died += OnUnitDied;
-    }
-
-    public void StartBattle()
-    {
-        IsBattleActive = true;
-
-        foreach (Unit unit in units)
-        {
-            if (unit.IsAlive)
-            {
-                unit.SetCombatEnabled(true);
-            }
-        }
-    }
-
+    public void Start() // Sets up the initial battle state and begins the setup phase
+    { }
     public void Update(GameTime gameTime)
     {
-        if (!IsBattleActive)
-            return;
+        if (!IsBattleActive) return;
 
         bool blueAlive = false;
         bool redAlive = false;
 
         foreach (Unit unit in units)
         {
-            if (!unit.IsAlive)
-                continue;
+            if (!unit.IsAlive) continue;
 
             if (unit.UnitTeam == Unit.Team.Blue) blueAlive = true;
             else if (unit.UnitTeam == Unit.Team.Red) redAlive = true;
 
             // replaces dead or missing targets
-            if (unit.Target == null ||
-                !unit.CanTarget(unit.Target))
+            if (unit.Target == null || !unit.CanTarget(unit.Target))
             {
-                Unit closestEnemy =
-                    FindClosestEnemy(unit);
-
-                if (closestEnemy != null)
-                {
-                    unit.SetTarget(closestEnemy);
-                }
-                else
-                {
-                    unit.ClearTarget();
-                }
+                Unit closestEnemy = FindClosestEnemy(unit);
+                if (closestEnemy != null) { unit.SetTarget(closestEnemy); }
+                else { unit.ClearTarget(); }
             }
         }
-        
         if (!blueAlive || !redAlive)
         {
             IsBattleActive = false;
@@ -83,20 +46,31 @@ public class BattleManager : IUpdatable
         }
     }
 
-    private Unit FindClosestEnemy(Unit unit)
+    public void RegisterUnit(Unit unit) // Adds a newly spawned unit to the tracking lists
+    {
+        if (unit == null || units.Contains(unit)) return;
+
+        units.Add(unit);
+        Console.WriteLine("unit registered");
+
+        unit.Died += OnUnitDied;
+    }
+
+    public void StartBattle() // Transitions the game from the setup/placement phase to the combat phase
+    {
+        IsBattleActive = true;
+        foreach (Unit unit in units) { if (unit.IsAlive) { unit.SetCombatEnabled(true); } }
+    }
+
+    private Unit FindClosestEnemy(Unit unit) // Finds the nearest alive enemy unit to a given position
     {
         Unit closestEnemy = null;
         float closestDistance = float.MaxValue;
-
+        
         foreach (Unit otherUnit in units)
         {
-            if (!unit.CanTarget(otherUnit))
-                continue;
-
-            float distance =
-                Vector2.DistanceSquared(
-                    unit.tm.position,
-                    otherUnit.tm.position);
+            if (!unit.CanTarget(otherUnit)) continue;
+            float distance = Vector2.DistanceSquared(unit.tm.position, otherUnit.tm.position);
 
             if (distance < closestDistance)
             {
@@ -104,13 +78,7 @@ public class BattleManager : IUpdatable
                 closestEnemy = otherUnit;
             }
         }
-
         return closestEnemy;
     }
-
-    private void OnUnitDied(Unit deadUnit)
-    {
-        Console.WriteLine(
-            $"{deadUnit.UnitTeam} unit died");
-    }
+    private void OnUnitDied(Unit deadUnit) { Console.WriteLine($"{deadUnit.UnitTeam} unit died"); }
 }

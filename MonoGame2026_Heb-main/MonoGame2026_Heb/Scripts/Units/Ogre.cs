@@ -6,51 +6,40 @@ namespace MonoGame2026_Heb;
 
 public class Ogre : Unit
 {
+    // ============ Variables & References ==================================================================================================================
+    
     private Club club;
-    public Ogre()
-        : base(
-            spriteName: "Ogre",
-            maxHealth: 200,
-            damage: 15,
-            cost: 75,
-            movementSpeed: 70f,
-            attackRange: 140f,
-            attackCooldown: 2f,
-            unitScale: 0.35f)
+    public const int BaseHealth = 200;
+    public const int BaseDamage = 15;
+    public const int BaseCost = 75; 
+    public const float BaseMovementSpeed = 70f;
+    public const float BaseAttackRange = 140f;
+    public const float BaseAttackCooldown = 2f;
+    public const float BaseUnitScale = 0.35f;
+    
+    // ======================================================================================================================================================
+
+    // (Constructor): Sets base stats like health, damage, and speed
+    public Ogre() : base(spriteName: "Ogre", maxHealth: BaseHealth, damage: BaseDamage, cost: BaseCost, movementSpeed: BaseMovementSpeed, attackRange: BaseAttackRange, attackCooldown: BaseAttackCooldown, unitScale: BaseUnitScale)
     {
         RotationOffset = 90f;
         ConfigureDamageSprites("Ogre_Hurt", "Ogre_VeryHurt");
     }
 
-    protected override void InitializeEquipment()
+    protected override void InitializeEquipment() // Spawns and attaches a Club melee weapon to the ogre
     {
-        // Prevent creating another sword if the unit is reinitialized.
-        if (club != null)
-            return;
-
+        if (club != null) return;
         club = SceneManager.Create<Club>();
-
-        club.InitializeWeapon(
-            weaponOwner: this,
-            weaponDamage: Damage,
-
-            // In front of an upward-facing token.
-            weaponOffset: new Vector2(0f, -55f),
-
-            // Start around this value and adjust visually.
-            weaponScale: 0.1f);
+        club.InitializeWeapon(weaponOwner: this, weaponDamage: Damage, weaponOffset: new Vector2(0f, -55f), weaponScale: 0.1f);
     }
     
-    protected override void PerformAttack(Unit target)
+    protected override void PerformAttack(Unit target) // Triggers the attached club's StartSwing() function
     {
         club.StartSwing();
-        //target.TakeDamage(Damage);
-        Console.WriteLine(
-            $"Ogre attacked {target} " +
-            $"Health remaining: {target.CurrentHealth}");
+        Console.WriteLine($"Ogre attacked {target} " + $"Health remaining: {target.CurrentHealth}");
     }
     
-    protected override void OnStateChanged(UnitState newState)
+    protected override void OnStateChanged(UnitState newState) // Swaps between Idle, Walk, and Attack animations
     {
         switch (newState)
         {

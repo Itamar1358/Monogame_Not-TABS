@@ -8,6 +8,8 @@ namespace MonoGame2026_Heb;
 
 public class SettingsManager : IUpdatable, IDrawable
 {
+    // ============ Variables & References ==================================================================================================================
+    
     public SpriteFont font;
     
     private Rectangle backButtonBounds;
@@ -22,10 +24,11 @@ public class SettingsManager : IUpdatable, IDrawable
     private Rectangle sfxPanelBounds;
     
     private MouseState previousMouseState;
-
     public int SortingOrder => 30000;
 
-    public void Start()
+    // =======================================================================================================================================================
+    
+    public void Start() // Initializes volume and gamma sliders and back buttons
     {
         previousMouseState = Mouse.GetState();
         
@@ -51,7 +54,7 @@ public class SettingsManager : IUpdatable, IDrawable
         backButtonBounds = new Rectangle((screenWidth - buttonWidth) / 2, screenHeight - buttonHeight - 40, buttonWidth, buttonHeight);
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime) // Handles mouse dragging on the sliders to change audio/visual settings
     {
         MouseState mouse = Mouse.GetState();
         Point mousePos = new Point(mouse.X, mouse.Y);
@@ -66,16 +69,13 @@ public class SettingsManager : IUpdatable, IDrawable
                 return;
             }
         }
-        
         // Music Slider Dragging
         int padX = 100;
         int innerStartX = musicPanelBounds.X + padX;
         int innerWidth = musicPanelBounds.Width - (padX * 2);
-        
         if (mouse.LeftButton == ButtonState.Pressed)
         {
             Rectangle expandedMusic = new Rectangle(musicPanelBounds.X - 20, musicPanelBounds.Y - 20, musicPanelBounds.Width + 40, musicPanelBounds.Height + 40);
-            
             if (!isDraggingSFX && !isDraggingGamma && ((expandedMusic.Contains(mousePos) && previousMouseState.LeftButton == ButtonState.Released) || isDraggingMusic))
             {
                 isDraggingMusic = true;
@@ -91,13 +91,11 @@ public class SettingsManager : IUpdatable, IDrawable
                 isDraggingMusic = false;
             }
         }
-        
         // SFX Slider Dragging
         int sfxInnerStartX = sfxPanelBounds.X + padX;
         if (mouse.LeftButton == ButtonState.Pressed)
         {
             Rectangle expandedSFX = new Rectangle(sfxPanelBounds.X - 20, sfxPanelBounds.Y - 20, sfxPanelBounds.Width + 40, sfxPanelBounds.Height + 40);
-            
             if (!isDraggingMusic && !isDraggingGamma && ((expandedSFX.Contains(mousePos) && previousMouseState.LeftButton == ButtonState.Released) || isDraggingSFX))
             {
                 isDraggingSFX = true;
@@ -115,7 +113,6 @@ public class SettingsManager : IUpdatable, IDrawable
                 isDraggingSFX = false;
             }
         }
-        
         // Gamma Slider Dragging
         int gammaInnerStartX = gammaPanelBounds.X + padX;
         if (mouse.LeftButton == ButtonState.Pressed)
@@ -137,22 +134,19 @@ public class SettingsManager : IUpdatable, IDrawable
                 isDraggingGamma = false;
             }
         }
-        
         previousMouseState = mouse;
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch) // Renders the settings menu text, sliders, and buttons
     {
         if (dummyTexture == null)
         {
             dummyTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
             dummyTexture.SetData(new[] { Color.White });
         }
-        
         Spritesheet buttonSprite = SpriteManager.GetSprite("CustomButton");
         
-        // Draw panels
-        if (buttonSprite != null)
+        if (buttonSprite != null) // Draw panels
         {
             spriteBatch.Draw(buttonSprite.texture, musicPanelBounds, Color.White);
             spriteBatch.Draw(buttonSprite.texture, sfxPanelBounds, Color.White);
@@ -177,8 +171,7 @@ public class SettingsManager : IUpdatable, IDrawable
             spriteBatch.Draw(dummyTexture, gammaFill, Color.Gold * 0.8f);
         }
         
-        // Draw title
-        if (font != null)
+        if (font != null) // Draw title
         {
             string title = "Settings";
             Vector2 titleSize = font.MeasureString(title);

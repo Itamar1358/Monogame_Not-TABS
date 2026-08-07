@@ -9,10 +9,14 @@ namespace MonoGame2026_Heb;
 
 public class MainMenuManager : IUpdatable, IDrawable
 {
+    // ============ Variables & References ==================================================================================================================
+    
     public SpriteFont font;
     private List<MenuButton> buttons = new();
     private MouseState previousMouseState;
 
+    // ======================================================================================================================================================
+    
     private class MenuButton
     {
         public string Text;
@@ -20,7 +24,7 @@ public class MainMenuManager : IUpdatable, IDrawable
         public Action OnClick;
     }
 
-    public void Start()
+    public void Start() // Initializes the menu buttons and calculates their screen positions
     {
         previousMouseState = Mouse.GetState();
 
@@ -30,41 +34,45 @@ public class MainMenuManager : IUpdatable, IDrawable
         int buttonHeight = 130;
         int spacing = 50;
 
-        int startY = screenHeight / 2 - (buttonHeight * 2 + spacing * 1) + 100;
+        int startY = (int)(screenHeight / 2 - (buttonHeight * 2.5f + spacing * 1.5f) + 100);
 
         buttons.Add(new MenuButton {
             Text = "Start Game",
-            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, startY, buttonWidth, buttonHeight),
+            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, (int)startY, buttonWidth, buttonHeight),
             OnClick = () => Game1.Instance.LoadGame()
         });
 
         buttons.Add(new MenuButton {
+            Text = "How To Play",
+            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, (int)(startY + (buttonHeight + spacing) * 1), buttonWidth, buttonHeight),
+            OnClick = () => Game1.Instance.LoadInstructionsMenu()
+        });
+
+        buttons.Add(new MenuButton {
             Text = "Unit Manual",
-            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, startY + (buttonHeight + spacing) * 1, buttonWidth, buttonHeight),
+            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, (int)(startY + (buttonHeight + spacing) * 2), buttonWidth, buttonHeight),
             OnClick = () => Game1.Instance.LoadUnitManual()
         });
 
         buttons.Add(new MenuButton {
             Text = "Settings",
-            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, startY + (buttonHeight + spacing) * 2, buttonWidth, buttonHeight),
+            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, (int)(startY + (buttonHeight + spacing) * 3), buttonWidth, buttonHeight),
             OnClick = () => Game1.Instance.LoadSettingsMenu()
         });
 
         buttons.Add(new MenuButton {
             Text = "Exit",
-            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, startY + (buttonHeight + spacing) * 3, buttonWidth, buttonHeight),
+            Bounds = new Rectangle((screenWidth - buttonWidth) / 2, (int)(startY + (buttonHeight + spacing) * 4), buttonWidth, buttonHeight),
             OnClick = () => Game1.Instance.Exit()
         });
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime) // Checks for mouse clicks on the menu buttons and invokes their actions
     {
         MouseState currentMouseState = Mouse.GetState();
-
         if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
         {
             Point mousePos = new Point(currentMouseState.X, currentMouseState.Y);
-            
             foreach (var button in buttons)
             {
                 if (button.Bounds.Contains(mousePos))
@@ -75,11 +83,10 @@ public class MainMenuManager : IUpdatable, IDrawable
                 }
             }
         }
-
         previousMouseState = currentMouseState;
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch) // Renders the title, background, and menu buttons
     {
         if (font == null) return;
         
@@ -95,18 +102,11 @@ public class MainMenuManager : IUpdatable, IDrawable
         {
             Color color = button.Bounds.Contains(mouseState.X, mouseState.Y) ? Color.LightGray : Color.White;
             
-            if (buttonSprite != null)
-            {
-                spriteBatch.Draw(buttonSprite.texture, button.Bounds, color);
-            }
+            if (buttonSprite != null) { spriteBatch.Draw(buttonSprite.texture, button.Bounds, color); }
 
             Vector2 textSize = font.MeasureString(button.Text);
-            // The button texture has thick borders, so we subtract 60 from height and 80 from width to constrain the text size
             float scale = Math.Min((button.Bounds.Width - 80) / textSize.X, (button.Bounds.Height - 60) / textSize.Y);
-            Vector2 textPos = new Vector2(
-                button.Bounds.X + (button.Bounds.Width - textSize.X * scale) / 2,
-                button.Bounds.Y + (button.Bounds.Height - textSize.Y * scale) / 2
-            );
+            Vector2 textPos = new Vector2(button.Bounds.X + (button.Bounds.Width - textSize.X * scale) / 2, button.Bounds.Y + (button.Bounds.Height - textSize.Y * scale) / 2);
 
             spriteBatch.DrawString(font, button.Text, textPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
         }

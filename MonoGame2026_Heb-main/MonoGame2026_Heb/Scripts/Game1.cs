@@ -11,19 +11,20 @@ namespace MonoGame2026_Heb;
 
 public class Game1 : Game
 {
+    // ============ Variables & References ==================================================================================================================
+    
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
     public static Vector2 _screenCenter;
     public static int ScreenWidth;
     public static int ScreenHeight;
+    public static float Gamma = 0.5f;
+    
     public string CurrentBackground = "MainMenuBackground";
     public Song mainMenuTheme;
     
-    public static float Gamma = 0.5f;
-    
     public static Game1 Instance;
-    
     private BattleManager battleManager;
     
     private Knight knight;
@@ -36,17 +37,15 @@ public class Game1 : Game
 
     private SpriteFont _font;
 
-    #region ResourcesManager
-    
     private ResourcesManager<Texture2D> textureManager;
     private ResourcesManager<Song> songManager;
     private ResourcesManager<SoundEffect> soundEffectManager;
-
-    #endregion
-    
     
     private SpriteManager spriteManager = null;
-    public Game1()
+    
+    // =======================================================================================================================================================
+    
+    public Game1() // (Constructor): Initializes graphics and sets the screen resolution.
     {
         Instance = this;
         _graphics = new GraphicsDeviceManager(this);
@@ -69,20 +68,17 @@ public class Game1 : Game
         _graphics.IsFullScreen = false;
         Window.IsBorderless = true;
         
-        _screenCenter =  new Vector2(
-            ScreenWidth * 0.5f,
-            ScreenHeight * 0.5f);
-
+        _screenCenter =  new Vector2(ScreenWidth * 0.5f, ScreenHeight * 0.5f);
     }
 
-    protected override void Initialize()
+    protected override void Initialize() // Applies graphics changes and loads settings from local storage
     {
         _graphics.ApplyChanges();
         LoadSettings();
         base.Initialize();
     }
     
-    public static void SaveSettings()
+    public static void SaveSettings() // Writes volume and gamma settings to a local settings.txt file
     {
         try 
         {
@@ -91,7 +87,7 @@ public class Game1 : Game
         } catch {}
     }
 
-    public static void LoadSettings()
+    public static void LoadSettings() // Reads volume and gamma settings from the settings.txt file
     {
         try 
         {
@@ -108,7 +104,7 @@ public class Game1 : Game
         } catch {}
     }
 
-    protected override void LoadContent()
+    protected override void LoadContent() // Loads all textures, audio, and font assets into memory and launches the Main Menu
     {
         AudioManager.AddSong("GameplayMusic", "Audio/Music/GameplayMusic");
         
@@ -163,21 +159,17 @@ public class Game1 : Game
         LoadMainMenu();
     }
 
-    public void LoadMainMenu()
+    public void LoadMainMenu() // Clears the scene and instantiates the MainMenuManager
     {
         CurrentBackground = "MainMenuBackground";
-        
         AudioManager.PlaySong("MainMenuSoundTrack");
-
         SceneManager.Clear();
-        
         MainMenuManager menuManager = SceneManager.Create<MainMenuManager>();
         menuManager.font = _font;
-        
         SceneManager.Instance.Start();
     }
 
-    public void LoadGame()
+    public void LoadGame() // Clears the scene, changes the background, and instantiates the BattleManager and UIManager
     {
         CurrentBackground = "Background";
         AudioManager.PlaySong("GameplayMusic");
@@ -192,7 +184,7 @@ public class Game1 : Game
         SceneManager.Instance.Start();
     }
 
-    public void LoadUnitManual()
+    public void LoadUnitManual() // Clears the scene and instantiates the UnitManualManager
     {
         CurrentBackground = "MainMenuBackground";
         SceneManager.Clear();
@@ -203,7 +195,18 @@ public class Game1 : Game
         SceneManager.Instance.Start();
     }
 
-    public void LoadSettingsMenu()
+    public void LoadInstructionsMenu() // Clears the scene and instantiates the InstructionsManager
+    {
+        CurrentBackground = "MainMenuBackground";
+        SceneManager.Clear();
+        
+        InstructionsManager instructionsManager = SceneManager.Create<InstructionsManager>();
+        instructionsManager.font = _font;
+        
+        SceneManager.Instance.Start();
+    }
+
+    public void LoadSettingsMenu() // Clears the scene and instantiates the SettingsManager
     {
         CurrentBackground = "MainMenuBackground";
         SceneManager.Clear();
@@ -214,25 +217,23 @@ public class Game1 : Game
         SceneManager.Instance.Start();
     }
 
-    bool ShouldExitApplication()
+    bool ShouldExitApplication() // Checks if the escape key or gamepad back button is pressed
     {
         return GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
                Keyboard.GetState().IsKeyDown(Keys.Escape);
     }
 
-    protected override void Update(GameTime gameTime)
+    protected override void Update(GameTime gameTime) // Updates the SceneManager and checks for exit conditions
     {
         if (ShouldExitApplication()) Exit();
-        
         SceneManager.Instance.Update(gameTime);
-        
         base.Update(gameTime);
     }
 
-    protected override void Draw(GameTime gameTime)
+    protected override void Draw(GameTime gameTime) // Clears the screen, draws the background, draws all active scene objects, and applies gamma correction.
     {
         GraphicsDevice.Clear(Color.Black);
-
+        
         _spriteBatch.Begin();
 
         Spritesheet bgSprite = SpriteManager.GetSprite(CurrentBackground);
@@ -266,7 +267,6 @@ public class Game1 : Game
             }
             _spriteBatch.End();
         }
-
         base.Draw(gameTime);
     }
 }

@@ -4,29 +4,26 @@ namespace MonoGame2026_Heb;
 
 public abstract class Projectile : Animation
 {
+    // ============ Variables & References ==================================================================================================================
+    
     protected Unit Owner { get; private set; }
     protected Unit Target { get; private set; }
-
     protected Unit.Team FiringTeam { get; private set; }
-
     public Collider collider { get; }
-
     public float RotationOffset { get; protected set; }
     public float MovementSpeed { get; private set; }
     public float ProjectileScale{get; private set;}
-
     private bool hasHit;
     private bool isDestroyed;
-
     private float lifetimeTimer;
     private const float MaximumLifetime = 5.0f;
+    
+    // ==========================================================================================================================================================
 
-    protected Projectile(string spriteName, Vector2 colliderSize)
-        : base(spriteName)
+    protected Projectile(string spriteName, Vector2 colliderSize) : base(spriteName) // (Constructor): Initializes the projectile sprite and base collider properties
     {
         // Every projectile owns a trigger collider.
         collider = SceneManager.Create<Collider>();
-
         collider.Parent = this;
         collider.IsTrigger = true;
         collider.IsEnabled = false;
@@ -34,18 +31,10 @@ public abstract class Projectile : Animation
         collider.RegisterOnTrigger(OnProjectileTrigger);
     }
 
-    public void InitializeProjectile(
-        Unit owner,
-        Unit target,
-        Vector2 startPosition,
-        float movementSpeed,
-        float projectileScale)
+    public void InitializeProjectile(Unit owner, Unit target, Vector2 startPosition, float movementSpeed, float projectileScale) // Sets up the owner, target, speed, damage, and resets state
     {
         Owner = owner;
         Target = target;
-
-        // Store the team when the projectile is fired.
-        // This prevents its team changing if the owner is hypnotized later.
         FiringTeam = owner.UnitTeam;
         tm.position = startPosition;
 
@@ -56,128 +45,71 @@ public abstract class Projectile : Animation
         hasHit = false;
         isDestroyed = false;
         lifetimeTimer = MaximumLifetime;
-
         collider.IsEnabled = true;
-        PlayAnimation(
-            isLooping: true,
-            samples: 8);
+        PlayAnimation(isLooping: true, samples: 8);
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(GameTime gameTime) // Handles movement towards the target, lifetime, and checks for collisions
     {
-        if (isDestroyed)
-            return;
-
-        float deltaTime =
-            (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+        if (isDestroyed) return;
+        float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
         lifetimeTimer -= deltaTime;
-
         if (lifetimeTimer <= 0)
         {
             DestroyProjectile();
             return;
         }
-
-        // Stop the projectile if its target died.
         if (Target == null || !Target.IsAlive)
         {
             DestroyProjectile();
             return;
         }
-
         MoveTowardsTarget(deltaTime);
-
-        // Updates the sprite rectangle using tm.
         base.Update(gameTime);
     }
 
-    private void MoveTowardsTarget(float deltaTime)
+    private void MoveTowardsTarget(float deltaTime) // Interpolates position towards the target position
     {
-        Vector2 direction =
-            Target.tm.position - tm.position;
-
+        Vector2 direction = Target.tm.position - tm.position;
         float distance = direction.Length();
+        if (distance <= 0) return;
 
-        if (distance <= 0)
-            return;
-
-        Vector2 normalizedDirection =
-            direction / distance;
-
-        tm.position +=
-            normalizedDirection *
-            MovementSpeed *
-            deltaTime;
-
-        // Rotate the projectile toward its target.
+        Vector2 normalizedDirection = direction / distance;
+        tm.position += normalizedDirection * MovementSpeed * deltaTime;
+        
         RotateTowards(Target);
     }
-    protected virtual void RotateTowards(Unit target)
+    protected virtual void RotateTowards(Unit target) // Rotates the sprite to face the target
     {
-        Vector2 direction =
-            target.tm.position - tm.position;
-
-        if (direction == Vector2.Zero)
-            return;
-
-        float angleInRadians =
-            MathF.Atan2(direction.Y, direction.X);
-
-        // your transform stores rotation in degrees
-        tm.rotation =
-            MathHelper.ToDegrees(angleInRadians)
-            + RotationOffset;
+        Vector2 direction = target.tm.position - tm.position;
+        if (direction == Vector2.Zero) return;
+        float angleInRadians = MathF.Atan2(direction.Y, direction.X);
+        tm.rotation = MathHelper.ToDegrees(angleInRadians) + RotationOffset;
     }
 
-    private void OnProjectileTrigger(
-        Collider thisCollider,
-        Collider otherCollider)
+    private void OnProjectileTrigger(Collider thisCollider, Collider otherCollider) // Triggers logic when the projectile hits an enemy unit
     {
-        if (hasHit || isDestroyed)
-            return;
+        if (hasHit || isDestroyed) return;
+        Unit hitUnit = otherCollider.Parent as Unit;
 
-        Unit hitUnit =
-            otherCollider.Parent as Unit;
-
-        // Ignore non-unit objects.
-        if (hitUnit == null)
-            return;
-
-        // Ignore dead units.
-        if (!hitUnit.IsAlive)
-            return;
-
-        // Ignore the unit that fired the projectile.
-        if (hitUnit == Owner)
-            return;
-
-        // Ignore units belonging to the firing team.
-        if (hitUnit.UnitTeam == FiringTeam)
-            return;
-
+        if (hitUnit == null) return;
+        if (!hitUnit.IsAlive) return;
+        if (hitUnit == Owner) return;
+        if (hitUnit.UnitTeam == FiringTeam) return;
         hasHit = true;
-
         ApplyEffect(hitUnit);
         DestroyProjectile();
     }
 
-    // Mage and Hypnotist implement different effects.
-    protected abstract void ApplyEffect(Unit hitUnit);
+    protected abstract void ApplyEffect(Unit hitUnit); // (Abstract): Applies the unique projectile effect to the hit unit
 
-    protected virtual void DestroyProjectile()
+    protected virtual void DestroyProjectile() // Removes the projectile from the active scene
     {
-        if (isDestroyed)
-            return;
-
+        if (isDestroyed) return;
         isDestroyed = true;
-
         collider.IsEnabled = false;
+        collider.UnregisterOnTrigger(OnProjectileTrigger);
 
-        collider.UnregisterOnTrigger(
-            OnProjectileTrigger);
-
-        // Replace this with your SceneManager's removal call.
         SceneManager.Remove(collider);
         SceneManager.Remove(this);
     }
