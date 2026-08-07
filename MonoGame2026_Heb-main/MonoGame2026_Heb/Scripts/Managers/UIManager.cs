@@ -41,6 +41,8 @@ public class UIManager : IUpdatable, IDrawable
     
     private bool isBattlePhase = false;
     private Rectangle playButtonBounds;
+    private Rectangle manualButtonBounds;
+    private bool isManualOpen = false;
     
     private bool isVictoryPhase = false;
     private string victoryMessage = "";
@@ -104,45 +106,45 @@ public class UIManager : IUpdatable, IDrawable
         });
         
         // Red Player Buttons
-        int rightEdge = screenWidth - 10;
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(rightEdge - buttonWidth * 4 - 30, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 3, buttonY, buttonWidth, buttonHeight), 
             Name = "Knight", 
             Cost = 25,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(rightEdge - buttonWidth * 3 - 20, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 2, buttonY, buttonWidth, buttonHeight), 
             Name = "Ogre", 
             Cost = 75,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(rightEdge - buttonWidth * 2 - 10, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 1, buttonY, buttonWidth, buttonHeight), 
             Name = "Wizard", 
             Cost = 100,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(rightEdge - buttonWidth, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10, buttonY, buttonWidth, buttonHeight), 
             Name = "Hypnotist", 
             Cost = 125,
             team = Team.Red
         });
         
-        // Setup Play Button
+        // Setup Play Button and Manual Button
         int playWidth = 200;
         int playHeight = 80;
-        playButtonBounds = new Rectangle((screenWidth / 2) - (playWidth / 2), 20, playWidth, playHeight);
+        playButtonBounds = new Rectangle((screenWidth / 2) - playWidth - 10, 20, playWidth, playHeight);
+        manualButtonBounds = new Rectangle((screenWidth / 2) + 10, 20, playWidth, playHeight);
         
         // Setup Victory Screen Buttons
-        int victoryButtonWidth = 400;
-        int victoryButtonHeight = 100;
+        int victoryButtonWidth = 800;
+        int victoryButtonHeight = 150;
         int centerX = screenWidth / 2;
         int centerY = screenHeight / 2;
         
         restartButtonBounds = new Rectangle(centerX - victoryButtonWidth / 2, centerY, victoryButtonWidth, victoryButtonHeight);
-        menuButtonBounds = new Rectangle(centerX - victoryButtonWidth / 2, centerY + victoryButtonHeight + 20, victoryButtonWidth, victoryButtonHeight);
+        menuButtonBounds = new Rectangle(centerX - victoryButtonWidth / 2, centerY + victoryButtonHeight + 30, victoryButtonWidth, victoryButtonHeight);
     }
     
     public void Start() 
@@ -152,6 +154,12 @@ public class UIManager : IUpdatable, IDrawable
     
     public void Update(GameTime gameTime)
     {
+        if (isManualOpen)
+        {
+            previousMouseState = Mouse.GetState();
+            return;
+        }
+        
         if (showPlacementError)
         {
             placementErrorTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -220,7 +228,22 @@ public class UIManager : IUpdatable, IDrawable
             return;
         }
 
-        // 0. Check Play Button
+        // 0. Check Manual Button
+        if (!isBattlePhase && manualButtonBounds.Contains(mousePos))
+        {
+            AudioManager.PlaySFX?.Invoke("ButtonSFX");
+            isManualOpen = true;
+            UnitManualManager manual = SceneManager.Create<UnitManualManager>();
+            manual.font = this.font;
+            manual.IsPopup = true;
+            manual.OnBack = () => {
+                SceneManager.Remove(manual);
+                isManualOpen = false;
+            };
+            return;
+        }
+
+        // 0.1. Check Play Button
         if (!isBattlePhase && playButtonBounds.Contains(mousePos))
         {
             AudioManager.PlaySFX?.Invoke("ButtonSFX");
@@ -467,7 +490,7 @@ public class UIManager : IUpdatable, IDrawable
             }
             
             // Draw Play Button
-            Color playColor = playButtonBounds.Contains(Mouse.GetState().X, Mouse.GetState().Y) ? Color.LimeGreen : Color.ForestGreen;
+            Color playColor = (!isManualOpen && playButtonBounds.Contains(Mouse.GetState().X, Mouse.GetState().Y)) ? Color.LimeGreen : Color.ForestGreen;
             Spritesheet playButtonSprite = SpriteManager.GetSprite("CustomButton");
             if (playButtonSprite != null) spriteBatch.Draw(playButtonSprite.texture, playButtonBounds, playColor);
             else spriteBatch.Draw(dummyTexture, playButtonBounds, playColor);
@@ -483,6 +506,22 @@ public class UIManager : IUpdatable, IDrawable
                 spriteBatch.DrawString(font, "PLAY", textPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
             }
             
+            // Draw Manual Button
+            Color manualColor = (!isManualOpen && manualButtonBounds.Contains(Mouse.GetState().X, Mouse.GetState().Y)) ? Color.LimeGreen : Color.ForestGreen;
+            if (playButtonSprite != null) spriteBatch.Draw(playButtonSprite.texture, manualButtonBounds, manualColor);
+            else spriteBatch.Draw(dummyTexture, manualButtonBounds, manualColor);
+            
+            if (font != null)
+            {
+                Vector2 textSize = font.MeasureString("MANUAL");
+                float scale = Math.Min((manualButtonBounds.Width - 40) / textSize.X, (manualButtonBounds.Height - 30) / textSize.Y);
+                Vector2 textPos = new Vector2(
+                    manualButtonBounds.X + (manualButtonBounds.Width - textSize.X * scale) / 2,
+                    manualButtonBounds.Y + (manualButtonBounds.Height - textSize.Y * scale) / 2
+                );
+                spriteBatch.DrawString(font, "MANUAL", textPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+            }
+            
             if (showPlacementError && font != null)
             {
                 string errorMsg = "Both teams must have at least one unit to start!";
@@ -493,7 +532,7 @@ public class UIManager : IUpdatable, IDrawable
             
             foreach (var button in buttons) // Draw UI Buttons
             {
-                bool isHovered = button.Bounds.Contains(Mouse.GetState().X, Mouse.GetState().Y);
+                bool isHovered = !isManualOpen && button.Bounds.Contains(Mouse.GetState().X, Mouse.GetState().Y);
                 Color buttonColor;
 
                 if (button.team == Team.Blue)
@@ -594,7 +633,7 @@ public class UIManager : IUpdatable, IDrawable
             if (font != null)
             {
                 Vector2 textSize = font.MeasureString("Restart Game");
-                float scale = Math.Min((restartButtonBounds.Width - 60) / textSize.X, (restartButtonBounds.Height - 40) / textSize.Y);
+                float scale = Math.Min((restartButtonBounds.Width - 300) / textSize.X, (restartButtonBounds.Height - 60) / textSize.Y);
                 Vector2 textPos = new Vector2(
                     restartButtonBounds.X + (restartButtonBounds.Width - textSize.X * scale) / 2,
                     restartButtonBounds.Y + (restartButtonBounds.Height - textSize.Y * scale) / 2
@@ -610,7 +649,7 @@ public class UIManager : IUpdatable, IDrawable
             if (font != null)
             {
                 Vector2 textSize = font.MeasureString("Main Menu");
-                float scale = Math.Min((menuButtonBounds.Width - 60) / textSize.X, (menuButtonBounds.Height - 40) / textSize.Y);
+                float scale = Math.Min((menuButtonBounds.Width - 300) / textSize.X, (menuButtonBounds.Height - 60) / textSize.Y);
                 Vector2 textPos = new Vector2(
                     menuButtonBounds.X + (menuButtonBounds.Width - textSize.X * scale) / 2,
                     menuButtonBounds.Y + (menuButtonBounds.Height - textSize.Y * scale) / 2

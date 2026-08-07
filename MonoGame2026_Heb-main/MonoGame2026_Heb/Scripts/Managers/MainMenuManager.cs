@@ -22,6 +22,8 @@ public class MainMenuManager : IUpdatable, IDrawable
 
     public void Start()
     {
+        previousMouseState = Mouse.GetState();
+
         int screenWidth = Game1.ScreenWidth;
         int screenHeight = Game1.ScreenHeight;
         int buttonWidth = 600;
@@ -45,7 +47,7 @@ public class MainMenuManager : IUpdatable, IDrawable
         buttons.Add(new MenuButton {
             Text = "Settings",
             Bounds = new Rectangle((screenWidth - buttonWidth) / 2, startY + (buttonHeight + spacing) * 2, buttonWidth, buttonHeight),
-            OnClick = () => Console.WriteLine("Settings coming soon!")
+            OnClick = () => Game1.Instance.LoadSettingsMenu()
         });
 
         buttons.Add(new MenuButton {

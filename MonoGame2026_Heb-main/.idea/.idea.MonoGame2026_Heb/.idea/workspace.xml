@@ -9,21 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="672b661f-2c1b-4f72-a3a5-35b95db9cd5c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Engine/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Engine/SceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Engine/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Engine/AudioManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Game1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/BattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/BattleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/MainMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/MainMenuManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UnitManualManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UnitManualManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.sourcelink.json" afterDir="false" />
@@ -62,27 +58,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.MonoGame2026_Heb.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Ariel&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.MonoGame2026_Heb.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "Ariel",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="MonoGame2026_Heb" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -124,6 +120,7 @@
       <workItem from="1785780277318" duration="119000" />
       <workItem from="1785935834127" duration="7905000" />
       <workItem from="1786017319328" duration="7100000" />
+      <workItem from="1786118190001" duration="5330000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
@@ -22,8 +23,42 @@ public static class AudioManager
         ResourcesManager<SoundEffect>.LoadResource(name, fileName);
     }
 
+    public static string CurrentSongName { get; private set; }
+    
+    public static float MusicVolume { get; private set; } = 0.5f;
+    public static float SFXVolume { get; private set; } = 0.5f;
+    
+    private static float currentSongRequestedVolume = 1f;
+
+    public static void SetMusicVolume(float volume)
+    {
+        MusicVolume = MathHelper.Clamp(volume, 0f, 1f);
+        if (!MediaPlayer.IsMuted)
+        {
+            MediaPlayer.Volume = currentSongRequestedVolume * MusicVolume;
+        }
+    }
+
+    public static void SetSFXVolume(float volume)
+    {
+        SFXVolume = MathHelper.Clamp(volume, 0f, 1f);
+        // Optionally update currently playing sound effects
+        foreach (var effect in _soundEffectsInstance)
+        {
+            if (effect.State == SoundState.Playing)
+            {
+                // We don't track original requested volume for SFX, so we just set it to SFXVolume
+                // (assuming requested volume was 1f)
+                effect.Volume = SFXVolume; 
+            }
+        }
+    }
+
     public static void PlaySong(string name, float volume = 1)
     {
+        if (CurrentSongName == name && MediaPlayer.State == MediaState.Playing)
+            return;
+
         Song song = ResourcesManager<Song>.GetResource(name);
 
         if (song == null) return;
@@ -31,7 +66,9 @@ public static class AudioManager
         if (MediaPlayer.State == MediaState.Playing)
             MediaPlayer.Stop();
         
-        MediaPlayer.Volume = volume;
+        CurrentSongName = name;
+        currentSongRequestedVolume = volume;
+        MediaPlayer.Volume = volume * MusicVolume;
         MediaPlayer.IsRepeating = true;
         MediaPlayer.Play(song);
     }
@@ -48,7 +85,7 @@ public static class AudioManager
         
         instance.Pan = pan;
         instance.Pitch = pitch;
-        instance.Volume = volume;
+        instance.Volume = volume * SFXVolume;
         instance.IsLooped = isLooping;
 
         instance.Play();

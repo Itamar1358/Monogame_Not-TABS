@@ -20,6 +20,8 @@ public class Game1 : Game
     public string CurrentBackground = "MainMenuBackground";
     public Song mainMenuTheme;
     
+    public static float Gamma = 0.5f;
+    
     public static Game1 Instance;
     
     private BattleManager battleManager;
@@ -76,7 +78,34 @@ public class Game1 : Game
     protected override void Initialize()
     {
         _graphics.ApplyChanges();
+        LoadSettings();
         base.Initialize();
+    }
+    
+    public static void SaveSettings()
+    {
+        try 
+        {
+            string data = $"{AudioManager.MusicVolume},{AudioManager.SFXVolume},{Gamma}";
+            System.IO.File.WriteAllText("settings.txt", data);
+        } catch {}
+    }
+
+    public static void LoadSettings()
+    {
+        try 
+        {
+            if (System.IO.File.Exists("settings.txt")) 
+            {
+                string[] parts = System.IO.File.ReadAllText("settings.txt").Split(',');
+                if (parts.Length == 3) 
+                {
+                    AudioManager.SetMusicVolume(float.Parse(parts[0]));
+                    AudioManager.SetSFXVolume(float.Parse(parts[1]));
+                    Gamma = float.Parse(parts[2]);
+                }
+            }
+        } catch {}
     }
 
     protected override void LoadContent()
@@ -129,7 +158,7 @@ public class Game1 : Game
         
         _font = Content.Load<SpriteFont>("Fonts/GameFont");
         
-        mainMenuTheme = Content.Load<Song>("Audio/Music/MainMenuSoundTrack");
+        AudioManager.AddSong("MainMenuSoundTrack", "Audio/Music/MainMenuSoundTrack");
         
         LoadMainMenu();
     }
@@ -138,11 +167,7 @@ public class Game1 : Game
     {
         CurrentBackground = "MainMenuBackground";
         
-        if (MediaPlayer.State != MediaState.Playing)
-        {
-            MediaPlayer.Play(mainMenuTheme);
-            MediaPlayer.IsRepeating = true;
-        }
+        AudioManager.PlaySong("MainMenuSoundTrack");
 
         SceneManager.Clear();
         
@@ -178,6 +203,17 @@ public class Game1 : Game
         SceneManager.Instance.Start();
     }
 
+    public void LoadSettingsMenu()
+    {
+        CurrentBackground = "MainMenuBackground";
+        SceneManager.Clear();
+        
+        SettingsManager settingsManager = SceneManager.Create<SettingsManager>();
+        settingsManager.font = _font;
+        
+        SceneManager.Instance.Start();
+    }
+
     bool ShouldExitApplication()
     {
         return GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
@@ -208,6 +244,28 @@ public class Game1 : Game
         SceneManager.Instance.Draw(_spriteBatch);
         
         _spriteBatch.End();
+
+        if (Gamma != 0.5f)
+        {
+            _spriteBatch.Begin();
+            Spritesheet pixelSprite = SpriteManager.GetSprite("Pixel");
+            if (pixelSprite != null)
+            {
+                if (Gamma < 0.5f)
+                {
+                    // Map Gamma 0.0 -> 0.5 to alpha 0.3 -> 0.0 (max 30% black)
+                    float alpha = (0.5f - Gamma) * 2f * 0.3f;
+                    _spriteBatch.Draw(pixelSprite.texture, new Rectangle(0, 0, ScreenWidth, ScreenHeight), Color.Black * alpha);
+                }
+                else
+                {
+                    // Map Gamma 0.5 -> 1.0 to alpha 0.0 -> 0.6 (max 60% white)
+                    float alpha = (Gamma - 0.5f) * 2f * 0.6f;
+                    _spriteBatch.Draw(pixelSprite.texture, new Rectangle(0, 0, ScreenWidth, ScreenHeight), Color.White * alpha);
+                }
+            }
+            _spriteBatch.End();
+        }
 
         base.Draw(gameTime);
     }

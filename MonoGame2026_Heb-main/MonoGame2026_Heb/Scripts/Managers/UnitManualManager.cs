@@ -12,6 +12,10 @@ public class UnitManualManager : IUpdatable, IDrawable
     public SpriteFont font;
     private Rectangle backButtonBounds;
     private MouseState previousMouseState;
+    private Texture2D dummyTexture;
+    
+    public bool IsPopup = false;
+    public Action OnBack;
 
     private class UnitInfo
     {
@@ -25,6 +29,10 @@ public class UnitManualManager : IUpdatable, IDrawable
 
     public void Start()
     {
+        if (OnBack == null)
+            OnBack = () => Game1.Instance.LoadMainMenu();
+            
+        previousMouseState = Mouse.GetState();
         units.Clear();
         
         int buttonWidth = 600;
@@ -71,7 +79,7 @@ public class UnitManualManager : IUpdatable, IDrawable
             if (backButtonBounds.Contains(mousePos))
             {
                 AudioManager.PlaySFX?.Invoke("ButtonSFX");
-                Game1.Instance.LoadMainMenu();
+                OnBack?.Invoke();
             }
         }
 
@@ -82,11 +90,36 @@ public class UnitManualManager : IUpdatable, IDrawable
     {
         if (font == null) return;
 
+        // Draw dim overlay and big background if it's a popup
+        if (IsPopup)
+        {
+            if (dummyTexture == null)
+            {
+                dummyTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+                dummyTexture.SetData(new[] { Color.White });
+            }
+            spriteBatch.Draw(dummyTexture, new Rectangle(0, 0, Game1.ScreenWidth, Game1.ScreenHeight), Color.Black * 0.7f);
+
+            Spritesheet bgSprite = SpriteManager.GetSprite("CustomButton");
+            if (bgSprite != null)
+            {
+                Rectangle bgBounds = new Rectangle(
+                    0, 
+                    -10, 
+                    Game1.ScreenWidth, 
+                    Game1.ScreenHeight + 20
+                );
+                spriteBatch.Draw(bgSprite.texture, bgBounds, Color.White);
+            }
+        }
+
         // Draw title
         string title = "UNIT MANUAL";
-        Vector2 titleSize = font.MeasureString(title);
-        Vector2 titlePos = new Vector2((Game1.ScreenWidth - titleSize.X * 1.5f) / 2, 30);
-        spriteBatch.DrawString(font, title, titlePos, Color.Gold, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+        float titleScale = IsPopup ? 1.2f : 1.5f;
+        Vector2 titleSize = font.MeasureString(title) * titleScale;
+        float titleY = IsPopup ? (Game1.ScreenHeight * 0.15f) : 30f;
+        Vector2 titlePos = new Vector2((Game1.ScreenWidth - titleSize.X) / 2, titleY);
+        spriteBatch.DrawString(font, title, titlePos, Color.Gold, 0f, Vector2.Zero, titleScale, SpriteEffects.None, 0f);
 
         // Draw Back Button
         Spritesheet buttonSprite = SpriteManager.GetSprite("CustomButton");
@@ -104,9 +137,21 @@ public class UnitManualManager : IUpdatable, IDrawable
         spriteBatch.DrawString(font, "Back", backTextPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
 
         // Draw Units
-        int startY = 150;
-        int spacingY = 240;
-        int startX = Game1.ScreenWidth / 4;
+        int startY = IsPopup ? (int)(Game1.ScreenHeight * 0.25f) : 150;
+        int spacingY = IsPopup ? (int)(Game1.ScreenHeight * 0.14f) : 240;
+        
+        float nameScale = IsPopup ? 0.9f : 1.2f;
+        float statsScale = IsPopup ? 0.65f : 0.9f;
+        float descScale = IsPopup ? 0.6f : 0.8f;
+        
+        float maxTextWidth = 0;
+        foreach(var u in units) {
+            float w = font.MeasureString(u.Description).X * descScale;
+            if (w > maxTextWidth) maxTextWidth = w;
+        }
+        
+        int totalBlockWidth = (int)(130 + maxTextWidth);
+        int startX = IsPopup ? (Game1.ScreenWidth - totalBlockWidth) / 2 : Game1.ScreenWidth / 4;
 
         for (int i = 0; i < units.Count; i++)
         {
@@ -125,10 +170,13 @@ public class UnitManualManager : IUpdatable, IDrawable
             }
 
             // Draw Text
+            float statsYOffset = IsPopup ? 55f : 70f;
+            float descYOffset = IsPopup ? 90f : 120f;
+            
             int textX = startX + 130;
-            spriteBatch.DrawString(font, unit.Name, new Vector2(textX, yPos), Color.Cyan, 0f, Vector2.Zero, 1.2f, SpriteEffects.None, 0f);
-            spriteBatch.DrawString(font, unit.Stats, new Vector2(textX, yPos + 70), Color.LightGreen, 0f, Vector2.Zero, 0.9f, SpriteEffects.None, 0f);
-            spriteBatch.DrawString(font, unit.Description, new Vector2(textX, yPos + 120), Color.White, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(font, unit.Name, new Vector2(textX, yPos), Color.Cyan, 0f, Vector2.Zero, nameScale, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(font, unit.Stats, new Vector2(textX, yPos + statsYOffset), Color.LightGreen, 0f, Vector2.Zero, statsScale, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(font, unit.Description, new Vector2(textX, yPos + descYOffset), Color.White, 0f, Vector2.Zero, descScale, SpriteEffects.None, 0f);
         }
     }
 }
