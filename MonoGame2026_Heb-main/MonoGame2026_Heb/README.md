@@ -11,6 +11,7 @@ The objective of Fantasy Brawlers is to strategically spend your mana to place a
 ## Controls
 - **Mouse**: The game is entirely controlled via the mouse.
   - **Left Click**: Select UI buttons, choose units from the spawn menu, and place units on the battlefield.
+   - **Right Click**: When a unit is selected for placement, cancels placement and returns mana
 - **Keyboard**: 
   - **Escape**: Exit the game.
 

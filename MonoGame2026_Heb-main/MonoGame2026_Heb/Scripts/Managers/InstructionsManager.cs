@@ -50,10 +50,11 @@ public class InstructionsManager : IUpdatable, IDrawable
 
         string instructions = "Controls:\n" +
                               "- Left Click: Select units and place them on the battlefield.\n" +
+                              "- Right Click: When a unit is selected for placement,\n  cancels placement and returns mana.\n" +
                               "- Escape: Exit the game.\n\n" +
                               "Gameplay:\n" +
                               "1. Select a unit from the bottom menu.\n" +
-                              "2. Click anywhere on your side of the screen to spend mana and place it.\n" +
+                              "2. Click anywhere on your side of the screen to spend\n   mana and place it.\n" +
                               "3. Click the 'Play' button in the top left to start the battle.\n" +
                               "4. Watch your units fight automatically until one side wins!";
 
