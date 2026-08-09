@@ -27,13 +27,15 @@ public class Game1 : Game
     public static Game1 Instance;
     private BattleManager battleManager;
     
-    private Knight knight;
+    /*private Knight knight;
     private Ogre ogre;
     private Wizard wizard;
     private Hypnotist hypnotist;
+    private Healer healer;
     
     private FireProjectile fireProjectile;
     private HypnosisProjectile hypnosisProjectile;
+    private HealerProjectile healerProjectile;*/
 
     private SpriteFont _font;
 
@@ -147,8 +149,14 @@ public class Game1 : Game
         SpriteManager.AddSprite("Hypnotist_Hurt","Images/Units/Hypnotist_Hurt", 1,1);
         SpriteManager.AddSprite("Hypnotist_VeryHurt","Images/Units/Hypnotist_VeryHurt", 1,1);
         
+        SpriteManager.AddSprite("Healer", "Images/Units/Healer", 1, 1);
+        SpriteManager.AddSprite("Healer_Hurt","Images/Units/Healer_Hurt", 1,1);
+        SpriteManager.AddSprite("Healer_VeryHurt","Images/Units/Healer_VeryHurt", 1,1);
+        
         SpriteManager.AddSprite("Fireball", "Images/Fireball",  2, 2);
         SpriteManager.AddSprite("HypnosisBall", "Images/HypnosisBall", 2, 2);
+        SpriteManager.AddSprite("HealingProjectile", "Images/HealingProjectile", 4, 2);
+        SpriteManager.AddSprite("HealingCircle", "Images/HealingCircle", 4, 2);
         SpriteManager.AddSprite("Sword", "Images/Sword",  1, 1);
         SpriteManager.AddSprite("Club", "Images/Club",  1, 1);
         

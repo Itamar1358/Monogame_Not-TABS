@@ -126,3 +126,39 @@ C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026
 C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\MagicianPlacedSFX.xnb
 C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\OgrePlacedSFX.xnb
 C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\VictorySFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.ogg
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\theme.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Club.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Sword.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Hypnotist_Hurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Hypnotist_VeryHurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Knight_Hurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Knight_VeryHurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Ogre_Hurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Ogre_VeryHurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Wizard_Hurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Wizard_VeryHurt.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\GameplayMusic.ogg
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\GameplayMusic.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\MainMenuSoundTrack.ogg
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\Music\MainMenuSoundTrack.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\ButtonSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\ClubHitSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\ConfusionSpellSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\FireballSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\HitSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\HypnotistDeath.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\HypnotistPlacedSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\KnightDeath.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\KnightPlacedSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\MagicianDeath.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\MagicianPlacedSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\OgreDeath.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\OgrePlacedSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\SpawnUnitSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\SwordHitSFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\VictorySFX.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Fonts\GameFont.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\BattleField.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\MainMenuBackground.xnb
+C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Button.xnb

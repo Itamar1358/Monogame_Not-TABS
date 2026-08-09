@@ -284,7 +284,7 @@ public abstract class Unit : Animation, IDamageable
         if (CurrentHealth == 0) { Die(); }
     }
 
-    public void Heal(int healAmount) // Increases health up to maximum
+    public void Heal(int healAmount) // Increases health
     {
         if (!IsAlive || healAmount <= 0) return;
         int previousHealth = CurrentHealth;

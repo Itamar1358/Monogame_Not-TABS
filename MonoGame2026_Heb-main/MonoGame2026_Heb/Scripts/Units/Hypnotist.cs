@@ -11,7 +11,7 @@ public class Hypnotist : Unit
     public const int BaseCost = 125;
     public const float BaseMovementSpeed = 60f;
     public const float BaseAttackRange = 400f;
-    public const float BaseAttackCooldown = 5f;
+    public const float BaseAttackCooldown = 2f;
     public const float BaseUnitScale = 0.3f;
 
     // =======================================================================================================================================================
