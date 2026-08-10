@@ -31,7 +31,6 @@ public class Healer : Unit
     // (Constructor): Sets base stats like health, damage, and speed
     public Healer() : base(spriteName: "Healer", maxHealth: BaseHealth, damage: BaseDamage, cost: BaseCost, movementSpeed: BaseMovementSpeed, attackRange: BaseAttackRange, attackCooldown: BaseAttackCooldown, unitScale: BaseUnitScale)
     {
-        RotationOffset = 90f;
         ConfigureDamageSprites("Healer_Hurt", "Healer_VeryHurt");
     }
     

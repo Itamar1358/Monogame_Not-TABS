@@ -251,7 +251,7 @@
 /processorParam:Version=3.8.5.0
 /build:Images/pixel.png
 
-#begin Images/Units/Healer_Hurt.jpeg
+#begin Images/Units/Healer_Hurt.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -262,9 +262,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
-/build:Images/Units/Healer_Hurt.jpeg
+/build:Images/Units/Healer_Hurt.png
 
-#begin Images/Units/Healer_VeryHurt.jpeg
+#begin Images/Units/Healer_VeryHurt.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -275,9 +275,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
-/build:Images/Units/Healer_VeryHurt.jpeg
+/build:Images/Units/Healer_VeryHurt.png
 
-#begin Images/Units/Healer.jpeg
+#begin Images/Units/Healer.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -288,7 +288,7 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.0
-/build:Images/Units/Healer.jpeg
+/build:Images/Units/Healer.png
 
 #begin Images/Units/Hypnotist.png
 /importer:TextureImporter
