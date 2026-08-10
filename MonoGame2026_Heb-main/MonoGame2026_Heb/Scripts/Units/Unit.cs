@@ -62,7 +62,7 @@ public abstract class Unit : Animation, IDamageable
     {
         MaxHealth = Math.Max(1, maxHealth);
         CurrentHealth = MaxHealth;
-        spriteName = normalSpriteName;
+        normalSpriteName = spriteName;
         Damage = Math.Max(0, damage);
         Cost = Math.Max(0, cost);
         MovementSpeed = Math.Max(0, movementSpeed);
@@ -96,6 +96,10 @@ public abstract class Unit : Animation, IDamageable
         OnStateChanged(CurrentState);
         InitializeEquipment();
         Console.WriteLine($"{UnitTeam} unit created at {tm.position}");
+    }
+
+    public virtual void Cleanup() // Cleans up attached equipment when the unit is manually removed
+    {
     }
 
     public override void Update(GameTime gameTime) // Handles state machine transitions, coroutines, hypnosis effects, and cooldowns

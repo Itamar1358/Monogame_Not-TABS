@@ -9,9 +9,9 @@ public class Knight : Unit
     // ============ Variables & References ==================================================================================================================
     
     private Sword sword;
-    public const int BaseHealth = 100;
-    public const int BaseDamage = 25;
-    public const int BaseCost = 25;
+    public const int BaseHealth = 350;
+    public const int BaseDamage = 20;
+    public const int BaseCost = 50;
     public const float BaseMovementSpeed = 100f;
     public const float BaseAttackRange = 140f;
     public const float BaseAttackCooldown = 2f;
@@ -24,6 +24,16 @@ public class Knight : Unit
     {
         RotationOffset = 90f;
         ConfigureDamageSprites("Knight_Hurt", "Knight_VeryHurt");
+    }
+
+    public override void Cleanup()
+    {
+        if (sword != null)
+        {
+            SceneManager.Remove(sword);
+            sword = null;
+        }
+        base.Cleanup();
     }
 
     protected override void InitializeEquipment() // Spawns and attaches a Sword melee weapon to the knight

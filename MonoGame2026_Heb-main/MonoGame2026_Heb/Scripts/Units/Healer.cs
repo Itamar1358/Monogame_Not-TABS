@@ -12,7 +12,7 @@ public class Healer : Unit
     public const int BaseDamage = 15;
     public const int BaseCost = 200;
     public const float BaseMovementSpeed = 60f;
-    public const float BaseAttackRange = 300f;
+    public const float BaseAttackRange = 500f;
     public const float BaseAttackCooldown = 2f;
     public const float BaseUnitScale = 0.3f;
     
@@ -20,7 +20,7 @@ public class Healer : Unit
     private Collider healingCircleCollider;
     private readonly HashSet<Unit> healedUnits = new();
     private bool healingCircleActive;
-    private const int healAmount = 70;
+    private const int healAmount = 20;
     private float healInterval = 7f;
     private const float healCircleDuration = 1f;
     private float healCircleTimer;
@@ -32,6 +32,18 @@ public class Healer : Unit
     public Healer() : base(spriteName: "Healer", maxHealth: BaseHealth, damage: BaseDamage, cost: BaseCost, movementSpeed: BaseMovementSpeed, attackRange: BaseAttackRange, attackCooldown: BaseAttackCooldown, unitScale: BaseUnitScale)
     {
         ConfigureDamageSprites("Healer_Hurt", "Healer_VeryHurt");
+    }
+
+    public override void Cleanup()
+    {
+        if (healingCircle != null)
+        {
+            SceneManager.Remove(healingCircleCollider);
+            SceneManager.Remove(healingCircle);
+            healingCircle = null;
+            healingCircleCollider = null;
+        }
+        base.Cleanup();
     }
     
     public override void Update(GameTime gameTime)

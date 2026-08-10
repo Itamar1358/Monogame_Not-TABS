@@ -6,9 +6,9 @@ public class Hypnotist : Unit
     
     private const float ProjectileSpeed = 150f;
     private const float HypnosisDuration = 8f;
-    public const int BaseHealth = 50;
-    public const int BaseDamage = 10;
-    public const int BaseCost = 125;
+    public const int BaseHealth = 180;
+    public const int BaseDamage = 15;
+    public const int BaseCost = 150;
     public const float BaseMovementSpeed = 60f;
     public const float BaseAttackRange = 400f;
     public const float BaseAttackCooldown = 2f;
