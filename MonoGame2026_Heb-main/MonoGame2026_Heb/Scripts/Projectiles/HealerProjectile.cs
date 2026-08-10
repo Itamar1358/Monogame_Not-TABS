@@ -13,7 +13,7 @@ public class HealerProjectile : Projectile
     
     public HealerProjectile() : base("HealingProjectile",new Vector2(0.4f, 0.4f)) // (Constructor): Initializes the HealerProjectile sprite
     {
-        RotationOffset = 180;
+        RotationOffset = 90f;
     }
 
     public void InitializeHealerProjectile(Unit owner, Unit target, Vector2 startPosition, float movementSpeed, int projectileDamage) // Sets up the HealerProjectile's specific damage, speed, and target

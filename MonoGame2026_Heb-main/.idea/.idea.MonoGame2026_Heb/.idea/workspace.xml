@@ -61,7 +61,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Ariel&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Itamar2.0&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -119,6 +119,7 @@
       <workItem from="1786282818658" duration="6026000" />
       <workItem from="1786376092131" duration="1241000" />
       <workItem from="1786377349905" duration="2411000" />
+      <workItem from="1786380272591" duration="5550000" />
     </task>
     <servers />
   </component>

@@ -12,7 +12,7 @@ public class FireProjectile : Projectile
 
     // ======================================================================================================================================================
     
-    public FireProjectile() : base("Fireball",new Vector2(0.6f, 0.5f)) // (Constructor): Initializes the fireball sprite
+    public FireProjectile() : base("Fireball",new Vector2(0.6f, 0.5f)) // (Constructor): Initializes the fireball sprite and collider
     {
         RotationOffset = 180;
     }

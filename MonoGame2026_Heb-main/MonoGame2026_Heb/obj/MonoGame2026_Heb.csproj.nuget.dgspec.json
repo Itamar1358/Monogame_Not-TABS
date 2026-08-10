@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ARIEL\\Documents\\GitHub\\MonoGame - WarSim\\Monogame_Not-TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {}
+    "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ARIEL\\Documents\\GitHub\\MonoGame - WarSim\\Monogame_Not-TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {
+    "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ARIEL\\Documents\\GitHub\\MonoGame - WarSim\\Monogame_Not-TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
+        "projectUniqueName": "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
         "projectName": "MonoGame2026_Heb",
-        "projectPath": "C:\\Users\\ARIEL\\Documents\\GitHub\\MonoGame - WarSim\\Monogame_Not-TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
-        "packagesPath": "C:\\Users\\ARIEL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ARIEL\\Documents\\GitHub\\MonoGame - WarSim\\Monogame_Not-TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\obj\\",
+        "projectPath": "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\MonoGame2026_Heb.csproj",
+        "packagesPath": "C:\\Users\\baste\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\GitHub\\Monogame_Not TABS\\MonoGame2026_Heb-main\\MonoGame2026_Heb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ARIEL\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\baste\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"

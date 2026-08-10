@@ -24,7 +24,7 @@ public class HypnosisProjectile : Projectile
 
     protected override void ApplyEffect(Unit hitUnit) // (Override): Applies the hypnosis effect (temporarily changing the enemy's team) to the hit unit
     {
-        const double hypnosisChance = 0.30;
+        const double hypnosisChance = 0.20;
         bool hypnosisSucceeded = random.NextDouble() < hypnosisChance;
         if (hypnosisSucceeded)
         {
