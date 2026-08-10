@@ -419,7 +419,7 @@ public class UIManager : IUpdatable, IDrawable
                 Console.WriteLine($"Red Player Placed {name} at {position}");
             }
             placedUnits.Add(newUnit); 
-            string soundName = name == "Wizard" ? "MagicianPlacedSFX" : name + "PlacedSFX";
+            string soundName = name == "Wizard" ? "MagicianPlacedSFX" : (name == "Healer" ? "HealerSpawnSFX" : name + "PlacedSFX");
             AudioManager.PlaySFX?.Invoke(soundName);
         }
     }

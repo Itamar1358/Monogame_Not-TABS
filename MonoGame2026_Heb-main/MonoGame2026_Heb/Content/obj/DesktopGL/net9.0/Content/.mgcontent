@@ -10,6 +10,9 @@
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/ClubHitSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/ConfusionSpellSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/FireballSFX.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HealerShotSFX.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HealerSpawnSFX.wav</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HealingAuraSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HitSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HypnotistDeath.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/HypnotistPlacedSFX.wav</File>
@@ -46,6 +49,9 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Audio/SFX/HealerShotSFX</File>
+    <File>Audio/SFX/HealerSpawnSFX</File>
+    <File>Audio/SFX/HealingAuraSFX</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Audio/SFX/HypnotistPlacedSFX</File>

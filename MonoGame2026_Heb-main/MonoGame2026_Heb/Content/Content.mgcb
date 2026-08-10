@@ -55,6 +55,27 @@
 /processorParam:Version=3.8.5.0
 /build:Audio/SFX/FireballSFX.wav
 
+#begin Audio/SFX/HealerShotSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/HealerShotSFX.wav;Audio/SFX/HealerShotSFX
+
+#begin Audio/SFX/HealerSpawnSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/HealerSpawnSFX.wav;Audio/SFX/HealerSpawnSFX
+
+#begin Audio/SFX/HealingAuraSFX.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.0
+/build:Audio/SFX/HealingAuraSFX.wav;Audio/SFX/HealingAuraSFX
+
 #begin Audio/SFX/HitSFX.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

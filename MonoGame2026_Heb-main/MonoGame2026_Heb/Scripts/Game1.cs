@@ -126,6 +126,10 @@ public class Game1 : Game
         AudioManager.AddSoundEffect("MagicianPlacedSFX", "Audio/SFX/MagicianPlacedSFX");
         AudioManager.AddSoundEffect("OgrePlacedSFX", "Audio/SFX/OgrePlacedSFX");
         AudioManager.AddSoundEffect("KnightPlacedSFX", "Audio/SFX/KnightPlacedSFX");
+        AudioManager.AddSoundEffect("HealerShotSFX", "Audio/SFX/HealerShotSFX");
+        AudioManager.AddSoundEffect("HealerSpawnSFX", "Audio/SFX/HealerSpawnSFX");
+        AudioManager.AddSoundEffect("HealingAuraSFX", "Audio/SFX/HealingAuraSFX");
+
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         SpriteManager.AddSprite("Background", "Images/BackGrounds/BattleField", 1, 1);
