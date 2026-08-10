@@ -55,6 +55,8 @@ public abstract class Unit : Animation, IDamageable
     public event Action<Unit, Unit> Attacked;
     public event Action<Unit, Team> TeamChanged;
     
+    private static readonly Random random = new Random();
+    
     // =======================================================================================================================================================
 
     //  (Constructor): Sets up the default unit state, scale, and base stats
@@ -284,6 +286,8 @@ public abstract class Unit : Animation, IDamageable
         CurrentHealth = Math.Max(0, CurrentHealth - damageAmount);
         UpdateDamageVisual();
         HealthChanged?.Invoke(this, CurrentHealth, MaxHealth);
+        
+        StartCoroutine(HitVibration());
 
         if (CurrentHealth == 0) { Die(); }
     }
@@ -427,7 +431,30 @@ public abstract class Unit : Animation, IDamageable
         }
         tm.scale = startingScale * 0.7f;
         tm.rotation = startingRotation + 90f;
-        color = Color.Gray * 0.5f;
+        visualOffset = Vector2.Zero;
+    }
+
+    private IEnumerator HitVibration() // Rapidly shakes the unit visual offset when taking damage
+    {
+        float duration = 0.2f;
+        float elapsed = 0f;
+        float intensity = 5f;
+
+        while (elapsed < duration)
+        {
+            if (!IsAlive) { visualOffset = Vector2.Zero; yield break; }
+            
+            elapsed += coroutineDeltaTime;
+            
+            float offsetX = (float)(random.NextDouble() * 2 - 1) * intensity;
+            float offsetY = (float)(random.NextDouble() * 2 - 1) * intensity;
+            
+            visualOffset = new Vector2(offsetX, offsetY);
+            
+            yield return null;
+        }
+        
+        visualOffset = Vector2.Zero;
     }
     
     protected void ConfigureDamageSprites(string hurtSprite, string veryHurtSprite) // Caches specific hurt/very hurt sprites for the unit

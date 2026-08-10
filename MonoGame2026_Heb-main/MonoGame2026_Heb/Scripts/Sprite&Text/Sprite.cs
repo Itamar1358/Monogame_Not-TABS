@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame2026_Heb.Content;
 
@@ -9,6 +9,7 @@ public class Sprite : IUpdatable, IDrawable
     // ============ Variables & References ==================================================================================================================
     
     public Transform tm = new Transform();
+    public Vector2 visualOffset = Vector2.Zero;
     public Texture2D texture;
     public Spritesheet spritesheet;
     public Color color = Color.White;
@@ -58,14 +59,14 @@ public class Sprite : IUpdatable, IDrawable
         
         int width = (int)(srcRect.Value.Width * tm.scale.X);
         int height = (int)(srcRect.Value.Height * tm.scale.Y);
-        int pos_x = (int)(tm.position.X - origin.X * tm.scale.X);
-        int pos_y = (int)(tm.position.Y - origin.Y * tm.scale.Y);
+        int pos_x = (int)(tm.position.X + visualOffset.X - origin.X * tm.scale.X);
+        int pos_y = (int)(tm.position.Y + visualOffset.Y - origin.Y * tm.scale.Y);
         
         return new Rectangle(pos_x, pos_y, width, height);
     }
 
     public virtual void Draw(SpriteBatch spriteBatch) // Renders the static texture to the screen
     {
-        spriteBatch.Draw(texture, tm.position, sourceRect, color, MathHelper.ToRadians(tm.rotation), origin, tm.scale, effects, 0f);
+        spriteBatch.Draw(texture, tm.position + visualOffset, sourceRect, color, MathHelper.ToRadians(tm.rotation), origin, tm.scale, effects, 0f);
     }
 }

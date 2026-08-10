@@ -6,6 +6,7 @@
   <SourceFiles>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/Music/GameplayMusic.ogg</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/Music/MainMenuSoundTrack.ogg</File>
+    <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/BattleCrySFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/ButtonSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/ClubHitSFX.wav</File>
     <File>C:/Users/ARIEL/Documents/GitHub/MonoGame - WarSim/Monogame_Not-TABS/MonoGame2026_Heb-main/MonoGame2026_Heb/Content/Audio/SFX/ConfusionSpellSFX.wav</File>
@@ -45,6 +46,7 @@
   <DestFiles>
     <File>Audio/Music/GameplayMusic</File>
     <File>Audio/Music/MainMenuSoundTrack</File>
+    <File>Audio/SFX/BattleCrySFX</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

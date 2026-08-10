@@ -122,6 +122,7 @@ public class Game1 : Game
         AudioManager.AddSoundEffect("SpawnUnitSFX", "Audio/SFX/SpawnUnitSFX");
         AudioManager.AddSoundEffect("SwordHitSFX", "Audio/SFX/SwordHitSFX");
         AudioManager.AddSoundEffect("VictorySFX", "Audio/SFX/VictorySFX");
+        AudioManager.AddSoundEffect("BattleCrySFX", "Audio/SFX/BattleCrySFX");
         AudioManager.AddSoundEffect("HypnotistPlacedSFX", "Audio/SFX/HypnotistPlacedSFX");
         AudioManager.AddSoundEffect("MagicianPlacedSFX", "Audio/SFX/MagicianPlacedSFX");
         AudioManager.AddSoundEffect("OgrePlacedSFX", "Audio/SFX/OgrePlacedSFX");

@@ -375,6 +375,8 @@ public class UIManager : IUpdatable, IDrawable
         
         foreach (var unit in placedUnits) { battleManager.RegisterUnit(unit); }
         
+        AudioManager.PlaySFX?.Invoke("BattleCrySFX");
+        
         battleManager.StartBattle();
         Console.WriteLine("Battle Phase Started!");
     }

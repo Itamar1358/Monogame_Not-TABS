@@ -52,8 +52,9 @@ public class Healer : Unit
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-        
-        
+
+        if (healingCircle == null) return;
+
         if (!IsAlive)
         {
             healingCircle.color = Color.Transparent;
@@ -123,7 +124,7 @@ public class Healer : Unit
     protected override void PerformAttack(Unit target) // Instantiates a HealerProjectile and fires it at the target
     {
         HealerProjectile projectile = SceneManager.Create<HealerProjectile>();
-        AudioManager.PlaySFX?.Invoke(" ");
+        AudioManager.PlaySFX?.Invoke("HealerShotSFX");
         projectile.InitializeHealerProjectile(owner: this, target: target, startPosition: GetProjectileSpawnPosition(), movementSpeed: ProjectileSpeed, projectileDamage: Damage);
     }
     
@@ -161,9 +162,9 @@ public class Healer : Unit
     
     private void StartHealingPulse()
     {
-        
-        
         healingCircleActive = true;
+        
+        AudioManager.PlaySFX?.Invoke("HealingAuraSFX");
         
         healCircleTimer = healCircleDuration;
         

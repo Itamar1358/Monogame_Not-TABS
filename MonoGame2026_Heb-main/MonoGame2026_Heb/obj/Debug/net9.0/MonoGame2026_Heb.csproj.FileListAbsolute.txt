@@ -172,3 +172,7 @@ C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Healer.xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Healer_Hurt.xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Healer_VeryHurt.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\HealerShotSFX.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\HealerSpawnSFX.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\HealingAuraSFX.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Audio\SFX\BattleCrySFX.xnb
