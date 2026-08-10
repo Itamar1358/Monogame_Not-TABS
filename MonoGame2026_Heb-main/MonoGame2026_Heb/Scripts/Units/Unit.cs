@@ -12,6 +12,8 @@ public abstract class Unit : Animation, IDamageable
     public enum UnitState { Idle, Walking, Attacking, Dead }
     public enum DamageStages { Normal, Hurt, VeryHurt }
     public Collider collider { get; }
+
+    public HealingCircle healingCircle;
     public Team UnitTeam { get; private set; }
     public UnitState CurrentState { get; private set; } = UnitState.Idle;
     public Unit Target { get; private set; }
@@ -299,6 +301,8 @@ public abstract class Unit : Animation, IDamageable
         CurrentHealth = Math.Min(MaxHealth, CurrentHealth + healAmount);
         if (CurrentHealth != previousHealth) { HealthChanged?.Invoke(this, CurrentHealth, MaxHealth); }
     }
+
+    
 
     public void ChangeTeam(Team newTeam) // Changes the unit's team alignment and triggers team visual updates (Hypnotist)
     {

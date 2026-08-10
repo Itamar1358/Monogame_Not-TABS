@@ -69,7 +69,7 @@ public class Healer : Unit
 
         // Circle follows the Healer.
         
-        healingCircle.tm.position = tm.position + new Vector2(0,  healingCircleOffset) ;
+        healingCircle.tm.position = tm.position ;
 
         // Circle is drawn behind the Healer.
         healingCircle.sortingOrder =
@@ -104,12 +104,12 @@ public class Healer : Unit
 
         healingCircle.tm.position = tm.position;
 
-        healingCircle.tm.scale = new Vector2(2f, 2f);
+        healingCircle.tm.scale = new Vector2(2.5f, 2.2f);
         
         healingCircle.color = Color.Transparent;
 
         healingCircleCollider = SceneManager.Create<Collider>();
-        healingCircleCollider.SizeMultiplier = new Vector2(2.2f, 1.5f);
+        healingCircleCollider.SizeMultiplier = new Vector2(1.8f, 1.2f);
         healingCircleCollider.Parent = healingCircle;
         healingCircleCollider.IsTrigger = true;
         healingCircleCollider.IsEnabled = true;
@@ -155,9 +155,20 @@ public class Healer : Unit
         // The Healer is not allowed to heal duplicates.
         if (healedUnits.Contains(unit))
             return;
-
+        
+        int healthBeforeHealing =
+            unit.CurrentHealth;
         unit.Heal(healAmount);
         healedUnits.Add(unit);
+        
+        // Only show the effect if health was actually restored.
+        if (unit.CurrentHealth > healthBeforeHealing)
+        {
+            HealingVFX healingEffect =
+                SceneManager.Create<HealingVFX>();
+
+            healingEffect.Initialize(unit);
+        }
     }
     
     private void StartHealingPulse()

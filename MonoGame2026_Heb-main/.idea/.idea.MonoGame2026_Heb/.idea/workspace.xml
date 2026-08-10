@@ -93,6 +93,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Projectiles/HealerProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Projectiles/HealingCircle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Projectiles/HealingSFX.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Healer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78a25840ddd84bd1b4770a09cf10c1ff13a200/70/31491c08/SpriteBatch.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -172,7 +173,7 @@
       <workItem from="1786282818658" duration="6026000" />
       <workItem from="1786376092131" duration="1241000" />
       <workItem from="1786377349905" duration="2411000" />
-      <workItem from="1786380272591" duration="5550000" />
+      <workItem from="1786380272591" duration="8514000" />
     </task>
     <servers />
   </component>
