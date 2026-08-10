@@ -8,15 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="672b661f-2c1b-4f72-a3a5-35b95db9cd5c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UnitManualManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UnitManualManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Healer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Healer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Hypnotist.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Hypnotist.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Knight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Knight.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Ogre.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Ogre.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Wizard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Units/Wizard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
@@ -29,7 +22,6 @@
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/ref/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/ref/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/refint/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/refint/MonoGame2026_Heb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +115,7 @@
       <workItem from="1786134965759" duration="9011000" />
       <workItem from="1786282818658" duration="6026000" />
       <workItem from="1786376092131" duration="1241000" />
-      <workItem from="1786377349905" duration="1361000" />
+      <workItem from="1786377349905" duration="1769000" />
     </task>
     <servers />
   </component>

@@ -12,8 +12,8 @@ public class UIManager : IUpdatable, IDrawable
     // ============ Variables & References ==================================================================================================================
     public enum Team { Blue, Red }
     
-    private int currentManaBlue = 2000;
-    private int currentManaRed = 2000;
+    private int currentManaBlue = 1500;
+    private int currentManaRed = 1500;
     private MouseState previousMouseState;
     public SpriteFont font;
     
