@@ -67,7 +67,7 @@ public class UIManager : IUpdatable, IDrawable
     {
         int screenWidth = Game1.ScreenWidth;
         int screenHeight = Game1.ScreenHeight;
-        int buttonWidth = 280;
+        int buttonWidth = ((screenWidth / 2) - 60) / 5;
         int buttonHeight = 110;
         int buttonY = screenHeight - buttonHeight - 10;
         
@@ -104,36 +104,48 @@ public class UIManager : IUpdatable, IDrawable
             Cost = Hypnotist.BaseCost,
             team = Team.Blue
         });
+        buttons.Add(new UIButton { 
+            Bounds = new Rectangle(10 + (buttonWidth + 10) * 4, buttonY, buttonWidth, buttonHeight), 
+            Name = "Healer", 
+            Cost = Healer.BaseCost,
+            team = Team.Blue
+        });
         
         // Red Player Buttons
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 3, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 4, buttonY, buttonWidth, buttonHeight), 
             Name = "Knight", 
             Cost = Knight.BaseCost,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 2, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 3, buttonY, buttonWidth, buttonHeight), 
             Name = "Ogre", 
             Cost = Ogre.BaseCost,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 1, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 2, buttonY, buttonWidth, buttonHeight), 
             Name = "Wizard", 
             Cost = Wizard.BaseCost,
             team = Team.Red
         });
         buttons.Add(new UIButton { 
-            Bounds = new Rectangle(screenWidth - buttonWidth - 10, buttonY, buttonWidth, buttonHeight), 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10 - (buttonWidth + 10) * 1, buttonY, buttonWidth, buttonHeight), 
             Name = "Hypnotist", 
             Cost = Hypnotist.BaseCost,
             team = Team.Red
         });
+        buttons.Add(new UIButton { 
+            Bounds = new Rectangle(screenWidth - buttonWidth - 10, buttonY, buttonWidth, buttonHeight), 
+            Name = "Healer", 
+            Cost = Healer.BaseCost,
+            team = Team.Red
+        });
         
         // Setup Play Button and Manual Button
-        int playWidth = 200;
-        int playHeight = 80;
+        int playWidth = 260;
+        int playHeight = 100;
         playButtonBounds = new Rectangle((screenWidth / 2) - playWidth - 10, 20, playWidth, playHeight);
         manualButtonBounds = new Rectangle((screenWidth / 2) + 10, 20, playWidth, playHeight);
         
@@ -391,6 +403,7 @@ public class UIManager : IUpdatable, IDrawable
         else if (name == "Ogre") newUnit = SceneManager.Create<Ogre>();
         else if (name == "Wizard") newUnit = SceneManager.Create<Wizard>();
         else if (name == "Hypnotist") newUnit = SceneManager.Create<Hypnotist>();
+        else if (name == "Healer") newUnit = SceneManager.Create<Healer>();
         
         if (newUnit != null)
         {

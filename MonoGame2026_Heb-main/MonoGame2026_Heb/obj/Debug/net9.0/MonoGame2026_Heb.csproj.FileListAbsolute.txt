@@ -162,3 +162,8 @@ C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\BattleField.xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\BackGrounds\MainMenuBackground.xnb
 C:\Dev\GitHub\Monogame_Not TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Button.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\HealingCircle.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\HealingProjectile.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Healer.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Healer_Hurt.xnb
+C:\Users\ARIEL\Documents\GitHub\MonoGame - WarSim\Monogame_Not-TABS\MonoGame2026_Heb-main\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Units\Healer_VeryHurt.xnb

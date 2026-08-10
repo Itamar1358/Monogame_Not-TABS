@@ -9,19 +9,67 @@
   <component name="ChangeListManager">
     <list default="true" id="672b661f-2c1b-4f72-a3a5-35b95db9cd5c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonoGame2026_Heb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/InstructionsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/InstructionsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Audio/Music/GameplayMusic.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Audio/Music/GameplayMusic.ogg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Audio/Music/MainMenuSoundTrack.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Audio/Music/MainMenuSoundTrack.ogg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/.mgstats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/Music/GameplayMusic.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/Music/GameplayMusic.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/Music/MainMenuSoundTrack.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/Music/MainMenuSoundTrack.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/ButtonSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/ButtonSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/ClubHitSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/ClubHitSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/ConfusionSpellSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/ConfusionSpellSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/FireballSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/FireballSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/HitSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/HitSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/HypnotistDeath.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/HypnotistDeath.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/HypnotistPlacedSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/HypnotistPlacedSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/KnightDeath.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/KnightDeath.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/KnightPlacedSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/KnightPlacedSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/MagicianDeath.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/MagicianDeath.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/MagicianPlacedSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/MagicianPlacedSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/OgreDeath.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/OgreDeath.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/OgrePlacedSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/OgrePlacedSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/SpawnUnitSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/SpawnUnitSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/SwordHitSFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/SwordHitSFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/VictorySFX.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Audio/SFX/VictorySFX.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Fonts/GameFont.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Fonts/GameFont.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/BackGrounds/BattleField.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/BackGrounds/BattleField.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/BackGrounds/MainMenuBackground.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/BackGrounds/MainMenuBackground.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Button.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Button.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Fireball.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Fireball.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/HypnosisBall.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/HypnosisBall.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Hypnotist.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Hypnotist.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Knight.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Knight.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Ogre.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Ogre.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Wizard.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/Units/Wizard.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/pixel.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Content/obj/DesktopGL/net9.0/Content/Images/pixel.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UnitManualManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/Scripts/Managers/UnitManualManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/Content/Audio/Music/GameplayMusic.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/Content/Audio/Music/GameplayMusic.ogg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/Content/Audio/Music/MainMenuSoundTrack.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/Content/Audio/Music/MainMenuSoundTrack.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/bin/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/MonoGame2026_Heb.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/ref/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/ref/MonoGame2026_Heb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/refint/MonoGame2026_Heb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/Debug/net9.0/refint/MonoGame2026_Heb.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/MonoGame2026_Heb.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/MonoGame2026_Heb.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/MonoGame2026_Heb.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/MonoGame2026_Heb.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonoGame2026_Heb/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +106,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Itamar2.0",
+    "git-widget-placeholder": "Ariel",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -114,6 +162,7 @@
       <workItem from="1786118190001" duration="5330000" />
       <workItem from="1786134965759" duration="9011000" />
       <workItem from="1786282818658" duration="6026000" />
+      <workItem from="1786376092131" duration="1205000" />
     </task>
     <servers />
   </component>

@@ -66,6 +66,13 @@ public class UnitManualManager : IUpdatable, IDrawable
             Stats = $"HP: {Hypnotist.BaseHealth} - DMG: {Hypnotist.BaseDamage} - Cost: {Hypnotist.BaseCost} - Range: {Hypnotist.BaseAttackRange}",
             Description = "Fires a hypnosis orb that temporarily turns enemies into allies!"
         });
+
+        units.Add(new UnitInfo {
+            Name = "Healer",
+            SpriteName = "Healer",
+            Stats = $"HP: {Healer.BaseHealth} - DMG: {Healer.BaseDamage} - Cost: {Healer.BaseCost} - Range: {Healer.BaseAttackRange}",
+            Description = "Periodically creates a healing circle to restore health to nearby allies."
+        });
     }
 
     public void Update(GameTime gameTime) // Checks for mouse clicks on the navigation arrows and the back button
@@ -106,28 +113,31 @@ public class UnitManualManager : IUpdatable, IDrawable
         string title = "UNIT MANUAL";
         float titleScale = IsPopup ? 1.2f : 1.5f;
         Vector2 titleSize = font.MeasureString(title) * titleScale;
-        float titleY = IsPopup ? (Game1.ScreenHeight * 0.15f) : 30f;
+        float titleY = IsPopup ? (Game1.ScreenHeight * 0.15f) : 100f;
         Vector2 titlePos = new Vector2((Game1.ScreenWidth - titleSize.X) / 2, titleY);
         spriteBatch.DrawString(font, title, titlePos, Color.Gold, 0f, Vector2.Zero, titleScale, SpriteEffects.None, 0f);
 
         // Draw Back Button
         Spritesheet buttonSprite = SpriteManager.GetSprite("CustomButton");
         MouseState mouseState = Mouse.GetState();
-        Color backColor = backButtonBounds.Contains(mouseState.X, mouseState.Y) ? Color.LightGray : Color.White;
         
-        if (buttonSprite != null) spriteBatch.Draw(buttonSprite.texture, backButtonBounds, backColor);
+        // Lower the back button slightly to make room
+        Rectangle adjustedBackButtonBounds = IsPopup ? backButtonBounds : new Rectangle(backButtonBounds.X, Game1.ScreenHeight - backButtonBounds.Height - 10, backButtonBounds.Width, backButtonBounds.Height);
+        Color backColor = adjustedBackButtonBounds.Contains(mouseState.X, mouseState.Y) ? Color.LightGray : Color.White;
+        
+        if (buttonSprite != null) spriteBatch.Draw(buttonSprite.texture, adjustedBackButtonBounds, backColor);
         
         Vector2 backTextSize = font.MeasureString("Back");
-        float scale = Math.Min((backButtonBounds.Width - 80) / backTextSize.X, (backButtonBounds.Height - 60) / backTextSize.Y);
+        float scale = Math.Min((adjustedBackButtonBounds.Width - 80) / backTextSize.X, (adjustedBackButtonBounds.Height - 60) / backTextSize.Y);
         Vector2 backTextPos = new Vector2(
-            backButtonBounds.X + (backButtonBounds.Width - backTextSize.X * scale) / 2,
-            backButtonBounds.Y + (backButtonBounds.Height - backTextSize.Y * scale) / 2
+            adjustedBackButtonBounds.X + (adjustedBackButtonBounds.Width - backTextSize.X * scale) / 2,
+            adjustedBackButtonBounds.Y + (adjustedBackButtonBounds.Height - backTextSize.Y * scale) / 2
         );
         spriteBatch.DrawString(font, "Back", backTextPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
 
         // Draw Units
-        int startY = IsPopup ? (int)(Game1.ScreenHeight * 0.25f) : 150;
-        int spacingY = IsPopup ? (int)(Game1.ScreenHeight * 0.14f) : 240;
+        int startY = IsPopup ? (int)(Game1.ScreenHeight * 0.22f) : 230;
+        int spacingY = IsPopup ? (int)(Game1.ScreenHeight * 0.12f) : 185;
         
         float nameScale = IsPopup ? 0.9f : 1.2f;
         float statsScale = IsPopup ? 0.65f : 0.9f;
