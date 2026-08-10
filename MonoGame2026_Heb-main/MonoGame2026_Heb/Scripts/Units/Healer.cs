@@ -34,6 +34,18 @@ public class Healer : Unit
         RotationOffset = 90f;
         ConfigureDamageSprites("Healer_Hurt", "Healer_VeryHurt");
     }
+
+    public override void Cleanup()
+    {
+        if (healingCircle != null)
+        {
+            SceneManager.Remove(healingCircleCollider);
+            SceneManager.Remove(healingCircle);
+            healingCircle = null;
+            healingCircleCollider = null;
+        }
+        base.Cleanup();
+    }
     
     public override void Update(GameTime gameTime)
     {

@@ -26,6 +26,16 @@ public class Ogre : Unit
         ConfigureDamageSprites("Ogre_Hurt", "Ogre_VeryHurt");
     }
 
+    public override void Cleanup()
+    {
+        if (club != null)
+        {
+            SceneManager.Remove(club);
+            club = null;
+        }
+        base.Cleanup();
+    }
+
     protected override void InitializeEquipment() // Spawns and attaches a Club melee weapon to the ogre
     {
         if (club != null) return;

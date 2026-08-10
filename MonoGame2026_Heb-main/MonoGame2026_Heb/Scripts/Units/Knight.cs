@@ -26,6 +26,16 @@ public class Knight : Unit
         ConfigureDamageSprites("Knight_Hurt", "Knight_VeryHurt");
     }
 
+    public override void Cleanup()
+    {
+        if (sword != null)
+        {
+            SceneManager.Remove(sword);
+            sword = null;
+        }
+        base.Cleanup();
+    }
+
     protected override void InitializeEquipment() // Spawns and attaches a Sword melee weapon to the knight
     {
         if (sword != null) return;

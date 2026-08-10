@@ -98,6 +98,10 @@ public abstract class Unit : Animation, IDamageable
         Console.WriteLine($"{UnitTeam} unit created at {tm.position}");
     }
 
+    public virtual void Cleanup() // Cleans up attached equipment when the unit is manually removed
+    {
+    }
+
     public override void Update(GameTime gameTime) // Handles state machine transitions, coroutines, hypnosis effects, and cooldowns
     {
         float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;

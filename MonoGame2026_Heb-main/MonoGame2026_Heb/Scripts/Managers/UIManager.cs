@@ -194,6 +194,7 @@ public class UIManager : IUpdatable, IDrawable
             if (selectedPlacedUnit.UnitTeam == Unit.Team.Blue) currentManaBlue += selectedPlacedUnit.Cost;
             else currentManaRed += selectedPlacedUnit.Cost;
 
+            selectedPlacedUnit.Cleanup();
             SceneManager.Remove(selectedPlacedUnit.collider);
             SceneManager.Remove(selectedPlacedUnit);
             placedUnits.Remove(selectedPlacedUnit);
