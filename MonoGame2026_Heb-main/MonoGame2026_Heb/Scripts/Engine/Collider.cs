@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -69,9 +69,11 @@ public class Collider : Sprite
             _OnCollision?.Invoke(this, other);
     }
 
+    public static bool ShowColliders = false;
+
     public override void Draw(SpriteBatch _spriteBatch) // Renders the collider outline for debugging purposes (only when in debug mode)
     {
-        if(!IsEnabled) return;
+        if(!IsEnabled || !ShowColliders) return;
         
 #if DEBUG
         Rectangle bounds = GetBounds();
