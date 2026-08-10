@@ -28,3 +28,12 @@ The objective of Fantasy Brawlers is to strategically spend your mana to place a
 - **UIManager**: Renders the placement UI, handles mana logic during the setup phase, and acts as the bridge between player mouse input and unit placement on the field.
 - **Collider**: Handles physics and bounds-checking, triggering events when weapons, projectiles, or units intersect on the battlefield.
 - **SceneManager**: Maintains a list of all active `IUpdatable` and `IDrawable` objects, ensuring the current game screen runs correctly.
+
+## How the Project is Organized
+The project is structured into clear directories to maintain modularity:
+- **Scripts/Engine**: Core engine systems like AudioManager, SceneManager, Collider, and generic interfaces.
+- **Scripts/Managers**: High-level controllers for different game states (MainMenuManager, BattleManager, UIManager, SettingsManager, UnitManualManager).
+- **Scripts/Units**: Contains the base `Unit` class and all derived character classes (Knight, Ogre, Wizard, Hypnotist) showcasing inheritance and polymorphism.
+- **Scripts/MeleeWeapons & Projectiles**: Separate modules handling combat collisions and physics for specific weapon types.
+- **Scripts/Sprite&Text**: Core rendering classes for animations and UI.
+- **Content**: Contains all graphical and audio assets loaded via the MonoGame Content Pipeline.
