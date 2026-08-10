@@ -9,9 +9,9 @@ public class Ogre : Unit
     // ============ Variables & References ==================================================================================================================
     
     private Club club;
-    public const int BaseHealth = 200;
-    public const int BaseDamage = 15;
-    public const int BaseCost = 75; 
+    public const int BaseHealth = 700;
+    public const int BaseDamage = 40;
+    public const int BaseCost = 150; 
     public const float BaseMovementSpeed = 70f;
     public const float BaseAttackRange = 140f;
     public const float BaseAttackCooldown = 2f;

@@ -71,7 +71,7 @@ public class UnitManualManager : IUpdatable, IDrawable
             Name = "Healer",
             SpriteName = "Healer",
             Stats = $"HP: {Healer.BaseHealth} - DMG: {Healer.BaseDamage} - Cost: {Healer.BaseCost} - Range: {Healer.BaseAttackRange}",
-            Description = "Periodically creates a healing circle to restore health to nearby allies."
+            Description = "Creates a healing circle to restore health to nearby allies and fires magic"
         });
     }
 
@@ -136,12 +136,12 @@ public class UnitManualManager : IUpdatable, IDrawable
         spriteBatch.DrawString(font, "Back", backTextPos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
 
         // Draw Units
-        int startY = IsPopup ? (int)(Game1.ScreenHeight * 0.22f) : 230;
-        int spacingY = IsPopup ? (int)(Game1.ScreenHeight * 0.12f) : 185;
+        int startY = IsPopup ? (int)(Game1.ScreenHeight * 0.25f) : 240;
+        int spacingY = IsPopup ? (int)(Game1.ScreenHeight * 0.11f) : 185;
         
-        float nameScale = IsPopup ? 0.9f : 1.2f;
-        float statsScale = IsPopup ? 0.65f : 0.9f;
-        float descScale = IsPopup ? 0.6f : 0.8f;
+        float nameScale = IsPopup ? 0.85f : 1.2f;
+        float statsScale = IsPopup ? 0.6f : 0.9f;
+        float descScale = IsPopup ? 0.55f : 0.8f;
         
         float maxTextWidth = 0;
         foreach(var u in units)
@@ -165,14 +165,15 @@ public class UnitManualManager : IUpdatable, IDrawable
                 // Draw only the first frame of the spritesheet
                 int frameWidth = sprite.texture.Width / sprite.columns;
                 Rectangle sourceRect = new Rectangle(0, 0, frameWidth, sprite.texture.Height);
-                Rectangle destRect = new Rectangle(startX, yPos, 100, 100);
+                int spriteSize = IsPopup ? 80 : 100;
+                Rectangle destRect = new Rectangle(startX, yPos, spriteSize, spriteSize);
                 spriteBatch.Draw(sprite.texture, destRect, sourceRect, Color.White);
             }
 
             // Draw Text
-            float statsYOffset = IsPopup ? 55f : 70f;
-            float descYOffset = IsPopup ? 90f : 120f;
-            int textX = startX + 130;
+            float statsYOffset = IsPopup ? 45f : 70f;
+            float descYOffset = IsPopup ? 75f : 120f;
+            int textX = startX + (IsPopup ? 110 : 130);
             spriteBatch.DrawString(font, unit.Name, new Vector2(textX, yPos), Color.Cyan, 0f, Vector2.Zero, nameScale, SpriteEffects.None, 0f);
             spriteBatch.DrawString(font, unit.Stats, new Vector2(textX, yPos + statsYOffset), Color.LightGreen, 0f, Vector2.Zero, statsScale, SpriteEffects.None, 0f);
             spriteBatch.DrawString(font, unit.Description, new Vector2(textX, yPos + descYOffset), Color.White, 0f, Vector2.Zero, descScale, SpriteEffects.None, 0f);

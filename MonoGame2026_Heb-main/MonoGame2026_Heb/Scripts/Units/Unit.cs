@@ -62,7 +62,7 @@ public abstract class Unit : Animation, IDamageable
     {
         MaxHealth = Math.Max(1, maxHealth);
         CurrentHealth = MaxHealth;
-        spriteName = normalSpriteName;
+        normalSpriteName = spriteName;
         Damage = Math.Max(0, damage);
         Cost = Math.Max(0, cost);
         MovementSpeed = Math.Max(0, movementSpeed);

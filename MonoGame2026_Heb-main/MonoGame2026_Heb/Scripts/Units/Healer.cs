@@ -8,11 +8,11 @@ public class Healer : Unit
     // ============ Variables & References ==================================================================================================================
     
     private const float ProjectileSpeed = 180f;
-    public const int BaseHealth = 100;
-    public const int BaseDamage = 15;
+    public const int BaseHealth = 250;
+    public const int BaseDamage = 25;
     public const int BaseCost = 200;
     public const float BaseMovementSpeed = 60f;
-    public const float BaseAttackRange = 300f;
+    public const float BaseAttackRange = 500f;
     public const float BaseAttackCooldown = 2f;
     public const float BaseUnitScale = 0.3f;
     
@@ -20,7 +20,7 @@ public class Healer : Unit
     private Collider healingCircleCollider;
     private readonly HashSet<Unit> healedUnits = new();
     private bool healingCircleActive;
-    private const int healAmount = 70;
+    private const int healAmount = 200;
     private float healInterval = 7f;
     private const float healCircleDuration = 1f;
     private float healCircleTimer;

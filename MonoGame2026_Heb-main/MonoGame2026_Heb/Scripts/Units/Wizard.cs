@@ -7,8 +7,8 @@ public class Wizard : Unit
     // ============ Variables & References ==================================================================================================================
     
     private const float ProjectileSpeed = 180f;
-    public const int BaseHealth = 50;
-    public const int BaseDamage = 70;
+    public const int BaseHealth = 150;
+    public const int BaseDamage = 60;
     public const int BaseCost = 100;
     public const float BaseMovementSpeed = 60f;
     public const float BaseAttackRange = 400f;
